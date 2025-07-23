@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iglesia Cristo Vive - Comunidad de Fe</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --accent-color: #3498db;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: white !important;
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: #c0392b;
+            border-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .card-title {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .card-text {
+            color: #666;
+        }
+        
+        .bible-verse {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .verse-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .verse-ref {
+            font-weight: 600;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .carousel-caption {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 20px;
+            bottom: 80px;
+        }
+        
+        .carousel-caption h5 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .carousel-caption p {
+            font-size: 1.2rem;
+        }
+        
+        .prayer-section {
+            background-color: var(--light-color);
+            padding: 60px 0;
+        }
+        
+        .prayer-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            .carousel-caption {
+                bottom: 20px;
+            }
+            
+            .carousel-caption h5 {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-cross me-2"></i>Iglesia Cristo Vive
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ministerios">Ministerios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#eventos">Eventos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="inicio">
+        <div class="container">
+            <h1 class="hero-title">Bienvenidos a Cristo Vive</h1>
+            <p class="hero-subtitle">Una comunidad de fe, amor y esperanza</p>
+            <a href="#nosotros" class="btn btn-primary btn-lg">Conócenos</a>
+        </div>
+    </section>
+
+    <!-- Carrusel de Imágenes -->
+    <div id="bibleCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Biblia abierta">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>La Palabra de Dios</h5>
+                    <p>"Lámpara es a mis pies tu palabra, y lumbrera a mi camino." - Salmos 119:105</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Personas orando">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Comunidad de Oración</h5>
+                    <p>"Orad sin cesar." - 1 Tesalonicenses 5:17</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Cruz al atardecer">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>El Amor de Cristo</h5>
+                    <p>"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito..." - Juan 3:16</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="d-block w-100" alt="Manos unidas">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Comunión Cristiana</h5>
+                    <p>"Considerémonos unos a otros para estimularnos al amor y a las buenas obras." - Hebreos 10:24</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#bibleCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#bibleCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <!-- Nosotros Section -->
+    <section class="container py-5" id="nosotros">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p>Somos una comunidad cristiana fundada en 1995 con el propósito de compartir el amor de Cristo y servir a nuestro prójimo. Creemos en el poder transformador del Evangelio y en la importancia de vivir nuestra fe en comunidad.</p>
+                <p>Nuestra misión es guiar a las personas a un encuentro personal con Jesucristo, discipularlas en su caminar de fe y equiparlas para el servicio en el Reino de Dios.</p>
+                <div class="mt-4">
+                    <h4><i class="fas fa-cross me-2 text-secondary"></i>Nuestros Valores</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Amor incondicional</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Integridad</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Servicio</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Comunidad</li>
+                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Excelencia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="https://images.unsplash.com/photo-1566669437687-7040a6926753?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Iglesia" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </section>
+
+    <!-- Versículo Bíblico -->
+    <section class="bible-verse">
+        <div class="container">
+            <p class="verse-text">"Porque yo sé los planes que tengo para ustedes —afirma el Señor—, planes de bienestar y no de calamidad, a fin de darles un futuro y una esperanza."</p>
+            <p class="verse-ref">Jeremías 29:11</p>
+        </div>
+    </section>
+
+    <!-- Ministerios Section -->
+    <section class="container py-5" id="ministerios">
+        <h2 class="section-title text-center mb-5">Nuestros Ministerios</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Niños">
+                    <div class="card-body">
+                        <h5 class="card-title">Ministerio Infantil</h5>
+                        <p class="card-text">Programas diseñados para enseñar a los niños acerca del amor de Dios de manera divertida y significativa.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Jóvenes">
+                    <div class="card-body">
+                        <h5 class="card-title">Ministerio Juvenil</h5>
+                        <p class="card-text">Un espacio donde los jóvenes pueden crecer en su fe, formar amistades sólidas y servir a la comunidad.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Servicio comunitario">
+                    <div class="card-body">
+                        <h5 class="card-title">Servicio Comunitario</h5>
+                        <p class="card-text">Llevamos el amor de Cristo a través de acciones concretas que impactan positivamente nuestra comunidad.</p>
+                        <a href="#" class="btn btn-primary">Saber más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Oración Section -->
+    <section class="prayer-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="prayer-box text-center">
+                        <h3 class="mb-4">¿Necesitas oración?</h3>
+                        <p class="mb-4">Estamos aquí para apoyarte en oración. Envíanos tus peticiones y nuestro equipo de intercesores estará orando por ti.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#prayerModal">
+                            <i class="fas fa-hands-praying me-2"></i>Envía tu petición
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eventos Section -->
+    <section class="container py-5" id="eventos">
+        <h2 class="section-title text-center mb-5">Próximos Eventos</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Retiro Espiritual</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="far fa-calendar-alt me-2"></i>15-17 de Julio, 2023</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Centro de Retiros Monte Carmelo</p>
+                        <p class="card-text">Un fin de semana para conectarte con Dios, renovar tu espíritu y fortalecer tu fe.</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Conferencia de Matrimonios</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="far fa-calendar-alt me-2"></i>22 de Julio, 2023</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Salón Principal</p>
+                        <p class="card-text">Aprende principios bíblicos para fortalecer tu matrimonio y construir una relación sólida.</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title mb-0">Campamento Juvenil</h5>
+                    </div>
+                    <div class="card-body">
+                        <p><i class="far fa-calendar-alt me-2"></i>5-7 de Agosto, 2023</p>
+                        <p><i class="fas fa-map-marker-alt me-2"></i>Campamento Los Pinos</p>
+                        <p class="card-text">Diversión, amistad y crecimiento espiritual para jóvenes de 13 a 18 años.</p>
+                        <a href="#" class="btn btn-primary">Más información</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section class="container py-5" id="contacto">
+        <h2 class="section-title text-center mb-5">Contáctanos</h2>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="mb-4">
+                    <h4><i class="fas fa-map-marker-alt me-2 text-primary"></i>Dirección</h4>
+                    <p>Calle Fe 123, Col. Esperanza, Ciudad de México</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="fas fa-phone me-2 text-primary"></i>Teléfono</h4>
+                    <p>+52 55 1234 5678</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="fas fa-envelope me-2 text-primary"></i>Correo Electrónico</h4>
+                    <p>contacto@cristovive.org</p>
+                </div>
+                <div class="mb-4">
+                    <h4><i class="fas fa-clock me-2 text-primary"></i>Horarios de Servicio</h4>
+                    <p>Domingos: 9:00 am - 11:00 am (Culto Principal)<br>
+                    Miércoles: 7:00 pm - 8:30 pm (Estudio Bíblico)</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Envía un mensaje</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title"><i class="fas fa-cross me-2"></i>Iglesia Cristo Vive</h4>
+                    <p>Una comunidad donde puedes crecer en tu fe, servir a otros y experimentar el amor de Dios.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Enlaces Rápidos</h4>
+                    <div class="footer-links">
+                        <a href="#inicio"><i class="fas fa-chevron-right me-2"></i>Inicio</a>
+                        <a href="#nosotros"><i class="fas fa-chevron-right me-2"></i>Nosotros</a>
+                        <a href="#ministerios"><i class="fas fa-chevron-right me-2"></i>Ministerios</a>
+                        <a href="#eventos"><i class="fas fa-chevron-right me-2"></i>Eventos</a>
+                        <a href="#contacto"><i class="fas fa-chevron-right me-2"></i>Contacto</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="footer-title">Recursos</h4>
+                    <div class="footer-links">
+                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Sermones</a>
+                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Devocionales</a>
+                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Biblioteca</a>
+                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Donaciones</a>
+                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Blog</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Iglesia Cristo Vive. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Oración -->
+    <div class="modal fade" id="prayerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Envía tu petición de oración</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="prayerName" class="form-label">Nombre (opcional)</label>
+                            <input type="text" class="form-control" id="prayerName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="prayerRequest" class="form-label">Petición de oración</label>
+                            <textarea class="form-control" id="prayerRequest" rows="5" required></textarea>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="prayerPrivate">
+                            <label class="form-check-label" for="prayerPrivate">
+                                Mantener esta petición privada (solo el equipo de oración la verá)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Enviar Petición</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Activar el tooltip
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+        
+        // Cambiar el navbar al hacer scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
