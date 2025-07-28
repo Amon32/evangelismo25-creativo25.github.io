@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Centro de Desarrollo Cristiano - Venezuela</title>
+    <!-- Meta tags SEO mejorados -->
+    <meta name="description" content="Centro de Desarrollo Cristiano en Venezuela - Transformando vidas mediante el Evangelio con ministerios, ayuda humanitaria y discipulado.">
+    <meta name="keywords" content="iglesia Venezuela, cristianos Venezuela, ayuda humanitaria, discipulado, oración, estudios bíblicos">
+    <meta name="author" content="Centro de Desarrollo Cristiano">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/favicon/favicon-16x16.png">
+    
     <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Glide.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css">
     <style>
         :root {
             --primary-color: #1a5276;
@@ -18,57 +36,126 @@
             --venezuela-blue: #00247D;
             --venezuela-yellow: #FFCC00;
             --venezuela-red: #CF142B;
+            --success-color: #28a745;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
             color: #333;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
         
         .navbar {
             background-color: var(--venezuela-blue) !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(0, 36, 125, 0.95) !important;
+            backdrop-filter: blur(10px);
         }
         
         .navbar-brand {
             font-weight: 700;
             color: white !important;
+            font-size: 1.5rem;
         }
         
         .nav-link {
-            color: rgba(255, 255, 255, 0.85) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-weight: 500;
-            margin: 0 5px;
+            margin: 0 8px;
             transition: all 0.3s;
+            position: relative;
+            padding: 8px 12px !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--venezuela-yellow);
+            transition: width 0.3s;
         }
         
         .nav-link:hover {
             color: var(--venezuela-yellow) !important;
-            transform: translateY(-2px);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        
+        .dropdown-item {
+            transition: all 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--venezuela-blue);
+            color: white !important;
+            transform: translateX(5px);
         }
         
         .hero-section {
-            background: linear-gradient(rgba(26, 82, 118, 0.8), rgba(26, 82, 118, 0.8)), url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(135deg, rgba(26, 82, 118, 0.85) 0%, rgba(0, 36, 125, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
-            padding: 100px 0;
+            padding: 150px 0;
             text-align: center;
             margin-bottom: 30px;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23f8f9fa"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23f8f9fa"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f8f9fa"/></svg>');
+            background-size: cover;
+            z-index: 1;
         }
         
         .venezuela-flag {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 20px;
+            right: 20px;
             display: flex;
-            height: 30px;
-            width: 90px;
-            border-radius: 4px;
+            height: 40px;
+            width: 120px;
+            border-radius: 6px;
             overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .venezuela-flag:hover {
+            transform: scale(1.05);
         }
         
         .venezuela-flag div {
@@ -85,11 +172,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
+            padding: 2px;
         }
         
         .flag-blue i {
             color: white;
-            font-size: 12px;
+            font-size: 10px;
+            margin: 1px;
         }
         
         .flag-red {
@@ -97,182 +187,372 @@
         }
         
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn-primary {
             background-color: var(--secondary-color);
             border-color: var(--secondary-color);
-            padding: 10px 25px;
+            padding: 12px 30px;
             font-weight: 600;
             transition: all 0.3s;
+            border-radius: 50px;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: #d35400;
+            transition: all 0.3s;
+            z-index: -1;
         }
         
         .btn-primary:hover {
-            background-color: #d35400;
-            border-color: #d35400;
-            transform: translateY(-2px);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+        }
+        
+        .btn-primary:hover::before {
+            width: 100%;
+        }
+        
+        .btn-outline-light {
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--primary-color) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
         }
         
         .section-title {
             color: var(--primary-color);
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             position: relative;
             display: inline-block;
+            padding-bottom: 15px;
         }
         
         .section-title:after {
             content: '';
             position: absolute;
-            width: 50%;
-            height: 3px;
+            width: 70px;
+            height: 4px;
             background-color: var(--secondary-color);
-            bottom: -10px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-title.text-left:after {
             left: 0;
+            transform: none;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 50px;
         }
         
         .card {
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 25px;
+            height: 100%;
+            background-color: white;
         }
         
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
         
         .card-img-top {
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+        .card-body {
+            padding: 25px;
         }
         
         .card-title {
             color: var(--primary-color);
             font-weight: 700;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
         
         .card-text {
             color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .card-footer {
+            background-color: transparent;
+            border-top: none;
+            padding: 0 25px 25px;
+        }
+        
+        .badge {
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 50px;
+            margin-right: 8px;
+            margin-bottom: 8px;
         }
         
         .bible-verse {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--venezuela-blue) 100%);
             color: white;
-            padding: 40px 0;
-            margin: 40px 0;
+            padding: 80px 0;
+            margin: 60px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bible-verse::before {
+            content: '"';
+            position: absolute;
+            font-family: Georgia, serif;
+            font-size: 300px;
+            color: rgba(255, 255, 255, 0.05);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1;
         }
         
         .verse-text {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-style: italic;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .verse-ref {
             font-weight: 600;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
         }
         
         footer {
-            background-color: var(--dark-color);
+            background: linear-gradient(135deg, var(--dark-color) 0%, #1a252f 100%);
             color: white;
-            padding: 40px 0 20px;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--venezuela-yellow) 33%, var(--venezuela-blue) 33%, var(--venezuela-blue) 66%, var(--venezuela-red) 66%);
         }
         
         .footer-title {
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
         }
         
         .footer-links a {
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            transition: all 0.3s;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .footer-links a::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            opacity: 0;
             transition: all 0.3s;
         }
         
         .footer-links a:hover {
             color: var(--venezuela-yellow);
-            transform: translateX(5px);
+            padding-left: 25px;
+        }
+        
+        .footer-links a:hover::before {
+            opacity: 1;
         }
         
         .social-icons a {
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-right: 15px;
             transition: all 0.3s;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
         }
         
         .social-icons a:hover {
-            color: var(--accent-color);
+            color: white;
+            background-color: var(--accent-color);
             transform: translateY(-5px);
         }
         
         .copyright {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            margin-top: 30px;
+            padding-top: 30px;
+            margin-top: 50px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
         
         .carousel-item img {
-            height: 500px;
+            height: 600px;
             object-fit: cover;
-            filter: brightness(0.8);
+            filter: brightness(0.7);
         }
         
         .carousel-caption {
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            padding: 20px;
-            bottom: 80px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            bottom: 100px;
+            left: 10%;
+            right: 10%;
         }
         
         .carousel-caption h5 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 700;
+            margin-bottom: 20px;
         }
         
         .carousel-caption p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+        }
+        
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 8px;
         }
         
         .prayer-section {
-            background-color: var(--light-color);
-            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 0.9) 0%, rgba(230, 231, 232, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1542272201-b1ca555f8505?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 100px 0;
+            position: relative;
         }
         
         .prayer-box {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.4s;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .prayer-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .prayer-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .prayer-box p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
         }
         
         .venezuela-map {
             width: 100%;
-            height: 300px;
+            height: 350px;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/1200px-Flag_of_Venezuela.svg.png');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.2;
+            opacity: 0.15;
             position: absolute;
             top: 0;
             left: 0;
@@ -282,22 +562,308 @@
         .map-container {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            height: 300px;
+            border-radius: 15px;
+            height: 350px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .map-overlay {
             position: relative;
             z-index: 1;
-            padding: 20px;
+            padding: 30px;
             color: var(--dark-color);
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            background-color: rgba(255, 255, 255, 0.85);
         }
         
-        @media (max-width: 768px) {
+        .map-overlay h3 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--venezuela-blue);
+        }
+        
+        .stats-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: -80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .testimonials-section {
+            background-color: var(--light-color);
+            padding: 100px 0;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            position: relative;
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            font-family: Georgia, serif;
+            font-size: 80px;
+            color: rgba(26, 82, 118, 0.1);
+            top: 20px;
+            right: 30px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 3px solid var(--secondary-color);
+        }
+        
+        .author-info h5 {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .glide__arrows button {
+            border: none;
+            background: none;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+        
+        .glide__arrows button:hover {
+            opacity: 1;
+            color: var(--secondary-color);
+        }
+        
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(26, 82, 118, 0.25);
+        }
+        
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .modal-header {
+            background-color: var(--primary-color);
+            color: white;
+            border-bottom: none;
+            padding: 20px 25px;
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .modal-footer {
+            border-top: none;
+            padding: 20px 25px;
+            background-color: #f8f9fa;
+        }
+        
+        .btn-close-white {
+            filter: invert(1);
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 20px rgba(230, 126, 34, 0.4);
+            z-index: 100;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .floating-button:hover {
+            transform: translateY(-5px) scale(1.1);
+            color: white;
+            background-color: #d35400;
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.5);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.3);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--venezuela-blue);
+            transform: translateY(-3px);
+        }
+        
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-item.active {
+            color: #666;
+        }
+        
+        .breadcrumb-item + .breadcrumb-item::before {
+            content: '›';
+            padding: 0 8px;
+            color: #999;
+        }
+        
+        @media (max-width: 1199.98px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .carousel-item img {
+                height: 500px;
+            }
+            
+            .carousel-caption {
+                bottom: 70px;
+            }
+            
+            .carousel-caption h5 {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-caption p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 120px 0;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .stats-container {
+                margin-top: -60px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .navbar {
+                padding: 10px 0;
+            }
+            
+            .hero-section {
+                padding: 100px 0;
+                background-attachment: scroll;
+            }
+            
             .hero-title {
                 font-size: 2.5rem;
             }
@@ -306,50 +872,154 @@
                 font-size: 1.2rem;
             }
             
+            .venezuela-flag {
+                height: 30px;
+                width: 90px;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .carousel-item img {
+                height: 400px;
+            }
+            
+            .carousel-caption {
+                bottom: 40px;
+                left: 5%;
+                right: 5%;
+                padding: 20px;
+            }
+            
+            .carousel-caption h5 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .carousel-caption p {
+                font-size: 1rem;
+                margin-bottom: 15px;
+            }
+            
+            .verse-text {
+                font-size: 1.4rem;
+            }
+            
+            .stats-container {
+                margin-top: -40px;
+                padding: 30px 20px;
+            }
+            
+            .stat-item {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .map-overlay {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .btn-primary, .btn-outline-light {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
             .carousel-item img {
                 height: 300px;
             }
             
             .carousel-caption {
                 bottom: 20px;
+                padding: 15px;
             }
             
             .carousel-caption h5 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
+                margin-bottom: 10px;
             }
             
             .carousel-caption p {
-                font-size: 1rem;
+                font-size: 0.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .verse-text {
+                font-size: 1.2rem;
+            }
+            
+            .prayer-box {
+                padding: 30px 20px;
+            }
+            
+            .floating-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+                bottom: 80px;
+                right: 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="fas fa-cross me-2"></i>CDC Venezuela
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
+                        <a class="nav-link active" href="#inicio">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#nosotros">Nosotros</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#ministerios">Ministerios</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#ministerios" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Ministerios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-child me-2"></i>CDC Kids</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-users me-2"></i>Generación CDC</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-hands-helping me-2"></i>Manos CDC</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-church me-2"></i>Todos los Ministerios</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#eventos">Eventos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="#donar" class="btn btn-outline-light">Donar</a>
                     </li>
                 </ul>
             </div>
@@ -361,31 +1031,60 @@
         <div class="venezuela-flag">
             <div class="flag-yellow"></div>
             <div class="flag-blue">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
             </div>
             <div class="flag-red"></div>
         </div>
-        <div class="container">
-            <h1 class="hero-title">Centro de Desarrollo Cristiano</h1>
-            <p class="hero-subtitle">Transformando vidas en Venezuela mediante el poder del Evangelio</p>
-            <a href="#nosotros" class="btn btn-primary btn-lg">Conócenos</a>
+        <div class="container position-relative">
+            <h1 class="hero-title animate__animated animate__fadeInDown">Centro de Desarrollo Cristiano</h1>
+            <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo</p>
+            <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                <a href="#nosotros" class="btn btn-primary btn-lg me-3">Conócenos</a>
+                <a href="#eventos" class="btn btn-outline-light btn-lg">Próximos Eventos</a>
+            </div>
         </div>
     </section>
+
+    <!-- Estadísticas -->
+    <div class="container">
+        <div class="stats-container shadow">
+            <div class="row text-center">
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Años de Servicio</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="1200">0</div>
+                        <div class="stat-label">Miembros</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="8">0</div>
+                        <div class="stat-label">Ministerios</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="5000">0</div>
+                        <div class="stat-label">Personas Ayudadas</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Carrusel de Imágenes -->
     <div id="bibleCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#bibleCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -393,6 +1092,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>La Palabra de Dios</h5>
                     <p>"Lámpara es a mis pies tu palabra, y lumbrera a mi camino." - Salmos 119:105</p>
+                    <a href="#" class="btn btn-primary">Estudios Bíblicos</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -400,6 +1100,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Comunidad de Oración</h5>
                     <p>"Orad sin cesar." - 1 Tesalonicenses 5:17</p>
+                    <a href="#" class="btn btn-primary">Unete a la Oración</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -407,6 +1108,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>El Amor de Cristo</h5>
                     <p>"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito..." - Juan 3:16</p>
+                    <a href="#" class="btn btn-primary">Conoce más</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -414,45 +1116,90 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Comunión Cristiana</h5>
                     <p>"Considerémonos unos a otros para estimularnos al amor y a las buenas obras." - Hebreos 10:24</p>
+                    <a href="#" class="btn btn-primary">Únete a Nosotros</a>
                 </div>
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#bibleCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#bibleCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
 
     <!-- Nosotros Section -->
     <section class="container py-5" id="nosotros">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="section-title">Nuestra Historia</h2>
-                <p>El Centro de Desarrollo Cristiano nació en 2005 en Caracas, Venezuela, con el propósito de ser un faro de esperanza y transformación espiritual en medio de las dificultades de nuestro país. Somos una comunidad comprometida con el desarrollo integral de las personas a través de los principios bíblicos.</p>
-                <p>Nuestra misión es formar discípulos de Cristo que impacten positivamente a Venezuela, equipando a cada creyente para vivir su fe de manera práctica y transformadora.</p>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                <h2 class="section-title text-left">Nuestra Historia</h2>
+                <p class="lead">El Centro de Desarrollo Cristiano nació en 2005 en Caracas, Venezuela, con el propósito de ser un faro de esperanza y transformación espiritual en medio de las dificultades de nuestro país.</p>
+                <p>Somos una comunidad comprometida con el desarrollo integral de las personas a través de los principios bíblicos, buscando impactar positivamente a Venezuela mediante el amor y servicio cristiano.</p>
+                <p>Nuestra misión es formar discípulos de Cristo que impacten positivamente a Venezuela, equipando a cada creyente para vivir su fe de manera práctica y transformadora en todos los ámbitos de la sociedad.</p>
                 <div class="mt-4">
                     <h4><i class="fas fa-cross me-2 text-secondary"></i>Nuestros Valores</h4>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Fe en Cristo como único salvador</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Amor al prójimo en acción</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Esperanza para Venezuela</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Integridad en todo</li>
-                        <li class="list-group-item"><i class="fas fa-check-circle me-2 text-success"></i>Servicio a la comunidad</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Fe en Cristo</h6>
+                                    <p class="small text-muted mb-0">Cristo como único salvador y fundamento</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Amor al Prójimo</h6>
+                                    <p class="small text-muted mb-0">Servicio y compasión en acción</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Esperanza</h6>
+                                    <p class="small text-muted mb-0">Para Venezuela y sus habitantes</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-start mb-3">
+                                <div class="me-3 text-primary">
+                                    <i class="fas fa-check-circle fa-lg"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Integridad</h6>
+                                    <p class="small text-muted mb-0">Transparencia en todo lo que hacemos</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="map-container shadow">
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="map-container shadow-lg">
                     <div class="venezuela-map"></div>
                     <div class="map-overlay">
                         <h3 class="fw-bold">Ubicados en Venezuela</h3>
-                        <p>Servimos a nuestra nación desde Caracas, con programas de ayuda humanitaria, discipulado y desarrollo comunitario.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary me-2">Ayuda Social</span>
-                            <span class="badge bg-success me-2">Discipulado</span>
-                            <span class="badge bg-warning text-dark">Oración</span>
+                        <p class="lead">Servimos a nuestra nación desde Caracas, con programas de ayuda humanitaria, discipulado y desarrollo comunitario en todo el territorio nacional.</p>
+                        <div class="mt-4">
+                            <span class="badge bg-primary me-2 mb-2"><i class="fas fa-utensils me-1"></i> Ayuda Alimentaria</span>
+                            <span class="badge bg-success me-2 mb-2"><i class="fas fa-bible me-1"></i> Discipulado</span>
+                            <span class="badge bg-warning text-dark me-2 mb-2"><i class="fas fa-hands-praying me-1"></i> Oración</span>
+                            <span class="badge bg-info me-2 mb-2"><i class="fas fa-graduation-cap me-1"></i> Educación</span>
+                            <span class="badge bg-danger me-2 mb-2"><i class="fas fa-hand-holding-heart me-1"></i> Ayuda Médica</span>
+                        </div>
+                        <div class="mt-4">
+                            <a href="#" class="btn btn-primary me-2">Nuestros Programas</a>
+                            <a href="#" class="btn btn-outline-primary">Cómo Ayudar</a>
                         </div>
                     </div>
                 </div>
@@ -470,36 +1217,147 @@
 
     <!-- Ministerios Section -->
     <section class="container py-5" id="ministerios">
-        <h2 class="section-title text-center mb-5">Nuestros Ministerios</h2>
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Nuestros Ministerios</h2>
+            <p class="section-subtitle">Conoce los diferentes ministerios con los que servimos a nuestra comunidad y llevamos el mensaje de Cristo</p>
+        </div>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100">
                     <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Niños">
                     <div class="card-body">
-                        <h5 class="card-title">CDC Kids</h5>
-                        <p class="card-text">Ministerio infantil donde enseñamos a los niños los valores del Reino de Dios de manera creativa y divertida.</p>
-                        <a href="#" class="btn btn-primary">Saber más</a>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-child fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title mb-0">CDC Kids</h5>
+                        </div>
+                        <p class="card-text">Ministerio infantil donde enseñamos a los niños los valores del Reino de Dios de manera creativa y divertida, con programas adaptados a cada edad.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Escuela Dominical</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Campamentos Infantiles</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Actividades Creativas</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary w-100">Saber más</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100">
                     <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Jóvenes">
                     <div class="card-body">
-                        <h5 class="card-title">Generación CDC</h5>
-                        <p class="card-text">Ministerio juvenil que forma líderes cristianos comprometidos con el cambio en Venezuela.</p>
-                        <a href="#" class="btn btn-primary">Saber más</a>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-users fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Generación CDC</h5>
+                        </div>
+                        <p class="card-text">Ministerio juvenil que forma líderes cristianos comprometidos con el cambio en Venezuela, a través de discipulado y actividades transformadoras.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Grupos de Discipulado</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Retiros Espirituales</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Proyectos de Impacto</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary w-100">Saber más</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100">
                     <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Servicio comunitario">
                     <div class="card-body">
-                        <h5 class="card-title">Manos CDC</h5>
-                        <p class="card-text">Programas de ayuda humanitaria y servicio comunitario para las necesidades más urgentes.</p>
-                        <a href="#" class="btn btn-primary">Saber más</a>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-hands-helping fa-2x text-primary"></i>
+                            </div>
+                            <h5 class="card-title mb-0">Manos CDC</h5>
+                        </div>
+                        <p class="card-text">Programas de ayuda humanitaria y servicio comunitario para las necesidades más urgentes de nuestra sociedad, mostrando el amor de Cristo en acción.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Ayuda Alimentaria</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Asistencia Médica</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reconstrucción Comunitaria</li>
+                        </ul>
                     </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary w-100">Saber más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+            <a href="#" class="btn btn-outline-primary btn-lg">Ver Todos los Ministerios <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Testimonios</h2>
+                <p class="section-subtitle">Historias de vida transformada por el poder de Dios</p>
+            </div>
+            
+            <div class="glide" data-aos="fade-up">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-text">El Centro de Desarrollo Cristiano cambió mi vida. Cuando llegué a Venezuela como migrante, me recibieron con amor y me ayudaron a reconstruir mi vida espiritual y emocional. Hoy sirvo en el ministerio de alabanza.</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="María González">
+                                    <div class="author-info">
+                                        <h5>María González</h5>
+                                        <p>Miembro desde 2018</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-text">A través del programa de ayuda alimentaria de Manos CDC, mi familia pudo superar los momentos más difíciles. No solo recibimos comida, sino también esperanza y la palabra de Dios que nos sostuvo.</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Pérez">
+                                    <div class="author-info">
+                                        <h5>Carlos Pérez</h5>
+                                        <p>Beneficiario de Manos CDC</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-text">Generación CDC ha sido fundamental en mi crecimiento espiritual. Los retiros y estudios bíblicos me han ayudado a entender mi propósito y ahora lidero un grupo de jóvenes en mi comunidad.</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ana Rodríguez">
+                                    <div class="author-info">
+                                        <h5>Ana Rodríguez</h5>
+                                        <p>Líder Juvenil</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div class="testimonial-card">
+                                <p class="testimonial-text">Como voluntario en los programas de ayuda humanitaria, he experimentado la bendición de servir. Ver la gratitud en los rostros de quienes ayudamos es incomparable. CDC me enseñó que la fe sin obras es muerta.</p>
+                                <div class="testimonial-author">
+                                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="José Martínez">
+                                    <div class="author-info">
+                                        <h5>José Martínez</h5>
+                                        <p>Voluntario desde 2015</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><i class="fas fa-chevron-left"></i></button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </div>
@@ -509,11 +1367,11 @@
     <section class="prayer-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-10" data-aos="zoom-in">
                     <div class="prayer-box text-center">
-                        <h3 class="mb-4">¿Necesitas oración por Venezuela?</h3>
-                        <p class="mb-4">Nuestro equipo de intercesores está orando diariamente por las necesidades de nuestra nación. Envíanos tus peticiones.</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#prayerModal">
+                        <h3 class="mb-4">¿Necesitas oración por Venezuela o por tu vida?</h3>
+                        <p class="mb-4">Nuestro equipo de intercesores está orando diariamente por las necesidades de nuestra nación y de cada persona que nos contacta. Envíanos tus peticiones y experimenta el poder de la oración en comunidad.</p>
+                        <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#prayerModal">
                             <i class="fas fa-hands-praying me-2"></i>Envía tu petición
                         </button>
                     </div>
@@ -524,95 +1382,292 @@
 
     <!-- Eventos Section -->
     <section class="container py-5" id="eventos">
-        <h2 class="section-title text-center mb-5">Próximos Eventos</h2>
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Próximos Eventos</h2>
+            <p class="section-subtitle">Participa en nuestras actividades y sé parte de la transformación</p>
+        </div>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white d-flex align-items-center">
+                        <div class="date-box me-3 text-center">
+                            <div class="fw-bold" style="font-size: 1.5rem;">1-7</div>
+                            <div class="small">OCT</div>
+                        </div>
                         <h5 class="card-title mb-0">Ayuno por Venezuela</h5>
                     </div>
                     <div class="card-body">
-                        <p><i class="far fa-calendar-alt me-2"></i>1-7 de Octubre, 2023</p>
+                        <p><i class="far fa-clock me-2"></i>Todo el día</p>
                         <p><i class="fas fa-map-marker-alt me-2"></i>Plaza Bolívar, Caracas</p>
-                        <p class="card-text">Unámonos en ayuno y oración por el futuro de nuestra nación.</p>
-                        <a href="#" class="btn btn-primary">Más información</a>
+                        <p class="card-text">Unámonos en ayuno y oración por el futuro de nuestra nación, por nuestras autoridades y por un despertar espiritual en Venezuela.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-info-circle text-primary me-2"></i>Guías de oración disponibles</li>
+                            <li class="mb-2"><i class="fas fa-users text-primary me-2"></i>Encuentros diarios a las 6:00 pm</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-primary me-2">Más información</a>
+                        <a href="#" class="btn btn-outline-primary">Registrarse</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white d-flex align-items-center">
+                        <div class="date-box me-3 text-center">
+                            <div class="fw-bold" style="font-size: 1.5rem;">15</div>
+                            <div class="small">OCT</div>
+                        </div>
                         <h5 class="card-title mb-0">Conferencia "Fe en Acción"</h5>
                     </div>
                     <div class="card-body">
-                        <p><i class="far fa-calendar-alt me-2"></i>15 de Octubre, 2023</p>
+                        <p><i class="far fa-clock me-2"></i>9:00 am - 5:00 pm</p>
                         <p><i class="fas fa-map-marker-alt me-2"></i>Sede Principal CDC</p>
-                        <p class="card-text">Aprende cómo vivir tu fe de manera práctica en tiempos difíciles.</p>
-                        <a href="#" class="btn btn-primary">Más información</a>
+                        <p class="card-text">Aprende cómo vivir tu fe de manera práctica en tiempos difíciles, con talleres y enseñanzas para aplicar los principios bíblicos en la vida diaria.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-user-tie text-primary me-2"></i>Con expositores internacionales</li>
+                            <li class="mb-2"><i class="fas fa-child text-primary me-2"></i>Programa paralelo para niños</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-primary me-2">Más información</a>
+                        <a href="#" class="btn btn-outline-primary">Registrarse</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100">
+                    <div class="card-header bg-primary text-white d-flex align-items-center">
+                        <div class="date-box me-3 text-center">
+                            <div class="fw-bold" style="font-size: 1.5rem;">1-30</div>
+                            <div class="small">NOV</div>
+                        </div>
                         <h5 class="card-title mb-0">Campaña de Alimentos</h5>
                     </div>
                     <div class="card-body">
-                        <p><i class="far fa-calendar-alt me-2"></i>Todo Noviembre, 2023</p>
+                        <p><i class="far fa-clock me-2"></i>Horarios flexibles</p>
                         <p><i class="fas fa-map-marker-alt me-2"></i>Barrios de Caracas</p>
-                        <p class="card-text">Únete a nuestra campaña para llevar alimentos a familias necesitadas.</p>
-                        <a href="#" class="btn btn-primary">Participar</a>
+                        <p class="card-text">Únete a nuestra campaña para llevar alimentos a familias necesitadas en diferentes comunidades de Caracas. Necesitamos voluntarios y donaciones.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-box-open text-primary me-2"></i>Puntos de acopio habilitados</li>
+                            <li class="mb-2"><i class="fas fa-tshirt text-primary me-2"></i>Kits de alimentos y ropa</li>
+                        </ul>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <a href="#" class="btn btn-primary me-2">Participar</a>
+                        <a href="#" class="btn btn-outline-primary">Donar</a>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <a href="#" class="btn btn-outline-primary">Ver Calendario Completo <i class="far fa-calendar-alt ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="container-fluid px-0 py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title">Galería</h2>
+                <p class="section-subtitle">Momentos que capturan nuestro trabajo y comunidad</p>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 1" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Culto Dominical</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 2" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Grupo de Oración</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 3" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Ayuda Humanitaria</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 4" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Retiro Juvenil</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 5" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Escuela Dominical</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 6" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Comunión Cristiana</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 7" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Estudio Bíblico</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <a href="#" class="d-block hover-zoom">
+                    <img src="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid w-100" alt="Evento 8" style="height: 250px; object-fit: cover;">
+                    <div class="overlay">
+                        <div class="overlay-content">
+                            <i class="fas fa-search-plus fa-2x"></i>
+                            <p class="mb-0 mt-2">Bautismos</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <a href="#" class="btn btn-primary">Ver Más Fotos <i class="fas fa-images ms-2"></i></a>
         </div>
     </section>
 
     <!-- Contacto Section -->
     <section class="container py-5" id="contacto">
-        <h2 class="section-title text-center mb-5">Contáctanos</h2>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="mb-4">
-                    <h4><i class="fas fa-map-marker-alt me-2 text-primary"></i>Dirección</h4>
-                    <p>Av. Libertador, Edificio CDC, Piso 3, Caracas, Venezuela</p>
+            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                <h2 class="section-title text-left">Contáctanos</h2>
+                <p class="lead">Estamos aquí para servirte. No dudes en contactarnos para cualquier pregunta, necesidad de oración o información sobre nuestros programas.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-map-marker-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Dirección</h5>
+                                <p class="mb-0">Av. Libertador, Edificio CDC, Piso 3<br>Caracas, Venezuela</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-phone-alt fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Teléfonos</h5>
+                                <p class="mb-0">+58 212 555 1234<br>+58 414 555 5678</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-envelope fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Correo Electrónico</h5>
+                                <p class="mb-0">contacto@cdcvenezuela.org<br>info@cdcvenezuela.org</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 text-primary">
+                                <i class="fas fa-clock fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5>Horarios</h5>
+                                <p class="mb-0">Domingos: 8am - 12pm<br>
+                                Martes y Jueves: 5pm - 7pm</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-4">
-                    <h4><i class="fas fa-phone me-2 text-primary"></i>Teléfonos</h4>
-                    <p>+58 212 555 1234<br>+58 414 555 5678</p>
-                </div>
-                <div class="mb-4">
-                    <h4><i class="fas fa-envelope me-2 text-primary"></i>Correo Electrónico</h4>
-                    <p>contacto@cdcvenezuela.org</p>
-                </div>
-                <div class="mb-4">
-                    <h4><i class="fas fa-clock me-2 text-primary"></i>Horarios</h4>
-                    <p>Domingos: 8:00 am - 12:00 pm (Cultos)<br>
-                    Martes y Jueves: 5:00 pm - 7:00 pm (Estudios Bíblicos)</p>
+                
+                <div class="mt-4">
+                    <h5>Síguenos en redes sociales</h5>
+                    <div class="social-icons">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-telegram"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Envía un mensaje</h5>
-                        <form>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Nombre</label>
-                                <input type="text" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Correo Electrónico</label>
-                                <input type="email" class="form-control" id="email" required>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="card shadow">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">Envía un mensaje</h5>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <label for="subject" class="form-label">Asunto</label>
-                                <input type="text" class="form-control" id="subject" required>
+                                <select class="form-select" id="subject" required>
+                                    <option value="" selected disabled>Selecciona un asunto</option>
+                                    <option value="informacion">Información General</option>
+                                    <option value="oracion">Petición de Oración</option>
+                                    <option value="ayuda">Necesito Ayuda</option>
+                                    <option value="donaciones">Donaciones</option>
+                                    <option value="voluntariado">Voluntariado</option>
+                                    <option value="otro">Otro</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="message" class="form-label">Mensaje</label>
-                                <textarea class="form-control" id="message" rows="4" required></textarea>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -620,105 +1675,280 @@
         </div>
     </section>
 
+    <!-- Mapa -->
+    <div class="container-fluid px-0">
+        <div class="map-container" style="height: 400px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3923.10598405392!2d-66.9038289246836!3d10.4980180897191!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58f1b54d5b5f%3A0x4e20a11d8a7a0b9d!2sAv.%20Libertador%2C%20Caracas%2C%20Distrito%20Capital!5e0!3m2!1ses!2sve!4v1620000000000!5m2!1ses!2sve" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
+                <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="footer-title"><i class="fas fa-cross me-2"></i>CDC Venezuela</h4>
-                    <p>Centro de Desarrollo Cristiano - Transformando vidas en Venezuela mediante el poder del Evangelio.</p>
-                    <div class="social-icons mt-3">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    <p class="mb-4">Centro de Desarrollo Cristiano - Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo desde 2005.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                         <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h4 class="footer-title">Enlaces Rápidos</h4>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Enlaces</h4>
                     <div class="footer-links">
-                        <a href="#inicio"><i class="fas fa-chevron-right me-2"></i>Inicio</a>
-                        <a href="#nosotros"><i class="fas fa-chevron-right me-2"></i>Nosotros</a>
-                        <a href="#ministerios"><i class="fas fa-chevron-right me-2"></i>Ministerios</a>
-                        <a href="#eventos"><i class="fas fa-chevron-right me-2"></i>Eventos</a>
-                        <a href="#contacto"><i class="fas fa-chevron-right me-2"></i>Contacto</a>
+                        <a href="#inicio">Inicio</a>
+                        <a href="#nosotros">Nosotros</a>
+                        <a href="#ministerios">Ministerios</a>
+                        <a href="#eventos">Eventos</a>
+                        <a href="#contacto">Contacto</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h4 class="footer-title">Ministerios</h4>
+                    <div class="footer-links">
+                        <a href="#">CDC Kids</a>
+                        <a href="#">Generación CDC</a>
+                        <a href="#">Manos CDC</a>
+                        <a href="#">Alabanza</a>
+                        <a href="#">Misiones</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h4 class="footer-title">Recursos</h4>
                     <div class="footer-links">
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Sermones</a>
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Devocionales</a>
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Ayuda Humanitaria</a>
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Donaciones</a>
-                        <a href="#"><i class="fas fa-chevron-right me-2"></i>Blog</a>
+                        <a href="#">Sermones</a>
+                        <a href="#">Devocionales</a>
+                        <a href="#">Blog</a>
+                        <a href="#">Galería</a>
+                        <a href="#">Petición de Oración</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h4 class="footer-title">Legal</h4>
+                    <div class="footer-links">
+                        <a href="#">Términos y Condiciones</a>
+                        <a href="#">Política de Privacidad</a>
+                        <a href="#">Donaciones</a>
+                        <a href="#">FAQ</a>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Centro de Desarrollo Cristiano - Venezuela. Todos los derechos reservados.</p>
+                <p class="mb-0">&copy; 2023 Centro de Desarrollo Cristiano - Venezuela. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/584145555678" class="floating-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Botón para volver arriba -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Modal de Oración -->
-    <div class="modal fade" id="prayerModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="prayerModal" tabindex="-1" aria-labelledby="prayerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-primary text-white">
-                    <h5 class="modal-title">Envía tu petición de oración</h5>
+                    <h5 class="modal-title" id="prayerModalLabel">Envía tu petición de oración</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="prayerForm">
                         <div class="mb-3">
                             <label for="prayerName" class="form-label">Nombre (opcional)</label>
                             <input type="text" class="form-control" id="prayerName">
                         </div>
                         <div class="mb-3">
-                            <label for="prayerRequest" class="form-label">Petición de oración</label>
-                            <textarea class="form-control" id="prayerRequest" rows="5" required></textarea>
+                            <label for="prayerEmail" class="form-label">Correo Electrónico (opcional)</label>
+                            <input type="email" class="form-control" id="prayerEmail">
                         </div>
-                        <div class="form-check mb-3">
+                        <div class="mb-3">
+                            <label for="prayerRequest" class="form-label">Petición de oración *</label>
+                            <textarea class="form-control" id="prayerRequest" rows="5" required></textarea>
+                            <div class="form-text">Nuestro equipo de intercesores orará por tu petición.</div>
+                        </div>
+                        <div class="form-check mb-4">
                             <input class="form-check-input" type="checkbox" id="prayerPrivate">
                             <label class="form-check-label" for="prayerPrivate">
                                 Mantener esta petición privada (solo el equipo de oración la verá)
                             </label>
                         </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">Enviar Petición</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Enviar Petición</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Modal de Confirmación -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-white">
+                    <h5 class="modal-title">¡Gracias!</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-check-circle fa-5x text-success"></i>
+                    </div>
+                    <h4 class="mb-3">Tu mensaje ha sido enviado</h4>
+                    <p>Nos pondremos en contacto contigo pronto. Que Dios te bendiga.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Glide.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <!-- jQuery (optional, for some animations) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
     <script>
-        // Activar el tooltip
-        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl)
+        // Inicializar AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
         });
         
-        // Cambiar el navbar al hacer scroll
+        // Inicializar Glide.js para testimonios
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 3,
+            gap: 30,
+            autoplay: 3000,
+            breakpoints: {
+                992: {
+                    perView: 2
+                },
+                768: {
+                    perView: 1
+                }
+            }
+        }).mount();
+        
+        // Cambiar navbar al hacer scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
+                navbar.classList.add('scrolled');
             } else {
-                navbar.classList.remove('navbar-scrolled');
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Mostrar u ocultar botón de volver arriba
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
             }
         });
         
-        // Mostrar alerta al enviar formulario de contacto
-        document.querySelector('form').addEventListener('submit', function(e) {
+        // Animación de contadores
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Activar contadores cuando son visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+        
+        // Botón de volver arriba
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Manejar envío de formularios
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
+            // Aquí iría el código para enviar el formulario
+            var myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            myModal.show();
             this.reset();
+        });
+        
+        document.getElementById('prayerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría el código para enviar la petición de oración
+            var myModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            myModal.show();
+            this.reset();
+            var prayerModal = bootstrap.Modal.getInstance(document.getElementById('prayerModal'));
+            prayerModal.hide();
+        });
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Cerrar navbar móvil si está abierto
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse);
+                        bsCollapse.hide();
+                    }
+                }
+            });
         });
     </script>
 </body>
