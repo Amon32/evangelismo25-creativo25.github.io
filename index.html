@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -31,75 +31,63 @@
     <!-- Swiper JS (Carousel) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Lightbox (Galería) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
-
-    <!-- Vanilla CounterUp -->
-    <link rel="stylesheet" href="https://unpkg.com/vanilla-counterup@1.0.4/dist/counterup.min.css">
-
-    <!-- FullCalendar (Eventos) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
-
-    <!-- Leaflet (Mapa) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary: #1a5276;
-            --secondary: #e67e22;
-            --accent: #3498db;
-            --dark: #2c3e50;
+            --primary: #4361ee;  /* Azul vibrante */
+            --secondary: #3a0ca3; /* Azul oscuro */
+            --accent: #f72585;   /* Rosa */
             --light: #f8f9fa;
-            --ven-blue: #00247D;
-            --ven-yellow: #FFCC00;
-            --ven-red: #CF142B;
+            --dark: #212529;
+            --success: #4cc9f0;   /* Turquesa */
+            --warning: #f8961e;   /* Naranja */
+            --text: #495057;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
         }
 
         h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Merriweather', serif;
             font-weight: 700;
+            color: var(--secondary);
         }
 
         /* Navbar */
         .navbar {
-            background: rgba(0, 36, 125, 0.95) !important;
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
-            padding: 15px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .navbar.scrolled {
-            padding: 10px 0;
-            background: rgba(0, 36, 125, 0.98) !important;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .navbar-brand {
+            color: var(--secondary) !important;
             font-weight: 700;
-            font-size: 1.8rem;
         }
 
         .nav-link {
+            color: var(--dark) !important;
             font-weight: 500;
-            margin: 0 10px;
             position: relative;
+            margin: 0 10px;
         }
 
         .nav-link::after {
             content: '';
             position: absolute;
             width: 0;
-            height: 2px;
+            height: 3px;
             bottom: 0;
             left: 0;
-            background: var(--ven-yellow);
+            background: var(--accent);
             transition: width 0.3s;
         }
 
@@ -107,16 +95,19 @@
             width: 100%;
         }
 
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 82, 118, 0.9) 0%, rgba(0, 36, 125, 0.9) 100%), 
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(58, 12, 163, 0.9) 100%), 
                         url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
             min-height: 100vh;
             display: flex;
             align-items: center;
-            position: relative;
-            overflow: hidden;
             color: white;
+            position: relative;
         }
 
         .hero::before {
@@ -126,44 +117,31 @@
             left: 0;
             width: 100%;
             height: 150px;
-            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23f8f9fa"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23f8f9fa"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23f8f9fa"/></svg>');
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23ffffff"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23ffffff"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%23ffffff"/></svg>');
             background-size: cover;
             z-index: 1;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
         }
 
         /* Botones */
         .btn-primary {
-            background: var(--secondary);
+            background: var(--accent);
             border: none;
             padding: 12px 30px;
             font-weight: 600;
             border-radius: 50px;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn-primary:hover {
+            background: var(--secondary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 10px 20px rgba(247, 37, 133, 0.3);
         }
 
         .btn-outline-light {
@@ -194,7 +172,7 @@
             position: absolute;
             width: 70px;
             height: 4px;
-            background: var(--secondary);
+            background: var(--accent);
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -232,27 +210,29 @@
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             margin: 15px;
+            border-top: 4px solid var(--accent);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--dark) 0%, #1a252f 100%);
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
             color: white;
             padding: 80px 0 30px;
             position: relative;
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, var(--ven-yellow) 33%, var(--ven-blue) 33%, var(--ven-blue) 66%, var(--ven-red) 66%);
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
         }
 
-        /* Botón Flotante WhatsApp */
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -284,13 +264,13 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--primary);
+            background: var(--accent);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(26, 82, 118, 0.3);
+            box-shadow: 0 5px 15px rgba(247, 37, 133, 0.3);
             z-index: 99;
             opacity: 0;
             visibility: hidden;
@@ -306,11 +286,7 @@
         /* Responsive */
         @media (max-width: 991.98px) {
             .hero-title {
-                font-size: 3rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
+                font-size: 2.8rem;
             }
             
             .section {
@@ -320,29 +296,14 @@
 
         @media (max-width: 767.98px) {
             .hero-title {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 575.98px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            
-            .btn-primary, .btn-outline-light {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+                font-size: 2.2rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="fas fa-cross me-2"></i>CDC Venezuela
@@ -367,8 +328,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <a href="#donar" class="btn btn-outline-light">Donar</a>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="#donar" class="btn btn-primary">Donar</a>
                     </li>
                 </ul>
             </div>
@@ -378,41 +339,43 @@
     <!-- Hero Section -->
     <section class="hero" id="inicio">
         <div class="container">
-            <div class="hero-content text-center">
-                <h1 class="hero-title animate__animated animate__fadeInDown">Centro de Desarrollo Cristiano</h1>
-                <p class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo</p>
-                <div class="animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="#nosotros" class="btn btn-primary btn-lg me-3">Conócenos</a>
-                    <a href="#eventos" class="btn btn-outline-light btn-lg">Próximos Eventos</a>
+            <div class="row align-items-center">
+                <div class="col-lg-8 text-center text-lg-start">
+                    <h1 class="hero-title animate__animated animate__fadeInDown">Centro de Desarrollo Cristiano</h1>
+                    <p class="lead mb-4 animate__animated animate__fadeIn animate__delay-1s">Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo</p>
+                    <div class="animate__animated animate__fadeInUp animate__delay-2s">
+                        <a href="#nosotros" class="btn btn-primary btn-lg me-3">Conócenos</a>
+                        <a href="#eventos" class="btn btn-outline-light btn-lg">Eventos</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Estadísticas -->
-    <section class="bg-light py-5">
+    <section class="py-5 bg-light">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-3 col-6 text-center">
-                    <div class="counter" data-target="15" data-speed="2000">
+                    <div class="counter" data-target="15">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Años de Servicio</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 text-center">
-                    <div class="counter" data-target="1200" data-speed="2000">
+                    <div class="counter" data-target="1200">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Miembros</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 text-center">
-                    <div class="counter" data-target="8" data-speed="2000">
+                    <div class="counter" data-target="8">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Ministerios</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6 text-center">
-                    <div class="counter" data-target="5000" data-speed="2000">
+                    <div class="counter" data-target="5000">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Personas Ayudadas</p>
                     </div>
@@ -427,15 +390,15 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
                     <h2 class="section-title text-center text-lg-start">Nuestra Historia</h2>
-                    <p class="lead">El Centro de Desarrollo Cristiano nació en 2005 en Caracas, Venezuela, con el propósito de ser un faro de esperanza y transformación espiritual.</p>
-                    <p>Somos una comunidad comprometida con el desarrollo integral de las personas a través de los principios bíblicos, buscando impactar positivamente a Venezuela mediante el amor y servicio cristiano.</p>
+                    <p class="lead">Desde 2005, hemos sido un faro de esperanza en Venezuela, transformando vidas a través del Evangelio.</p>
+                    <p>Nuestra misión es formar discípulos de Cristo que impacten positivamente a la sociedad, mostrando el amor de Dios en acción.</p>
                     
                     <div class="mt-4">
-                        <h4><i class="fas fa-cross me-2 text-secondary"></i>Nuestros Valores</h4>
+                        <h4><i class="fas fa-cross me-2 text-accent"></i>Nuestros Valores</h4>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-primary">
+                                    <div class="me-3 text-accent">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -444,7 +407,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-primary">
+                                    <div class="me-3 text-accent">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -455,7 +418,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-primary">
+                                    <div class="me-3 text-accent">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -464,7 +427,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-primary">
+                                    <div class="me-3 text-accent">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -490,53 +453,44 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Nuestros Ministerios</h2>
-                <p class="lead">Conoce los diferentes ministerios con los que servimos a nuestra comunidad</p>
+                <p class="lead">Conoce las diferentes áreas en las que servimos a nuestra comunidad</p>
             </div>
             
-            <div class="swiper ministeriosSwiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="CDC Kids">
-                            <div class="card-body">
-                                <h5 class="card-title">CDC Kids</h5>
-                                <p class="card-text">Ministerio infantil donde enseñamos valores bíblicos de manera creativa y divertida.</p>
-                                <a href="#" class="btn btn-primary">Saber más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Generación CDC">
-                            <div class="card-body">
-                                <h5 class="card-title">Generación CDC</h5>
-                                <p class="card-text">Ministerio juvenil que forma líderes cristianos comprometidos.</p>
-                                <a href="#" class="btn btn-primary">Saber más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Manos CDC">
-                            <div class="card-body">
-                                <h5 class="card-title">Manos CDC</h5>
-                                <p class="card-text">Programas de ayuda humanitaria y servicio comunitario.</p>
-                                <a href="#" class="btn btn-primary">Saber más</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="card h-100">
-                            <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Oración">
-                            <div class="card-body">
-                                <h5 class="card-title">Ministerio de Oración</h5>
-                                <p class="card-text">Intercesión por Venezuela y las necesidades de la comunidad.</p>
-                                <a href="#" class="btn btn-primary">Saber más</a>
-                            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="CDC Kids">
+                        <div class="card-body">
+                            <h5 class="card-title">CDC Kids</h5>
+                            <p class="card-text">Ministerio infantil donde enseñamos valores bíblicos de manera creativa y divertida.</p>
+                            <a href="#" class="btn btn-primary">Saber más</a>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Generación CDC">
+                        <div class="card-body">
+                            <h5 class="card-title">Generación CDC</h5>
+                            <p class="card-text">Ministerio juvenil que forma líderes cristianos comprometidos con el cambio.</p>
+                            <a href="#" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Manos CDC">
+                        <div class="card-body">
+                            <h5 class="card-title">Manos CDC</h5>
+                            <p class="card-text">Programas de ayuda humanitaria para las necesidades más urgentes.</p>
+                            <a href="#" class="btn btn-primary">Saber más</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary">Ver Todos los Ministerios <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </section>
@@ -549,55 +503,52 @@
                 <p class="lead">Historias de vida transformada por el poder de Dios</p>
             </div>
             
-            <div class="swiper testimoniosSwiper" data-aos="fade-up">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="mb-4">
-                                <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
-                            </div>
-                            <p class="mb-4">"El CDC cambió mi vida. Cuando llegué a Venezuela como migrante, me recibieron con amor y me ayudaron a reconstruir mi vida."</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://randomuser.me/api/portraits/women/43.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
-                                <div>
-                                    <h6 class="mb-0">María González</h6>
-                                    <small class="text-muted">Miembro desde 2018</small>
-                                </div>
-                            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
                         </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="mb-4">
-                                <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
-                            </div>
-                            <p class="mb-4">"A través del programa de ayuda alimentaria, mi familia pudo superar los momentos más difíciles. No solo recibimos comida, sino también esperanza."</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
-                                <div>
-                                    <h6 class="mb-0">Carlos Pérez</h6>
-                                    <small class="text-muted">Beneficiario</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="testimonial-card">
-                            <div class="mb-4">
-                                <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
-                            </div>
-                            <p class="mb-4">"Generación CDC ha sido fundamental en mi crecimiento espiritual. Los retiros y estudios bíblicos me han ayudado a entender mi propósito."</p>
-                            <div class="d-flex align-items-center">
-                                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
-                                <div>
-                                    <h6 class="mb-0">Ana Rodríguez</h6>
-                                    <small class="text-muted">Líder Juvenil</small>
-                                </div>
+                        <p class="mb-4">"El CDC cambió mi vida. Cuando llegué a Venezuela como migrante, me recibieron con amor y me ayudaron a reconstruir mi vida espiritual."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
+                            <div>
+                                <h6 class="mb-0">María González</h6>
+                                <small class="text-muted">Miembro desde 2018</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
+                        </div>
+                        <p class="mb-4">"A través del programa de ayuda alimentaria, mi familia pudo superar los momentos más difíciles. No solo recibimos comida, sino también esperanza."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
+                            <div>
+                                <h6 class="mb-0">Carlos Pérez</h6>
+                                <small class="text-muted">Beneficiario</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card h-100">
+                        <div class="mb-4">
+                            <i class="fas fa-quote-left fa-2x text-primary opacity-25"></i>
+                        </div>
+                        <p class="mb-4">"Generación CDC ha sido fundamental en mi crecimiento espiritual. Los retiros y estudios bíblicos me han ayudado a entender mi propósito."</p>
+                        <div class="d-flex align-items-center">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="rounded-circle me-3" width="60" alt="Testimonio">
+                            <div>
+                                <h6 class="mb-0">Ana Rodríguez</h6>
+                                <small class="text-muted">Líder Juvenil</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -611,124 +562,82 @@
             </div>
             
             <div class="row">
-                <div class="col-lg-6 mb-4" data-aos="fade-up">
-                    <div id="calendar"></div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="card shadow-sm h-100">
+                <div class="col-md-4 mb-4" data-aos="fade-up">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
                         <div class="card-body">
-                            <h4 class="card-title mb-4">Eventos Destacados</h4>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 me-3">
-                                    <div class="bg-primary text-white text-center rounded p-2" style="width: 70px;">
-                                        <div class="fw-bold fs-4">15</div>
-                                        <div class="small">OCT</div>
-                                    </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white text-center rounded p-2 me-3" style="width: 70px;">
+                                    <div class="fw-bold fs-5">15</div>
+                                    <div class="small">OCT</div>
                                 </div>
-                                <div>
-                                    <h5>Conferencia "Fe en Acción"</h5>
-                                    <p class="mb-1"><i class="far fa-clock me-2"></i>9:00 am - 5:00 pm</p>
-                                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Sede Principal CDC</p>
-                                </div>
+                                <h5 class="mb-0">Conferencia "Fe en Acción"</h5>
                             </div>
-                            
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 me-3">
-                                    <div class="bg-primary text-white text-center rounded p-2" style="width: 70px;">
-                                        <div class="fw-bold fs-4">1-7</div>
-                                        <div class="small">OCT</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5>Ayuno por Venezuela</h5>
-                                    <p class="mb-1"><i class="far fa-clock me-2"></i>Todo el día</p>
-                                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Plaza Bolívar, Caracas</p>
-                                </div>
-                            </div>
-                            
-                            <div class="d-flex">
-                                <div class="flex-shrink-0 me-3">
-                                    <div class="bg-primary text-white text-center rounded p-2" style="width: 70px;">
-                                        <div class="fw-bold fs-4">1-30</div>
-                                        <div class="small">NOV</div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h5>Campaña de Alimentos</h5>
-                                    <p class="mb-1"><i class="far fa-clock me-2"></i>Horarios flexibles</p>
-                                    <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Barrios de Caracas</p>
-                                </div>
+                            <p class="card-text">Aprende cómo vivir tu fe de manera práctica en tiempos difíciles, con talleres y enseñanzas para aplicar los principios bíblicos.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> 9:00 am</span>
+                                <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Sede CDC</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent">
-                            <a href="#" class="btn btn-primary">Ver Todos los Eventos</a>
+                            <a href="#" class="btn btn-primary w-100">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white text-center rounded p-2 me-3" style="width: 70px;">
+                                    <div class="fw-bold fs-5">1-7</div>
+                                    <div class="small">OCT</div>
+                                </div>
+                                <h5 class="mb-0">Ayuno por Venezuela</h5>
+                            </div>
+                            <p class="card-text">Unámonos en ayuno y oración por el futuro de nuestra nación, por nuestras autoridades y por un despertar espiritual en Venezuela.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> Todo el día</span>
+                                <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Plaza Bolívar</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-primary w-100">Más información</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-primary text-white text-center rounded p-2 me-3" style="width: 70px;">
+                                    <div class="fw-bold fs-5">1-30</div>
+                                    <div class="small">NOV</div>
+                                </div>
+                                <h5 class="mb-0">Campaña de Alimentos</h5>
+                            </div>
+                            <p class="card-text">Únete a nuestra campaña para llevar alimentos a familias necesitadas en diferentes comunidades de Caracas. Necesitamos voluntarios y donaciones.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> Flexible</span>
+                                <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Barrios</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-primary w-100">Participar</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Galería -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Galería</h2>
-                <p class="lead">Momentos que capturan nuestro trabajo y comunidad</p>
-            </div>
             
-            <div class="row g-3">
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in">
-                    <a href="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Culto Dominical">
-                        <img src="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <a href="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Grupo de Oración">
-                        <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <a href="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Ayuda Humanitaria">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                    <a href="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Retiro Juvenil">
-                        <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in">
-                    <a href="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Escuela Dominical">
-                        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <a href="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Comunión Cristiana">
-                        <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <a href="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Estudio Bíblico">
-                        <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                    <a href="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" data-lightbox="gallery" data-title="Bautismos">
-                        <img src="https://images.unsplash.com/photo-1542403779-6aed054a7b8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="img-fluid rounded" alt="Galería">
-                    </a>
-                </div>
-            </div>
-            
-            <div class="text-center mt-4">
-                <a href="#" class="btn btn-primary">Ver Más Fotos <i class="fas fa-images ms-2"></i></a>
+            <div class="text-center mt-3">
+                <a href="#" class="btn btn-outline-primary">Ver Todos los Eventos <i class="far fa-calendar-alt ms-2"></i></a>
             </div>
         </div>
     </section>
 
     <!-- Contacto -->
-    <section class="section bg-light" id="contacto">
+    <section class="section" id="contacto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
@@ -832,13 +741,8 @@
         </div>
     </section>
 
-    <!-- Mapa -->
-    <div class="container-fluid px-0">
-        <div id="map" style="height: 400px;"></div>
-    </div>
-
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
@@ -855,44 +759,44 @@
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-4">Enlaces</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#inicio" class="text-white-50">Inicio</a></li>
-                        <li class="mb-2"><a href="#nosotros" class="text-white-50">Nosotros</a></li>
-                        <li class="mb-2"><a href="#ministerios" class="text-white-50">Ministerios</a></li>
-                        <li class="mb-2"><a href="#eventos" class="text-white-50">Eventos</a></li>
-                        <li><a href="#contacto" class="text-white-50">Contacto</a></li>
+                        <li class="mb-2"><a href="#inicio" class="footer-links">Inicio</a></li>
+                        <li class="mb-2"><a href="#nosotros" class="footer-links">Nosotros</a></li>
+                        <li class="mb-2"><a href="#ministerios" class="footer-links">Ministerios</a></li>
+                        <li class="mb-2"><a href="#eventos" class="footer-links">Eventos</a></li>
+                        <li><a href="#contacto" class="footer-links">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-4">Ministerios</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50">CDC Kids</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Generación CDC</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Manos CDC</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Alabanza</a></li>
-                        <li><a href="#" class="text-white-50">Misiones</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">CDC Kids</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Generación CDC</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Manos CDC</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Alabanza</a></li>
+                        <li><a href="#" class="footer-links">Misiones</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
                     <h5 class="mb-4">Recursos</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50">Sermones</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Devocionales</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Blog</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Galería</a></li>
-                        <li><a href="#" class="text-white-50">Petición de Oración</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Sermones</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Devocionales</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Galería</a></li>
+                        <li><a href="#" class="footer-links">Petición de Oración</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-4">
                     <h5 class="mb-4">Legal</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="text-white-50">Términos</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Privacidad</a></li>
-                        <li class="mb-2"><a href="#" class="text-white-50">Donaciones</a></li>
-                        <li><a href="#" class="text-white-50">FAQ</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Términos</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Privacidad</a></li>
+                        <li class="mb-2"><a href="#" class="footer-links">Donaciones</a></li>
+                        <li><a href="#" class="footer-links">FAQ</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4 bg-secondary">
+            <hr class="my-4 bg-light opacity-25">
             <div class="text-center">
                 <p class="mb-0">&copy; 2023 Centro de Desarrollo Cristiano - Venezuela. Todos los derechos reservados.</p>
             </div>
@@ -921,19 +825,6 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Lightbox -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
-
-    <!-- Vanilla CounterUp -->
-    <script src="https://unpkg.com/vanilla-counterup@1.0.4/dist/counterup.min.js"></script>
-
-    <!-- FullCalendar -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales/es.min.js"></script>
-
-    <!-- Leaflet (Mapa) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
     <!-- Scripts Personalizados -->
     <script>
         // Inicializar AOS
@@ -943,82 +834,23 @@
             once: true
         });
 
-        // Inicializar Swiper para Ministerios
-        const ministeriosSwiper = new Swiper('.ministeriosSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                992: {
-                    slidesPerView: 3,
-                }
+        // Navbar scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
             }
         });
-
-        // Inicializar Swiper para Testimonios
-        const testimoniosSwiper = new Swiper('.testimoniosSwiper', {
-            slidesPerView: 1,
-            spaceBetween: 20,
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                }
-            }
-        });
-
-        // Inicializar FullCalendar
-        document.addEventListener('DOMContentLoaded', function() {
-            const calendarEl = document.getElementById('calendar');
-            const calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'es',
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,listMonth'
-                },
-                events: [
-                    {
-                        title: 'Ayuno por Venezuela',
-                        start: '2023-10-01',
-                        end: '2023-10-07',
-                        backgroundColor: '#e67e22'
-                    },
-                    {
-                        title: 'Conferencia "Fe en Acción"',
-                        start: '2023-10-15',
-                        backgroundColor: '#1a5276'
-                    },
-                    {
-                        title: 'Campaña de Alimentos',
-                        start: '2023-11-01',
-                        end: '2023-11-30',
-                        backgroundColor: '#28a745'
-                    }
-                ]
-            });
-            calendar.render();
-        });
-
-        // Inicializar Mapa con Leaflet
-        const map = L.map('map').setView([10.4806, -66.9036], 15);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        
-        L.marker([10.4806, -66.9036]).addTo(map)
-            .bindPopup('Centro de Desarrollo Cristiano<br>Av. Libertador, Caracas')
-            .openPopup();
 
         // Contadores
         const counters = document.querySelectorAll('.counter');
@@ -1049,24 +881,6 @@
             });
 
             observer.observe(counter);
-        });
-
-        // Navbar scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Back to top button
-            const backToTop = document.querySelector('.back-to-top');
-            if (window.scrollY > 300) {
-                backToTop.classList.add('active');
-            } else {
-                backToTop.classList.remove('active');
-            }
         });
 
         // Back to top
