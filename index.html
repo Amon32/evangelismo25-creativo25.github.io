@@ -56,6 +56,14 @@
             color: var(--secondary);
         }
 
+        .bible-verse {
+            font-style: italic;
+            color: var(--secondary);
+            padding: 10px;
+            border-left: 3px solid var(--accent);
+            margin: 15px 0;
+        }
+
         /* Navbar */
         .navbar {
             background: rgba(255, 255, 255, 0.95) !important;
@@ -126,6 +134,32 @@
             font-size: 3.5rem;
             line-height: 1.2;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Carrusel de Versículos */
+        .verse-carousel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .verse-slide {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .verse-slide .verse-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .verse-slide .verse-ref {
+            font-weight: 600;
+            color: white;
         }
 
         /* Botones */
@@ -298,6 +332,10 @@
             .hero-title {
                 font-size: 2.2rem;
             }
+            
+            .verse-slide .verse-text {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -349,6 +387,35 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Carrusel de Versículos Bíblicos -->
+            <div class="verse-carousel animate__animated animate__fadeIn animate__delay-3s">
+                <div class="swiper bibleSwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide verse-slide">
+                            <div class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</div>
+                            <div class="verse-ref">Juan 3:16</div>
+                        </div>
+                        <div class="swiper-slide verse-slide">
+                            <div class="verse-text">"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</div>
+                            <div class="verse-ref">Juan 14:6</div>
+                        </div>
+                        <div class="swiper-slide verse-slide">
+                            <div class="verse-text">"Echad toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros."</div>
+                            <div class="verse-ref">1 Pedro 5:7</div>
+                        </div>
+                        <div class="swiper-slide verse-slide">
+                            <div class="verse-text">"Todo lo puedo en Cristo que me fortalece."</div>
+                            <div class="verse-ref">Filipenses 4:13</div>
+                        </div>
+                        <div class="swiper-slide verse-slide">
+                            <div class="verse-text">"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio."</div>
+                            <div class="verse-ref">2 Timoteo 1:7</div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -361,24 +428,28 @@
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Años de Servicio</p>
                     </div>
+                    <p class="bible-verse small">"El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo." Filipenses 1:6</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="1200">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Miembros</p>
                     </div>
+                    <p class="bible-verse small">"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos." Mateo 18:20</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="8">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Ministerios</p>
                     </div>
+                    <p class="bible-verse small">"Cada uno según el don que ha recibido, minístrelo a los otros, como buenos administradores de la multiforme gracia de Dios." 1 Pedro 4:10</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="5000">
                         <h3 class="display-4 text-primary mb-1">0</h3>
                         <p class="text-muted">Personas Ayudadas</p>
                     </div>
+                    <p class="bible-verse small">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." Colosenses 3:23</p>
                 </div>
             </div>
         </div>
@@ -392,6 +463,10 @@
                     <h2 class="section-title text-center text-lg-start">Nuestra Historia</h2>
                     <p class="lead">Desde 2005, hemos sido un faro de esperanza en Venezuela, transformando vidas a través del Evangelio.</p>
                     <p>Nuestra misión es formar discípulos de Cristo que impacten positivamente a la sociedad, mostrando el amor de Dios en acción.</p>
+                    
+                    <blockquote class="bible-verse">
+                        "Por tanto, id y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo." Mateo 28:19
+                    </blockquote>
                     
                     <div class="mt-4">
                         <h4><i class="fas fa-cross me-2 text-accent"></i>Nuestros Valores</h4>
@@ -443,6 +518,9 @@
                     <div class="ratio ratio-16x9 shadow-lg rounded overflow-hidden">
                         <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=0&mute=1" allowfullscreen></iframe>
                     </div>
+                    <blockquote class="bible-verse mt-3">
+                        "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." Romanos 8:28
+                    </blockquote>
                 </div>
             </div>
         </div>
@@ -454,6 +532,9 @@
             <div class="text-center mb-5">
                 <h2 class="section-title">Nuestros Ministerios</h2>
                 <p class="lead">Conoce las diferentes áreas en las que servimos a nuestra comunidad</p>
+                <blockquote class="bible-verse">
+                    "Así que, según tengamos oportunidad, hagamos bien a todos, y mayormente a los de la familia de la fe." Gálatas 6:10
+                </blockquote>
             </div>
             
             <div class="row">
@@ -463,6 +544,9 @@
                         <div class="card-body">
                             <h5 class="card-title">CDC Kids</h5>
                             <p class="card-text">Ministerio infantil donde enseñamos valores bíblicos de manera creativa y divertida.</p>
+                            <blockquote class="bible-verse small">
+                                "Instruye al niño en su camino, y aun cuando fuere viejo no se apartará de él." Proverbios 22:6
+                            </blockquote>
                             <a href="#" class="btn btn-primary">Saber más</a>
                         </div>
                     </div>
@@ -473,6 +557,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Generación CDC</h5>
                             <p class="card-text">Ministerio juvenil que forma líderes cristianos comprometidos con el cambio.</p>
+                            <blockquote class="bible-verse small">
+                                "Ninguno tenga en poco tu juventud, sino sé ejemplo de los creyentes en palabra, conducta, amor, espíritu, fe y pureza." 1 Timoteo 4:12
+                            </blockquote>
                             <a href="#" class="btn btn-primary">Saber más</a>
                         </div>
                     </div>
@@ -483,6 +570,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Manos CDC</h5>
                             <p class="card-text">Programas de ayuda humanitaria para las necesidades más urgentes.</p>
+                            <blockquote class="bible-verse small">
+                                "Y el Rey les responderá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis." Mateo 25:40
+                            </blockquote>
                             <a href="#" class="btn btn-primary">Saber más</a>
                         </div>
                     </div>
@@ -501,6 +591,9 @@
             <div class="text-center mb-5">
                 <h2 class="section-title">Testimonios</h2>
                 <p class="lead">Historias de vida transformada por el poder de Dios</p>
+                <blockquote class="bible-verse">
+                    "Y ellos le han vencido por medio de la sangre del Cordero y de la palabra del testimonio de ellos." Apocalipsis 12:11
+                </blockquote>
             </div>
             
             <div class="row">
@@ -559,6 +652,9 @@
             <div class="text-center mb-5">
                 <h2 class="section-title">Próximos Eventos</h2>
                 <p class="lead">Participa en nuestras actividades y sé parte de la transformación</p>
+                <blockquote class="bible-verse">
+                    "No dejando de congregarnos, como algunos tienen por costumbre, sino exhortándonos; y tanto más, cuanto veis que aquel día se acerca." Hebreos 10:25
+                </blockquote>
             </div>
             
             <div class="row">
@@ -574,6 +670,9 @@
                                 <h5 class="mb-0">Conferencia "Fe en Acción"</h5>
                             </div>
                             <p class="card-text">Aprende cómo vivir tu fe de manera práctica en tiempos difíciles, con talleres y enseñanzas para aplicar los principios bíblicos.</p>
+                            <blockquote class="bible-verse small">
+                                "Pero sed hacedores de la palabra, y no tan solamente oidores." Santiago 1:22
+                            </blockquote>
                             <div class="mt-3">
                                 <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> 9:00 am</span>
                                 <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Sede CDC</span>
@@ -596,6 +695,9 @@
                                 <h5 class="mb-0">Ayuno por Venezuela</h5>
                             </div>
                             <p class="card-text">Unámonos en ayuno y oración por el futuro de nuestra nación, por nuestras autoridades y por un despertar espiritual en Venezuela.</p>
+                            <blockquote class="bible-verse small">
+                                "Si se humillare mi pueblo, sobre el cual mi nombre es invocado, y oraren, y buscaren mi rostro, y se convirtieren de sus malos caminos; entonces yo oiré desde los cielos, y perdonaré sus pecados, y sanaré su tierra." 2 Crónicas 7:14
+                            </blockquote>
                             <div class="mt-3">
                                 <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> Todo el día</span>
                                 <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Plaza Bolívar</span>
@@ -618,6 +720,9 @@
                                 <h5 class="mb-0">Campaña de Alimentos</h5>
                             </div>
                             <p class="card-text">Únete a nuestra campaña para llevar alimentos a familias necesitadas en diferentes comunidades de Caracas. Necesitamos voluntarios y donaciones.</p>
+                            <blockquote class="bible-verse small">
+                                "Y respondiendo el Rey, les dirá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis." Mateo 25:40
+                            </blockquote>
                             <div class="mt-3">
                                 <span class="badge bg-primary me-2"><i class="far fa-clock me-1"></i> Flexible</span>
                                 <span class="badge bg-primary"><i class="fas fa-map-marker-alt me-1"></i> Barrios</span>
@@ -643,6 +748,9 @@
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
                     <h2 class="section-title text-center text-lg-start">Contáctanos</h2>
                     <p class="lead mb-4">Estamos aquí para servirte. No dudes en contactarnos para cualquier pregunta o necesidad.</p>
+                    <blockquote class="bible-verse">
+                        "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias." Filipenses 4:6
+                    </blockquote>
                     
                     <div class="row">
                         <div class="col-md-6 mb-4">
@@ -748,6 +856,9 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="mb-4"><i class="fas fa-cross me-2"></i>CDC Venezuela</h4>
                     <p>Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo desde 2005.</p>
+                    <blockquote class="bible-verse small text-white">
+                        "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio." 2 Timoteo 1:7
+                    </blockquote>
                     <div class="social-icons">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
@@ -799,6 +910,9 @@
             <hr class="my-4 bg-light opacity-25">
             <div class="text-center">
                 <p class="mb-0">&copy; 2023 Centro de Desarrollo Cristiano - Venezuela. Todos los derechos reservados.</p>
+                <p class="small mt-2">
+                    <span class="bible-verse">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." Colosenses 3:23</span>
+                </p>
             </div>
         </div>
     </footer>
@@ -832,6 +946,23 @@
             duration: 800,
             easing: 'ease-in-out',
             once: true
+        });
+
+        // Inicializar Swiper para el carrusel de versículos
+        const bibleSwiper = new Swiper('.bibleSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
         });
 
         // Navbar scroll
