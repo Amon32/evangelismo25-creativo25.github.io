@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro de Desarrollo Cristiano | Transformando Vidas </title>
+    <title>Centro de Desarrollo Cristiano</title>
     <meta name="description" content="Únete a nuestra comunidad cristiana en Venezuela. Ministerios, ayuda humanitaria, eventos y más.">
     <meta name="keywords" content="iglesia Venezuela, cristianos, ayuda humanitaria, oración, estudio bíblico">
     <meta name="author" content="Centro de Desarrollo Cristiano">
@@ -34,9 +34,14 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --primary: #4361ee;  /* Azul vibrante */
-            --secondary: #3a0ca3; /* Azul oscuro */
-            --accent: #f72585;   /* Rosa */
+            --primary: #6a11cb;   /* Púrpura */
+            --secondary: #2575fc; /* Azul */
+            --accent: #ff3e9d;    /* Rosa vibrante */
+            --violet: #8a2be2;    /* Violeta */
+            --yellow: #ffd700;    /* Amarillo */
+            --orange: #ff7b25;    /* Naranja */
+            --green: #2ecc71;     /* Verde */
+            --black: #1a1a1a;    /* Negro */
             --light: #f8f9fa;
             --dark: #212529;
             --success: #4cc9f0;   /* Turquesa */
@@ -53,15 +58,47 @@
         h1, h2, h3, h4, h5, .display-1, .display-2, .display-3, .display-4 {
             font-family: 'Merriweather', serif;
             font-weight: 700;
-            color: var(--secondary);
+            color: var(--primary);
         }
 
         .bible-verse {
             font-style: italic;
-            color: var(--secondary);
+            color: var(--violet);
             padding: 10px;
             border-left: 3px solid var(--accent);
             margin: 15px 0;
+            background-color: rgba(138, 43, 226, 0.05);
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        
+        .logo-main {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo-sub {
+            font-size: 0.7rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
         }
 
         /* Navbar */
@@ -76,13 +113,8 @@
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar-brand {
-            color: var(--secondary) !important;
-            font-weight: 700;
-        }
-
         .nav-link {
-            color: var(--dark) !important;
+            color: var(--black) !important;
             font-weight: 500;
             position: relative;
             margin: 0 10px;
@@ -109,7 +141,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9) 0%, rgba(58, 12, 163, 0.9) 100%), 
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%), 
                         url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
             min-height: 100vh;
             display: flex;
@@ -134,15 +166,19 @@
             font-size: 3.5rem;
             line-height: 1.2;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #fff, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         /* Carrusel de Versículos */
         .verse-carousel {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(5px);
             border-radius: 15px;
             padding: 30px;
             margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .verse-slide {
@@ -155,11 +191,12 @@
             font-style: italic;
             margin-bottom: 15px;
             color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .verse-slide .verse-ref {
             font-weight: 600;
-            color: white;
+            color: var(--yellow);
         }
 
         /* Botones */
@@ -173,9 +210,9 @@
         }
 
         .btn-primary:hover {
-            background: var(--secondary);
+            background: var(--violet);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(247, 37, 133, 0.3);
+            box-shadow: 0 10px 20px rgba(255, 62, 157, 0.3);
         }
 
         .btn-outline-light {
@@ -188,6 +225,16 @@
         .btn-outline-light:hover {
             background: white;
             color: var(--primary) !important;
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary);
+            color: white !important;
         }
 
         /* Secciones */
@@ -206,7 +253,7 @@
             position: absolute;
             width: 70px;
             height: 4px;
-            background: var(--accent);
+            background: linear-gradient(to right, var(--accent), var(--violet));
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
@@ -236,6 +283,12 @@
         .card:hover .card-img-top {
             transform: scale(1.05);
         }
+        
+        .card-header {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+        }
 
         /* Testimonios */
         .testimonial-card {
@@ -246,10 +299,18 @@
             margin: 15px;
             border-top: 4px solid var(--accent);
         }
+        
+        .testimonial-card:nth-child(2n) {
+            border-top-color: var(--orange);
+        }
+        
+        .testimonial-card:nth-child(3n) {
+            border-top-color: var(--green);
+        }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 80px 0 30px;
             position: relative;
@@ -262,9 +323,31 @@
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--yellow);
             padding-left: 5px;
         }
+        
+        .social-icons a {
+            color: white;
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+        
+        .social-icons a:nth-child(1) { background: #3b5998; }
+        .social-icons a:nth-child(2) { background: #e4405f; }
+        .social-icons a:nth-child(3) { background: #cd201f; }
+        .social-icons a:nth-child(4) { background: #25D366; }
+        .social-icons a:nth-child(5) { background: #0088cc; }
 
         /* WhatsApp Float */
         .whatsapp-float {
@@ -316,6 +399,28 @@
             opacity: 1;
             visibility: visible;
         }
+        
+        /* Badges */
+        .badge {
+            padding: 8px 12px;
+            font-weight: 500;
+        }
+        
+        .bg-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary)) !important;
+        }
+        
+        /* Counters */
+        .counter {
+            transition: all 0.5s;
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
         /* Responsive */
         @media (max-width: 991.98px) {
@@ -336,6 +441,10 @@
             .verse-slide .verse-text {
                 font-size: 1.2rem;
             }
+            
+            .logo-text {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -343,8 +452,12 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-cross me-2"></i>CDC 
+            <a class="navbar-brand logo" href="#">
+                <i class="fas fa-church logo-icon"></i>
+                <div class="logo-text">
+                    <span class="logo-main">CDC</span>
+                    <span class="logo-sub">CENTRO DE DESARROLLO CRISTIANO</span>
+                </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -366,9 +479,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contacto">Contacto</a>
                     </li>
-                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                        <a href="#donar" class="btn btn-primary">Donar</a>
-                    </li>
+                     
                 </ul>
             </div>
         </div>
@@ -425,28 +536,28 @@
             <div class="row g-4">
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="15">
-                        <h3 class="display-4 text-primary mb-1">0</h3>
+                        <h3 class="display-4 gradient-text mb-1">0</h3>
                         <p class="text-muted">Años de Servicio</p>
                     </div>
                     <p class="bible-verse small">"El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo." Filipenses 1:6</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="1200">
-                        <h3 class="display-4 text-primary mb-1">0</h3>
+                        <h3 class="display-4 gradient-text mb-1">0</h3>
                         <p class="text-muted">Miembros</p>
                     </div>
                     <p class="bible-verse small">"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos." Mateo 18:20</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="8">
-                        <h3 class="display-4 text-primary mb-1">0</h3>
+                        <h3 class="display-4 gradient-text mb-1">0</h3>
                         <p class="text-muted">Ministerios</p>
                     </div>
                     <p class="bible-verse small">"Cada uno según el don que ha recibido, minístrelo a los otros, como buenos administradores de la multiforme gracia de Dios." 1 Pedro 4:10</p>
                 </div>
                 <div class="col-md-3 col-6 text-center">
                     <div class="counter" data-target="5000">
-                        <h3 class="display-4 text-primary mb-1">0</h3>
+                        <h3 class="display-4 gradient-text mb-1">0</h3>
                         <p class="text-muted">Personas Ayudadas</p>
                     </div>
                     <p class="bible-verse small">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." Colosenses 3:23</p>
@@ -482,7 +593,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-accent">
+                                    <div class="me-3 text-violet">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -493,7 +604,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-accent">
+                                    <div class="me-3 text-green">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -502,7 +613,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-start mb-3">
-                                    <div class="me-3 text-accent">
+                                    <div class="me-3 text-orange">
                                         <i class="fas fa-check-circle"></i>
                                     </div>
                                     <div>
@@ -660,6 +771,9 @@
             <div class="row">
                 <div class="col-md-4 mb-4" data-aos="fade-up">
                     <div class="card h-100">
+                        <div class="card-header">
+                            Conferencia "Fe en Acción"
+                        </div>
                         <img src="https://images.unsplash.com/photo-1502673530728-f79b4cab31b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
@@ -667,7 +781,9 @@
                                     <div class="fw-bold fs-5">15</div>
                                     <div class="small">OCT</div>
                                 </div>
-                                <h5 class="mb-0">Conferencia "Fe en Acción"</h5>
+                                <div>
+                                    <h5 class="mb-0">Conferencia "Fe en Acción"</h5>
+                                </div>
                             </div>
                             <p class="card-text">Aprende cómo vivir tu fe de manera práctica en tiempos difíciles, con talleres y enseñanzas para aplicar los principios bíblicos.</p>
                             <blockquote class="bible-verse small">
@@ -685,6 +801,9 @@
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
+                        <div class="card-header">
+                            Ayuno por Venezuela
+                        </div>
                         <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
@@ -692,7 +811,9 @@
                                     <div class="fw-bold fs-5">1-7</div>
                                     <div class="small">OCT</div>
                                 </div>
-                                <h5 class="mb-0">Ayuno por Venezuela</h5>
+                                <div>
+                                    <h5 class="mb-0">Ayuno por Venezuela</h5>
+                                </div>
                             </div>
                             <p class="card-text">Unámonos en ayuno y oración por el futuro de nuestra nación, por nuestras autoridades y por un despertar espiritual en Venezuela.</p>
                             <blockquote class="bible-verse small">
@@ -710,6 +831,9 @@
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card h-100">
+                        <div class="card-header">
+                            Campaña de Alimentos
+                        </div>
                         <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Evento">
                         <div class="card-body">
                             <div class="d-flex align-items-center mb-3">
@@ -717,7 +841,9 @@
                                     <div class="fw-bold fs-5">1-30</div>
                                     <div class="small">NOV</div>
                                 </div>
-                                <h5 class="mb-0">Campaña de Alimentos</h5>
+                                <div>
+                                    <h5 class="mb-0">Campaña de Alimentos</h5>
+                                </div>
                             </div>
                             <p class="card-text">Únete a nuestra campaña para llevar alimentos a familias necesitadas en diferentes comunidades de Caracas. Necesitamos voluntarios y donaciones.</p>
                             <blockquote class="bible-verse small">
@@ -802,12 +928,12 @@
                     
                     <div class="mt-4">
                         <h5>Síguenos</h5>
-                        <div class="d-flex">
-                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm me-2"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm"><i class="fab fa-telegram"></i></a>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-telegram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -859,12 +985,12 @@
                     <blockquote class="bible-verse small text-white">
                         "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio." 2 Timoteo 1:7
                     </blockquote>
-                    <div class="social-icons">
-                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-whatsapp"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-telegram"></i></a>
+                    <div class="social-icons mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
