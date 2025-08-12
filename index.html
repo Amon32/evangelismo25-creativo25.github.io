@@ -158,6 +158,109 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
+        /* 3D Carousel */
+        .carousel-3d-container {
+            perspective: 1000px;
+            width: 100%;
+            height: 400px;
+            position: relative;
+            margin: 0 auto;
+        }
+        
+        .carousel-3d {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        
+        .carousel-item {
+            position: absolute;
+            width: 300px;
+            height: 350px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.5s ease;
+            backface-visibility: hidden;
+        }
+        
+        .carousel-item .verse-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            color: theme('colors.primary');
+        }
+        
+        .carousel-item .verse-ref {
+            font-weight: bold;
+            color: theme('colors.secondary');
+        }
+        
+        .carousel-nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .carousel-nav button {
+            background: theme('colors.primary');
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            margin: 0 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-nav button:hover {
+            background: theme('colors.accent');
+        }
+
+        /* Lion Background */
+        .lion-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .lion-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M50,20 C60,10 80,10 90,20 C100,30 100,50 90,60 C80,70 60,70 50,60 C40,70 20,70 10,60 C0,50 0,30 10,20 C20,10 40,10 50,20 Z" fill="%23ffd700"/></svg>');
+            background-size: 100px;
+            opacity: 0.1;
+        }
+        
+        .lion-svg {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
         /* Responsive */
         @media (max-width: 991.98px) {
             .hero-title {
@@ -166,6 +269,15 @@
             
             .section {
                 padding: 80px 0;
+            }
+            
+            .carousel-3d-container {
+                height: 350px;
+            }
+            
+            .carousel-item {
+                width: 250px;
+                height: 300px;
             }
         }
 
@@ -180,6 +292,22 @@
             
             .logo-text {
                 display: none;
+            }
+            
+            .carousel-3d-container {
+                height: 300px;
+            }
+            
+            .carousel-item {
+                width: 200px;
+                height: 250px;
+            }
+            
+            .lion-svg {
+                width: 200px;
+                height: 200px;
+                bottom: -30px;
+                right: -30px;
             }
         }
     </style>
@@ -215,7 +343,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero relative min-h-screen flex items-center bg-gradient-to-br from-primary/90 to-secondary/90 bg-cover bg-center" id="inicio" style="background-image: url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+    <section class="hero relative min-h-screen flex items-center overflow-hidden" id="inicio">
+        <!-- Lion Background -->
+        <div class="lion-bg">
+            <svg class="lion-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                <path fill="gold" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"/>
+            </svg>
+        </div>
+        
         <div class="absolute bottom-0 left-0 w-full h-40 overflow-hidden">
             <svg viewBox="0 0 1200 120" class="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="none">
                 <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/>
@@ -295,9 +430,16 @@
                     <p class="text-xl mb-6">Desde 2005, hemos sido un faro de esperanza en Venezuela, transformando vidas a través del Evangelio.</p>
                     <p class="mb-6">Nuestra misión es formar discípulos de Cristo que impacten positivamente a la sociedad, mostrando el amor de Dios en acción.</p>
                     
-                    <blockquote class="bible-verse mb-8">
-                        "Por tanto, id y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo." Mateo 28:19
-                    </blockquote>
+                    <!-- 3D Bible Verses Carousel -->
+                    <div class="carousel-3d-container" id="bible-carousel">
+                        <div class="carousel-3d" id="carousel">
+                            <!-- Verses will be added here by JavaScript -->
+                        </div>
+                        <div class="carousel-nav">
+                            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
                     
                     <div class="mb-8">
                         <h4 class="text-xl font-semibold mb-4"><i class="fas fa-cross text-accent mr-2"></i>Nuestros Valores</h4>
@@ -1066,6 +1208,120 @@
                 renderer.setSize(churchContainer.clientWidth, churchContainer.clientHeight);
             });
         }
+        
+        // 3D Bible Verses Carousel
+        const bibleVerses = [
+            {
+                text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
+                reference: "Juan 3:16"
+            },
+            {
+                text: "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.",
+                reference: "Romanos 8:28"
+            },
+            {
+                text: "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.",
+                reference: "1 Pedro 5:7"
+            },
+            {
+                text: "Fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir, sino que dará también juntamente con la tentación la salida, para que podáis soportar.",
+                reference: "1 Corintios 10:13"
+            },
+            {
+                text: "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.",
+                reference: "2 Timoteo 1:7"
+            },
+            {
+                text: "El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo.",
+                reference: "Filipenses 1:6"
+            },
+            {
+                text: "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.",
+                reference: "Mateo 6:33"
+            },
+            {
+                text: "Jehová es mi pastor; nada me faltará.",
+                reference: "Salmo 23:1"
+            }
+        ];
+
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        let currentIndex = 0;
+        let totalItems = bibleVerses.length;
+        
+        // Create carousel items
+        function createCarouselItems() {
+            bibleVerses.forEach((verse, index) => {
+                const item = document.createElement('div');
+                item.className = 'carousel-item';
+                item.innerHTML = `
+                    <div class="verse-text">${verse.text}</div>
+                    <div class="verse-ref">${verse.reference}</div>
+                `;
+                carousel.appendChild(item);
+                positionItem(item, index);
+            });
+        }
+        
+        // Position items in 3D space
+        function positionItem(item, index) {
+            const angle = (index / totalItems) * Math.PI * 2;
+            const radius = 300;
+            const x = Math.sin(angle) * radius;
+            const z = Math.cos(angle) * radius;
+            
+            item.style.transform = `translate(-50%, -50%) translateZ(${z}px) translateX(${x}px) rotateY(${-angle}rad)`;
+            item.style.opacity = z > 0 ? '1' : '0.5';
+            item.style.zIndex = Math.floor(z);
+        }
+        
+        // Rotate carousel
+        function rotateCarousel() {
+            const items = document.querySelectorAll('.carousel-item');
+            items.forEach((item, index) => {
+                const newIndex = (index - currentIndex + totalItems) % totalItems;
+                const angle = (newIndex / totalItems) * Math.PI * 2;
+                const radius = 300;
+                const x = Math.sin(angle) * radius;
+                const z = Math.cos(angle) * radius;
+                
+                item.style.transform = `translate(-50%, -50%) translateZ(${z}px) translateX(${x}px) rotateY(${-angle}rad)`;
+                item.style.opacity = z > 0 ? '1' : '0.5';
+                item.style.zIndex = Math.floor(z);
+                
+                // Add/remove active class
+                if (newIndex === 0) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+        
+        // Next button
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            rotateCarousel();
+        });
+        
+        // Previous button
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            rotateCarousel();
+        });
+        
+        // Initialize carousel
+        createCarouselItems();
+        rotateCarousel();
+        
+        // Auto-rotate
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            rotateCarousel();
+        }, 5000);
     </script>
 </body>
 </html>
