@@ -67,10 +67,6 @@
     <!-- Swiper JS (Carousel) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-    <!-- Three.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
-
     <!-- Custom CSS -->
     <style>
         .bible-verse {
@@ -91,174 +87,97 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .verse-carousel {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .verse-slide .verse-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 15px;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-        }
-
-        .verse-slide .verse-ref {
-            font-weight: 600;
-            color: theme('colors.yellow');
-        }
-
-        .card-header {
-            background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary'));
-            color: white;
-            font-weight: 600;
-        }
-
         .gradient-text {
             background: linear-gradient(to right, theme('colors.primary'), theme('colors.accent'));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* 3D Scene Container */
-        #bible3d {
-            width: 100%;
-            height: 300px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        /* Gradient Background Animation */
+        .gradient-bg {
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #2ecc71, #ffd700);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
 
-        /* Floating Elements */
-        .floating-element {
-            position: absolute;
-            z-index: 10;
-            animation: float 6s ease-in-out infinite;
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
-        .floating-element-2 {
-            animation: float-2 4s ease-in-out infinite;
-        }
-
-        .floating-element-3 {
-            animation: float-3 5s ease-in-out infinite;
-        }
-
-        /* Glass Morphism */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
+        /* Bible Verse Carousel */
+        .verse-carousel {
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
-        /* 3D Carousel */
-        .carousel-3d-container {
-            perspective: 1000px;
-            width: 100%;
-            height: 400px;
-            position: relative;
-            margin: 0 auto;
-        }
-        
-        .carousel-3d {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s;
-        }
-        
-        .carousel-item {
-            position: absolute;
-            width: 300px;
-            height: 350px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .verse-slide {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
             text-align: center;
-            transition: all 0.5s ease;
-            backface-visibility: hidden;
-        }
-        
-        .carousel-item .verse-text {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 15px;
-            color: theme('colors.primary');
-        }
-        
-        .carousel-item .verse-ref {
-            font-weight: bold;
-            color: theme('colors.secondary');
-        }
-        
-        .carousel-nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .carousel-nav button {
-            background: theme('colors.primary');
             color: white;
-            border: none;
-            padding: 8px 16px;
-            margin: 0 5px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .carousel-nav button:hover {
-            background: theme('colors.accent');
         }
 
-        /* Lion Background */
-        .lion-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .verse-slide img {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom right, #6a11cb, #2575fc);
-            z-index: -1;
-            overflow: hidden;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-        
-        .lion-bg::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path d="M50,20 C60,10 80,10 90,20 C100,30 100,50 90,60 C80,70 60,70 50,60 C40,70 20,70 10,60 C0,50 0,30 10,20 C20,10 40,10 50,20 Z" fill="%23ffd700"/></svg>');
-            background-size: 100px;
-            opacity: 0.1;
+
+        .verse-slide .verse-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
-        
-        .lion-svg {
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 300px;
-            height: 300px;
-            opacity: 0.2;
-            z-index: 0;
+
+        .verse-slide .verse-ref {
+            font-weight: 600;
+            color: theme('colors.yellow');
+            font-size: 1.2rem;
+        }
+
+        /* Swiper Custom Styles */
+        .swiper-pagination-bullet {
+            background: white;
+            opacity: 0.5;
+            width: 10px;
+            height: 10px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: theme('colors.accent');
+            opacity: 1;
+        }
+
+        .swiper-button-next, 
+        .swiper-button-prev {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+        }
+
+        .swiper-button-next:after, 
+        .swiper-button-prev:after {
+            font-size: 1.2rem;
         }
 
         /* Responsive */
@@ -267,17 +186,8 @@
                 font-size: 2.8rem;
             }
             
-            .section {
-                padding: 80px 0;
-            }
-            
-            .carousel-3d-container {
-                height: 350px;
-            }
-            
-            .carousel-item {
-                width: 250px;
-                height: 300px;
+            .verse-slide .verse-text {
+                font-size: 1.3rem;
             }
         }
 
@@ -287,27 +197,11 @@
             }
             
             .verse-slide .verse-text {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
-            .logo-text {
-                display: none;
-            }
-            
-            .carousel-3d-container {
-                height: 300px;
-            }
-            
-            .carousel-item {
-                width: 200px;
-                height: 250px;
-            }
-            
-            .lion-svg {
-                width: 200px;
-                height: 200px;
-                bottom: -30px;
-                right: -30px;
+            .verse-slide .verse-ref {
+                font-size: 1rem;
             }
         }
     </style>
@@ -342,15 +236,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden" id="inicio">
-        <!-- Lion Background -->
-        <div class="lion-bg">
-            <svg class="lion-svg" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                <path fill="gold" d="M256 32C114.6 32 0 125.1 0 240c0 49.6 21.4 95 57 130.7C44.5 421.1 2.7 466 2.2 466.5c-2.2 2.3-2.8 5.7-1.5 8.7S4.8 480 8 480c66.3 0 116-31.8 140.6-51.4 32.7 12.3 69 19.4 107.4 19.4 141.4 0 256-93.1 256-208S397.4 32 256 32zm0 368c-26.7 0-53.1-4.1-78.4-12.1l-22.7-7.2-19.5 13.8c-14.3 10.1-33.9 21.4-57.5 29 7.3-12.1 14.4-25.7 19.9-40.2l10.6-28.1-20.6-21.8C69.7 314.1 48 282.2 48 240c0-88.2 93.3-160 208-160s208 71.8 208 160-93.3 160-208 160z"/>
-            </svg>
-        </div>
-        
+    <!-- Hero Section with Gradient Background -->
+    <section class="hero relative min-h-screen flex items-center overflow-hidden gradient-bg" id="inicio">
         <div class="absolute bottom-0 left-0 w-full h-40 overflow-hidden">
             <svg viewBox="0 0 1200 120" class="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="none">
                 <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/>
@@ -370,8 +257,54 @@
                     </div>
                 </div>
                 
-                <!-- 3D Bible Scene -->
-                
+                <!-- Bible Verse Carousel -->
+                <div class="lg:w-1/2 px-4 animate__animated animate__fadeIn animate__delay-1s">
+                    <div class="verse-carousel swiper">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Biblia abierta" loading="lazy">
+                                <div class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."</div>
+                                <div class="verse-ref">Juan 3:16</div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cruz en la montaña" loading="lazy">
+                                <div class="verse-text">"Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros."</div>
+                                <div class="verse-ref">1 Pedro 5:7</div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Manos orando" loading="lazy">
+                                <div class="verse-text">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados."</div>
+                                <div class="verse-ref">Romanos 8:28</div>
+                            </div>
+                            
+                            <!-- Slide 4 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1518481852452-9415b262eba4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Luz de esperanza" loading="lazy">
+                                <div class="verse-text">"El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo."</div>
+                                <div class="verse-ref">Filipenses 1:6</div>
+                            </div>
+                            
+                            <!-- Slide 5 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Familia orando" loading="lazy">
+                                <div class="verse-text">"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio."</div>
+                                <div class="verse-ref">2 Timoteo 1:7</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                        
+                        <!-- Navigation buttons -->
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -405,43 +338,108 @@
     </section>
 
     <!-- Nosotros -->
-    <section class="py-20" id="nosotros">
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100" id="nosotros">
         <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4 relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Nuestra Misión</h2>
+                <p class="text-xl mb-6">Llevando el mensaje de esperanza a Venezuela y el mundo</p>
+                <blockquote class="bible-verse max-w-3xl mx-auto">
+                    "Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo." Mateo 28:19
+                </blockquote>
+            </div>
+            
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
-                     
-                    <!-- 3D Bible Verses Carousel -->
-                    <div class="carousel-3d-container" id="bible-carousel">
-                        <div class="carousel-3d" id="carousel">
-                            <!-- Verses will be added here by JavaScript -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-primary mb-4">Quiénes Somos</h3>
+                        <p class="mb-4">El Centro de Desarrollo Cristiano es una comunidad de fe comprometida con el crecimiento espiritual, el servicio a los necesitados y la proclamación del Evangelio en Venezuela.</p>
+                        <p class="mb-6">Fundada en 2010, nuestra iglesia ha sido un faro de esperanza en medio de las dificultades, ofreciendo no solo alimento espiritual sino también ayuda tangible a las familias más vulnerables.</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div class="flex items-start">
+                                <div class="text-accent mr-3 mt-1">
+                                    <i class="fas fa-cross"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Nuestra Fe</h4>
+                                    <p class="text-sm">Basada en las Sagradas Escrituras</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-green-500 mr-3 mt-1">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Nuestra Misión</h4>
+                                    <p class="text-sm">Servir con amor y compasión</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-yellow-500 mr-3 mt-1">
+                                    <i class="fas fa-church"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Nuestra Visión</h4>
+                                    <p class="text-sm">Transformar vidas para Cristo</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-500 mr-3 mt-1">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Nuestro Lema</h4>
+                                    <p class="text-sm">Amor, Fe y Servicio</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-nav">
-                            <button id="prev-btn"><i class="fas fa-chevron-left"></i></button>
-                            <button id="next-btn"><i class="fas fa-chevron-right"></i></button>
-                        </div>
+                        
+                        <blockquote class="bible-verse">
+                            "Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones." Hechos 2:42
+                        </blockquote>
                     </div>
-                    
-                     
                 </div>
                 
                 <div class="lg:w-1/2" data-aos="fade-left">
-                    <!-- 3D Church Model -->
-                    <div class="relative rounded-xl overflow-hidden shadow-xl h-96">
-                        <div id="church3d" class="w-full h-full"></div>
-                        <div class="absolute bottom-4 left-4 glass-card p-3 rounded-lg">
-                            <h4 class="text-white font-semibold">Nuestra Sede</h4>
-                            <p class="text-white text-sm"> San Jose de Guanipa - Estado Anzoategui - Venezuela</p>
+                    <!-- Second Bible Verse Carousel -->
+                    <div class="verse-carousel swiper">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Personas orando juntas" loading="lazy">
+                                <div class="verse-text">"No dejando de congregarnos, como algunos tienen por costumbre, sino exhortándonos; y tanto más, cuanto veis que aquel día se acerca."</div>
+                                <div class="verse-ref">Hebreos 10:25</div>
+                            </div>
+                            
+                            <!-- Slide 2 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Biblia y rosario" loading="lazy">
+                                <div class="verse-text">"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia."</div>
+                                <div class="verse-ref">2 Timoteo 3:16</div>
+                            </div>
+                            
+                            <!-- Slide 3 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Manos levantadas en adoración" loading="lazy">
+                                <div class="verse-text">"Alabad a Jehová, porque él es bueno; porque para siempre es su misericordia."</div>
+                                <div class="verse-ref">Salmo 106:1</div>
+                            </div>
+                            
+                            <!-- Slide 4 -->
+                            <div class="verse-slide swiper-slide">
+                                <img src="https://images.unsplash.com/photo-1528991655570-6a235b6d7a1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Personas ayudando a otros" loading="lazy">
+                                <div class="verse-text">"Y el Rey les responderá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis."</div>
+                                <div class="verse-ref">Mateo 25:40</div>
+                            </div>
                         </div>
+                        
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
                     </div>
-                    <blockquote class="bible-verse mt-6">
-                        "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados." Romanos 8:28
-                    </blockquote>
                 </div>
             </div>
         </div>
     </section>
-
-    
 
     <!-- Testimonios -->
     <section class="py-20">
@@ -500,49 +498,52 @@
         </div>
     </section>
 
-    <!-- Eventos -->
-     
-
     <!-- Contacto -->
-    <section class="py-20" id="contacto">
+    <section class="py-20 bg-gradient-to-br from-primary to-secondary text-white" id="contacto">
         <div class="container mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-10">
                 <div class="lg:w-1/2" data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-6 relative pb-4 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Contáctanos</h2>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6 relative pb-4 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Contáctanos</h2>
                     <p class="text-xl mb-6">Estamos aquí para servirte. No dudes en contactarnos para cualquier pregunta o necesidad.</p>
-                    <blockquote class="bible-verse mb-8">
+                    <blockquote class="bible-verse mb-8 text-white/80">
                         "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias." Filipenses 4:6
                     </blockquote>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow">
-                            <div class="text-primary mr-4">
+                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                            <div class="text-white mr-4">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
-                             
+                            <div>
+                                <h4 class="font-semibold mb-1">Dirección</h4>
+                                <p class="text-white/80">San Jose de Guanipa<br>Estado Anzoátegui, Venezuela</p>
+                            </div>
                         </div>
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow">
-                            <div class="text-primary mr-4">
+                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                            <div class="text-white mr-4">
                                 <i class="fas fa-phone-alt text-xl"></i>
                             </div>
-                             
+                            <div>
+                                <h4 class="font-semibold mb-1">Teléfono</h4>
+                                <p class="text-white/80">+58 414-5555678<br>+58 212-5551234</p>
+                            </div>
                         </div>
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow">
-                            <div class="text-primary mr-4">
+                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                            <div class="text-white mr-4">
                                 <i class="fas fa-envelope text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Correo Electrónico</h4>
-                                <p class="text-gray-600"> bit646149@gmail.com<br> </p>
+                                <p class="text-white/80">bit646149@gmail.com<br>contacto@cdcvenezuela.org</p>
                             </div>
                         </div>
-                        <div class="flex items-start bg-white p-4 rounded-lg shadow">
-                            <div class="text-primary mr-4">
+                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
+                            <div class="text-white mr-4">
                                 <i class="fas fa-clock text-xl"></i>
                             </div>
                             <div>
                                 <h4 class="font-semibold mb-1">Horarios</h4>
-                                <p class="text-gray-600">Domingos: 8am - 12pm<br>Martes y Jueves: 5pm - 7pm</p>
+                                <p class="text-white/80">Domingos: 8am - 12pm<br>Martes y Jueves: 5pm - 7pm</p>
                             </div>
                         </div>
                     </div>
@@ -569,14 +570,36 @@
                     </div>
                 </div>
                 
-                
-                                   
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="bg-white/10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
+                        <h3 class="text-2xl font-bold text-white mb-6">Envía un Mensaje</h3>
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-white/80 mb-2">Nombre</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="Tu nombre" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-white/80 mb-2">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="tu@email.com" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-white/80 mb-2">Asunto</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="¿Cómo podemos ayudarte?" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-white/80 mb-2">Mensaje</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-accent hover:bg-violet text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-primary to-secondary text-white pt-20 pb-10">
+    <footer class="bg-gradient-to-br from-gray-900 to-black text-white pt-20 pb-10">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
                 <div>
@@ -608,12 +631,22 @@
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-white/80 hover:text-white transition-colors duration-300">Inicio</a></li>
                         <li><a href="#nosotros" class="text-white/80 hover:text-white transition-colors duration-300">Nosotros</a></li>
-                       
+                        <li><a href="#ministerios" class="text-white/80 hover:text-white transition-colors duration-300">Ministerios</a></li>
+                        <li><a href="#eventos" class="text-white/80 hover:text-white transition-colors duration-300">Eventos</a></li>
                         <li><a href="#contacto" class="text-white/80 hover:text-white transition-colors duration-300">Contacto</a></li>
                     </ul>
                 </div>
                 
-                
+                <div>
+                    <h5 class="text-lg font-semibold mb-4">Ministerios</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Generación CDC (Jóvenes)</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Escuela Dominical</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Grupos de Oración</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Ayuda Humanitaria</a></li>
+                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Misiones</a></li>
+                    </ul>
+                </div>
                 
                 <div>
                     <h5 class="text-lg font-semibold mb-4">Legal</h5>
@@ -767,299 +800,40 @@
             }, 1000);
         });
 
-        // 3D Bible Scene
-        const bibleContainer = document.getElementById('bible3d');
-        
-        if (bibleContainer) {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, bibleContainer.clientWidth / bibleContainer.clientHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(bibleContainer.clientWidth, bibleContainer.clientHeight);
-            bibleContainer.appendChild(renderer.domElement);
-
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-
-            // Bible Geometry
-            const geometry = new THREE.BoxGeometry(3, 4, 0.5);
-            const edges = new THREE.EdgesGeometry(geometry);
-            const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({ color: 0xffffff }));
-            
-            const material = new THREE.MeshPhongMaterial({ 
-                color: 0x8B4513,
-                specular: 0x111111,
-                shininess: 30
-            });
-            
-            const bible = new THREE.Mesh(geometry, material);
-            bible.add(line);
-            scene.add(bible);
-
-            // Cross on top
-            const crossGeometry = new THREE.BoxGeometry(0.2, 1, 0.2);
-            const crossMaterial = new THREE.MeshPhongMaterial({ color: 0xdaa520 });
-            const vertical = new THREE.Mesh(crossGeometry, crossMaterial);
-            vertical.position.y = 2.5;
-            
-            const horizontal = new THREE.Mesh(crossGeometry, crossMaterial);
-            horizontal.position.y = 2.5;
-            horizontal.rotation.z = Math.PI / 2;
-            horizontal.scale.set(1.5, 1, 1);
-            
-            const cross = new THREE.Group();
-            cross.add(vertical);
-            cross.add(horizontal);
-            bible.add(cross);
-
-            camera.position.z = 5;
-
-            // Animation
-            function animate() {
-                requestAnimationFrame(animate);
-                bible.rotation.y += 0.005;
-                renderer.render(scene, camera);
-            }
-            
-            animate();
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                camera.aspect = bibleContainer.clientWidth / bibleContainer.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(bibleContainer.clientWidth, bibleContainer.clientHeight);
-            });
-        }
-
-        // 3D Church Scene
-        const churchContainer = document.getElementById('church3d');
-        
-        if (churchContainer) {
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, churchContainer.clientWidth / churchContainer.clientHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(churchContainer.clientWidth, churchContainer.clientHeight);
-            churchContainer.appendChild(renderer.domElement);
-
-            // Lighting
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-            scene.add(ambientLight);
-            
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(1, 1, 1);
-            scene.add(directionalLight);
-
-            // Church Building
-            const baseGeometry = new THREE.BoxGeometry(4, 1, 3);
-            const baseMaterial = new THREE.MeshPhongMaterial({ color: 0xcccccc });
-            const base = new THREE.Mesh(baseGeometry, baseMaterial);
-            base.position.y = -0.5;
-            scene.add(base);
-
-            const mainGeometry = new THREE.BoxGeometry(3, 2, 2);
-            const mainMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-            const main = new THREE.Mesh(mainGeometry, mainMaterial);
-            main.position.y = 1;
-            scene.add(main);
-
-            const roofGeometry = new THREE.ConeGeometry(2.5, 1.5, 4);
-            const roofMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
-            const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-            roof.position.y = 2.75;
-            roof.rotation.y = Math.PI / 4;
-            scene.add(roof);
-
-            const towerGeometry = new THREE.BoxGeometry(0.8, 3, 0.8);
-            const towerMaterial = new THREE.MeshPhongMaterial({ color: 0xffffff });
-            const tower = new THREE.Mesh(towerGeometry, towerMaterial);
-            tower.position.set(0, 2.5, -0.5);
-            scene.add(tower);
-
-            const towerRoofGeometry = new THREE.ConeGeometry(0.7, 1, 4);
-            const towerRoofMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
-            const towerRoof = new THREE.Mesh(towerRoofGeometry, towerRoofMaterial);
-            towerRoof.position.set(0, 4, -0.5);
-            towerRoof.rotation.y = Math.PI / 4;
-            scene.add(towerRoof);
-
-            const crossGeometry = new THREE.BoxGeometry(0.1, 0.5, 0.1);
-            const crossMaterial = new THREE.MeshPhongMaterial({ color: 0xdaa520 });
-            const vertical = new THREE.Mesh(crossGeometry, crossMaterial);
-            vertical.position.set(0, 4.7, -0.5);
-            
-            const horizontal = new THREE.Mesh(crossGeometry, crossMaterial);
-            horizontal.position.set(0, 4.7, -0.5);
-            horizontal.rotation.z = Math.PI / 2;
-            horizontal.scale.set(1.5, 1, 1);
-            
-            const cross = new THREE.Group();
-            cross.add(vertical);
-            cross.add(horizontal);
-            scene.add(cross);
-
-            // Door
-            const doorGeometry = new THREE.BoxGeometry(0.8, 1.2, 0.1);
-            const doorMaterial = new THREE.MeshPhongMaterial({ color: 0x8B4513 });
-            const door = new THREE.Mesh(doorGeometry, doorMaterial);
-            door.position.set(0, 0.6, 1.05);
-            scene.add(door);
-
-            // Windows
-            const windowGeometry = new THREE.BoxGeometry(0.6, 0.6, 0.1);
-            const windowMaterial = new THREE.MeshPhongMaterial({ color: 0x87CEEB, transparent: true, opacity: 0.7 });
-            
-            const window1 = new THREE.Mesh(windowGeometry, windowMaterial);
-            window1.position.set(-1, 1.5, 1.05);
-            scene.add(window1);
-            
-            const window2 = new THREE.Mesh(windowGeometry, windowMaterial);
-            window2.position.set(1, 1.5, 1.05);
-            scene.add(window2);
-
-            camera.position.z = 8;
-            camera.position.y = 2;
-
-            // Controls
-            const controls = new THREE.OrbitControls(camera, renderer.domElement);
-            controls.enableZoom = false;
-            controls.enablePan = false;
-            controls.autoRotate = true;
-            controls.autoRotateSpeed = 0.5;
-
-            // Animation
-            function animate() {
-                requestAnimationFrame(animate);
-                controls.update();
-                renderer.render(scene, camera);
-            }
-            
-            animate();
-
-            // Handle resize
-            window.addEventListener('resize', () => {
-                camera.aspect = churchContainer.clientWidth / churchContainer.clientHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(churchContainer.clientWidth, churchContainer.clientHeight);
-            });
-        }
-        
-        // 3D Bible Verses Carousel
-        const bibleVerses = [
-            {
-                text: "Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",
-                reference: "Juan 3:16"
+        // Initialize Swiper carousels
+        const heroSwiper = new Swiper('.hero .verse-carousel', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
             },
-            {
-                text: "Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados.",
-                reference: "Romanos 8:28"
+            pagination: {
+                el: '.hero .swiper-pagination',
+                clickable: true,
             },
-            {
-                text: "Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros.",
-                reference: "1 Pedro 5:7"
+            navigation: {
+                nextEl: '.hero .swiper-button-next',
+                prevEl: '.hero .swiper-button-prev',
             },
-            {
-                text: "Fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir, sino que dará también juntamente con la tentación la salida, para que podáis soportar.",
-                reference: "1 Corintios 10:13"
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
             },
-            {
-                text: "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio.",
-                reference: "2 Timoteo 1:7"
-            },
-            {
-                text: "El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo.",
-                reference: "Filipenses 1:6"
-            },
-            {
-                text: "Mas buscad primeramente el reino de Dios y su justicia, y todas estas cosas os serán añadidas.",
-                reference: "Mateo 6:33"
-            },
-            {
-                text: "Jehová es mi pastor; nada me faltará.",
-                reference: "Salmo 23:1"
-            }
-        ];
-
-        const carousel = document.getElementById('carousel');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        
-        let currentIndex = 0;
-        let totalItems = bibleVerses.length;
-        
-        // Create carousel items
-        function createCarouselItems() {
-            bibleVerses.forEach((verse, index) => {
-                const item = document.createElement('div');
-                item.className = 'carousel-item';
-                item.innerHTML = `
-                    <div class="verse-text">${verse.text}</div>
-                    <div class="verse-ref">${verse.reference}</div>
-                `;
-                carousel.appendChild(item);
-                positionItem(item, index);
-            });
-        }
-        
-        // Position items in 3D space
-        function positionItem(item, index) {
-            const angle = (index / totalItems) * Math.PI * 2;
-            const radius = 300;
-            const x = Math.sin(angle) * radius;
-            const z = Math.cos(angle) * radius;
-            
-            item.style.transform = `translate(-50%, -50%) translateZ(${z}px) translateX(${x}px) rotateY(${-angle}rad)`;
-            item.style.opacity = z > 0 ? '1' : '0.5';
-            item.style.zIndex = Math.floor(z);
-        }
-        
-        // Rotate carousel
-        function rotateCarousel() {
-            const items = document.querySelectorAll('.carousel-item');
-            items.forEach((item, index) => {
-                const newIndex = (index - currentIndex + totalItems) % totalItems;
-                const angle = (newIndex / totalItems) * Math.PI * 2;
-                const radius = 300;
-                const x = Math.sin(angle) * radius;
-                const z = Math.cos(angle) * radius;
-                
-                item.style.transform = `translate(-50%, -50%) translateZ(${z}px) translateX(${x}px) rotateY(${-angle}rad)`;
-                item.style.opacity = z > 0 ? '1' : '0.5';
-                item.style.zIndex = Math.floor(z);
-                
-                // Add/remove active class
-                if (newIndex === 0) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-        
-        // Next button
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            rotateCarousel();
         });
-        
-        // Previous button
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-            rotateCarousel();
+
+        const aboutSwiper = new Swiper('#nosotros .verse-carousel', {
+            loop: true,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '#nosotros .swiper-pagination',
+                clickable: true,
+            },
+            effect: 'slide',
+            grabCursor: true,
         });
-        
-        // Initialize carousel
-        createCarouselItems();
-        rotateCarousel();
-        
-        // Auto-rotate
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalItems;
-            rotateCarousel();
-        }, 5000);
     </script>
 </body>
 </html>
