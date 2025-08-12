@@ -3,16 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centro de Desarrollo Cristiano</title>
-    <meta name="description" content="Únete a nuestra comunidad cristiana en Venezuela. Ministerios, ayuda humanitaria, eventos y más.">
-    <meta name="keywords" content="iglesia Venezuela, cristianos, ayuda humanitaria, oración, estudio bíblico">
-    <meta name="author" content="Centro de Desarrollo Cristiano">
-
+    <title>Iglesia Luz de Vida - Comunidad Cristiana</title>
+    <meta name="description" content="Una iglesia vibrante donde la fe cobra vida. Únete a nuestra familia en Cristo.">
+    <meta name="keywords" content="iglesia cristiana, comunidad de fe, estudios bíblicos, adoración, Venezuela">
+    
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/svgs/solid/church.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/svgs/solid/church.svg">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/svgs/solid/church.svg">
-
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/210/210545.png" type="image/png">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -20,477 +17,364 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6a11cb',
-                        secondary: '#2575fc',
-                        accent: '#ff3e9d',
-                        violet: '#8a2be2',
-                        yellow: '#ffd700',
-                        orange: '#ff7b25',
-                        green: '#2ecc71',
-                        black: '#1a1a1a',
-                        success: '#4cc9f0',
-                        warning: '#f8961e',
-                        text: '#495057'
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        dark: '#1F2937',
+                        light: '#F3F4F6'
                     },
                     fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                        serif: ['Merriweather', 'serif']
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif']
                     },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'float-2': 'float 4s ease-in-out infinite',
-                        'float-3': 'float 5s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s infinite',
+                        'float': 'float 5s ease-in-out infinite'
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
+                            '50%': { transform: 'translateY(-15px)' }
                         }
                     }
                 }
             }
         }
     </script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
+    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
-    <!-- AOS (Animate On Scroll) -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Swiper JS (Carousel) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-    <!-- Custom CSS -->
+    
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    
     <style>
-        .bible-verse {
-            font-style: italic;
-            color: theme('colors.violet');
-            padding: 10px;
-            border-left: 3px solid theme('colors.accent');
-            margin: 15px 0;
-            background-color: rgba(138, 43, 226, 0.05);
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(79,70,229,0.9) 0%, rgba(16,185,129,0.85) 100%);
         }
-
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(to right, #fff, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
         }
-
-        .gradient-text {
-            background: linear-gradient(to right, theme('colors.primary'), theme('colors.accent'));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-
-        /* Gradient Background Animation */
-        .gradient-bg {
-            background: linear-gradient(-45deg, #6a11cb, #2575fc, #2ecc71, #ffd700);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        /* Bible Verse Carousel */
-        .verse-carousel {
-            background: rgba(255, 255, 255, 0.2);
+        
+        .verse-card {
+            background: rgba(255,255,255,0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
         }
-
-        .verse-slide {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-
-        .verse-slide img {
+        
+        .wave-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
             width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+            line-height: 0;
         }
-
-        .verse-slide .verse-text {
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 15px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        
+        .wave-shape svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 100px;
         }
-
-        .verse-slide .verse-ref {
-            font-weight: 600;
-            color: theme('colors.yellow');
-            font-size: 1.2rem;
-        }
-
-        /* Swiper Custom Styles */
-        .swiper-pagination-bullet {
-            background: white;
-            opacity: 0.5;
-            width: 10px;
-            height: 10px;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: theme('colors.accent');
-            opacity: 1;
-        }
-
-        .swiper-button-next, 
-        .swiper-button-prev {
-            color: white;
-            background: rgba(255, 255, 255, 0.2);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            backdrop-filter: blur(5px);
-        }
-
-        .swiper-button-next:after, 
-        .swiper-button-prev:after {
-            font-size: 1.2rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 991.98px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            
-            .verse-slide .verse-text {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 767.98px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            
-            .verse-slide .verse-text {
-                font-size: 1.1rem;
-            }
-            
-            .verse-slide .verse-ref {
-                font-size: 1rem;
-            }
+        
+        .wave-shape .shape-fill {
+            fill: #FFFFFF;
         }
     </style>
 </head>
-<body class="font-sans text-text">
-    <!-- Navbar -->
-    <nav class="navbar fixed top-0 left-0 w-full py-4 bg-white bg-opacity-95 backdrop-filter backdrop-blur-lg shadow-md z-50 transition-all duration-300">
-        <div class="container mx-auto px-4">
+<body class="font-sans bg-light text-dark">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#" class="flex items-center">
-                    <i class="fas fa-church text-accent text-3xl mr-3"></i>
-                    <div class="flex flex-col leading-tight">
-                        <span class="font-bold text-primary text-2xl">CDC</span>
-                        <span class="text-secondary text-xs tracking-wider">CENTRO DE DESARROLLO CRISTIANO</span>
-                    </div>
-                </a>
+                <div class="flex items-center">
+                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" class="h-10 mr-3">
+                    <span class="text-xl font-bold text-primary">Luz de Vida</span>
+                </div>
                 
-                <button class="md:hidden focus:outline-none" id="menu-toggle">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-dark hover:text-primary transition">Inicio</a>
+                    <a href="#nosotros" class="text-dark hover:text-primary transition">Nosotros</a>
+                    <a href="#ministerios" class="text-dark hover:text-primary transition">Ministerios</a>
+                    <a href="#eventos" class="text-dark hover:text-primary transition">Eventos</a>
+                    <a href="#contacto" class="text-dark hover:text-primary transition">Contacto</a>
+                </div>
+                
+                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                
-                <div class="hidden md:flex items-center space-x-8" id="menu">
-                    <a href="#inicio" class="nav-link relative text-black hover:text-primary transition-colors duration-300">Inicio</a>
-                    <a href="#nosotros" class="nav-link relative text-black hover:text-primary transition-colors duration-300">Nosotros</a>
-                    <a href="#ministerios" class="nav-link relative text-black hover:text-primary transition-colors duration-300">Ministerios</a>
-                    <a href="#eventos" class="nav-link relative text-black hover:text-primary transition-colors duration-300">Eventos</a>
-                    <a href="#contacto" class="nav-link relative text-black hover:text-primary transition-colors duration-300">Contacto</a>
-                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Gradient Background -->
-    <section class="hero relative min-h-screen flex items-center overflow-hidden gradient-bg" id="inicio">
-        <div class="absolute bottom-0 left-0 w-full h-40 overflow-hidden">
-            <svg viewBox="0 0 1200 120" class="absolute bottom-0 left-0 w-full h-full" preserveAspectRatio="none">
-                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="white"/>
-                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="white"/>
-                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="white"/>
-            </svg>
-        </div>
-        
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 animate__animated animate__fadeInDown">
-                    <h1 class="hero-title font-serif font-bold mb-6">Centro de Desarrollo Cristiano</h1>
-                    <p class="text-xl text-white mb-8 animate__animated animate__fadeIn animate__delay-1s">Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo</p>
-                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 animate__animated animate__fadeInUp animate__delay-2s">
-                        <a href="#nosotros" class="bg-accent hover:bg-violet text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">Conócenos</a>
-                        <a href="#eventos" class="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300">Eventos</a>
-                    </div>
+    <!-- Hero Section -->
+    <section id="inicio" class="pt-32 pb-20 hero-gradient text-white relative overflow-hidden">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0" data-aos="fade-right">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold mb-6 text-shadow">Una comunidad donde la fe cobra vida</h1>
+                <p class="text-xl mb-8">Encuentra propósito, esperanza y familia en Cristo Jesús.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#eventos" class="bg-accent hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">Próximos Eventos</a>
+                    <a href="#contacto" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full shadow-lg transition">Visítanos</a>
                 </div>
-                
-                <!-- Bible Verse Carousel -->
-                <div class="lg:w-1/2 px-4 animate__animated animate__fadeIn animate__delay-1s">
-                    <div class="verse-carousel swiper">
-                        <div class="swiper-wrapper">
-                            <!-- Slide 1 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Biblia abierta" loading="lazy">
-                                <div class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."</div>
-                                <div class="verse-ref">Juan 3:16</div>
-                            </div>
-                            
-                            <!-- Slide 2 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cruz en la montaña" loading="lazy">
-                                <div class="verse-text">"Echando toda vuestra ansiedad sobre él, porque él tiene cuidado de vosotros."</div>
-                                <div class="verse-ref">1 Pedro 5:7</div>
-                            </div>
-                            
-                            <!-- Slide 3 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1452421822248-d4c2b47f0c81?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Manos orando" loading="lazy">
-                                <div class="verse-text">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados."</div>
-                                <div class="verse-ref">Romanos 8:28</div>
-                            </div>
-                            
-                            <!-- Slide 4 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1518481852452-9415b262eba4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Luz de esperanza" loading="lazy">
-                                <div class="verse-text">"El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo."</div>
-                                <div class="verse-ref">Filipenses 1:6</div>
-                            </div>
-                            
-                            <!-- Slide 5 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Familia orando" loading="lazy">
-                                <div class="verse-text">"Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio."</div>
-                                <div class="verse-ref">2 Timoteo 1:7</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                        
-                        <!-- Navigation buttons -->
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Estadísticas -->
-    <section class="py-12 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
-                    <div class="counter text-5xl font-bold gradient-text mb-2" data-target="15">0</div>
-                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Años de Servicio</h3>
-                    <p class="bible-verse text-sm">"El que comenzó en vosotros la buena obra, la perfeccionará hasta el día de Jesucristo." Filipenses 1:6</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-                    <div class="counter text-5xl font-bold gradient-text mb-2" data-target="1200">0</div>
-                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Miembros</h3>
-                    <p class="bible-verse text-sm">"Porque donde están dos o tres congregados en mi nombre, allí estoy yo en medio de ellos." Mateo 18:20</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-                    <div class="counter text-5xl font-bold gradient-text mb-2" data-target="8">0</div>
-                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Ministerios</h3>
-                    <p class="bible-verse text-sm">"Cada uno según el don que ha recibido, minístrelo a los otros, como buenos administradores de la multiforme gracia de Dios." 1 Pedro 4:10</p>
-                </div>
-                <div class="text-center p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-                    <div class="counter text-5xl font-bold gradient-text mb-2" data-target="5000">0</div>
-                    <h3 class="text-lg font-semibold text-gray-700 mb-3">Personas Ayudadas</h3>
-                    <p class="bible-verse text-sm">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." Colosenses 3:23</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nosotros -->
-    <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100" id="nosotros">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4 relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Nuestra Misión</h2>
-                <p class="text-xl mb-6">Llevando el mensaje de esperanza a Venezuela y el mundo</p>
-                <blockquote class="bible-verse max-w-3xl mx-auto">
-                    "Por tanto, id, y haced discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo." Mateo 28:19
-                </blockquote>
             </div>
             
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10" data-aos="fade-right">
+            <div class="md:w-1/2 relative" data-aos="fade-left">
+                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración" class="rounded-xl shadow-2xl floating">
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                    <div class="flex items-center">
+                        <div class="bg-primary p-3 rounded-full mr-4">
+                            <i class="fas fa-church text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold">Servicios Dominicales</p>
+                            <p class="text-sm">9:00 AM y 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="wave-shape">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Bible Verse Carousel -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="swiper verse-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="verse-card p-8 rounded-xl text-center max-w-3xl mx-auto">
+                            <p class="text-2xl italic mb-4">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna."</p>
+                            <p class="font-bold text-primary">Juan 3:16</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="verse-card p-8 rounded-xl text-center max-w-3xl mx-auto">
+                            <p class="text-2xl italic mb-4">"Y sabemos que a los que aman a Dios, todas las cosas les ayudan a bien, esto es, a los que conforme a su propósito son llamados."</p>
+                            <p class="font-bold text-primary">Romanos 8:28</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="verse-card p-8 rounded-xl text-center max-w-3xl mx-auto">
+                            <p class="text-2xl italic mb-4">"Fiel es Dios, que no os dejará ser tentados más de lo que podéis resistir, sino que dará también juntamente con la tentación la salida, para que podáis soportar."</p>
+                            <p class="font-bold text-primary">1 Corintios 10:13</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="nosotros" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Nuestra Historia</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Somos una iglesia comprometida con la transformación de vidas a través del poder del Evangelio.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-10" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad" class="rounded-xl shadow-lg">
+                </div>
+                
+                <div class="md:w-1/2" data-aos="fade-left">
                     <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-2xl font-bold text-primary mb-4">Quiénes Somos</h3>
-                        <p class="mb-4">El Centro de Desarrollo Cristiano es una comunidad de fe comprometida con el crecimiento espiritual, el servicio a los necesitados y la proclamación del Evangelio en Venezuela.</p>
-                        <p class="mb-6">Fundada en 2010, nuestra iglesia ha sido un faro de esperanza en medio de las dificultades, ofreciendo no solo alimento espiritual sino también ayuda tangible a las familias más vulnerables.</p>
+                        <h3 class="text-2xl font-serif font-bold mb-4 text-primary">Quiénes Somos</h3>
+                        <p class="mb-4">Fundada en 2010, Luz de Vida comenzó como un pequeño grupo de creyentes que se reunían en un hogar. Hoy somos una comunidad vibrante que impacta nuestra ciudad.</p>
+                        <p class="mb-6">Creemos en el poder transformador de Jesucristo y estamos comprometidos con el discipulado, la adoración genuina y el servicio a nuestro prójimo.</p>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                             <div class="flex items-start">
-                                <div class="text-accent mr-3 mt-1">
-                                    <i class="fas fa-cross"></i>
+                                <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                    <i class="fas fa-cross text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold">Nuestra Fe</h4>
+                                    <h4 class="font-bold mb-1">Nuestra Fe</h4>
                                     <p class="text-sm">Basada en las Sagradas Escrituras</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
-                                <div class="text-green-500 mr-3 mt-1">
-                                    <i class="fas fa-hands-helping"></i>
+                                <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                    <i class="fas fa-hands-helping text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold">Nuestra Misión</h4>
-                                    <p class="text-sm">Servir con amor y compasión</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-yellow-500 mr-3 mt-1">
-                                    <i class="fas fa-church"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Nuestra Visión</h4>
-                                    <p class="text-sm">Transformar vidas para Cristo</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start">
-                                <div class="text-blue-500 mr-3 mt-1">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Nuestro Lema</h4>
-                                    <p class="text-sm">Amor, Fe y Servicio</p>
+                                    <h4 class="font-bold mb-1">Nuestra Misión</h4>
+                                    <p class="text-sm">Amar a Dios y servir al prójimo</p>
                                 </div>
                             </div>
                         </div>
                         
-                        <blockquote class="bible-verse">
-                            "Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones." Hechos 2:42
-                        </blockquote>
-                    </div>
-                </div>
-                
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <!-- Second Bible Verse Carousel -->
-                    <div class="verse-carousel swiper">
-                        <div class="swiper-wrapper">
-                            <!-- Slide 1 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Personas orando juntas" loading="lazy">
-                                <div class="verse-text">"No dejando de congregarnos, como algunos tienen por costumbre, sino exhortándonos; y tanto más, cuanto veis que aquel día se acerca."</div>
-                                <div class="verse-ref">Hebreos 10:25</div>
-                            </div>
-                            
-                            <!-- Slide 2 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Biblia y rosario" loading="lazy">
-                                <div class="verse-text">"Toda la Escritura es inspirada por Dios, y útil para enseñar, para redargüir, para corregir, para instruir en justicia."</div>
-                                <div class="verse-ref">2 Timoteo 3:16</div>
-                            </div>
-                            
-                            <!-- Slide 3 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Manos levantadas en adoración" loading="lazy">
-                                <div class="verse-text">"Alabad a Jehová, porque él es bueno; porque para siempre es su misericordia."</div>
-                                <div class="verse-ref">Salmo 106:1</div>
-                            </div>
-                            
-                            <!-- Slide 4 -->
-                            <div class="verse-slide swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1528991655570-6a235b6d7a1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Personas ayudando a otros" loading="lazy">
-                                <div class="verse-text">"Y el Rey les responderá: De cierto os digo que en cuanto lo hicisteis a uno de estos mis hermanos más pequeños, a mí lo hicisteis."</div>
-                                <div class="verse-ref">Mateo 25:40</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
+                        <a href="#contacto" class="inline-block bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition">Conoce Más</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonios -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4 relative inline-block pb-4 after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Testimonios</h2>
-                <p class="text-xl mb-6">Historias de vida transformada por el poder de Dios</p>
-                <blockquote class="bible-verse max-w-3xl mx-auto">
-                    "Y ellos le han vencido por medio de la sangre del Cordero y de la palabra del testimonio de ellos." Apocalipsis 12:11
-                </blockquote>
+    <!-- Ministries -->
+    <section id="ministerios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Nuestros Ministerios</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Descubre dónde puedes crecer y servir en nuestra comunidad.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-accent" data-aos="fade-up">
-                    <div class="mb-4 text-accent opacity-25">
-                        <i class="fas fa-quote-left text-3xl"></i>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jóvenes" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Generación de Fe</h3>
+                        <p class="mb-4">Ministerio juvenil donde los jóvenes encuentran propósito en Cristo a través de estudios bíblicos relevantes y comunidad.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Saber más →</a>
                     </div>
-                    <p class="mb-6">"El CDC cambió mi vida. Cuando llegué a Venezuela como migrante, me recibieron con amor y me ayudaron a reconstruir mi vida espiritual."</p>
-                    <div class="flex items-center">
-                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                        <div>
-                            <h5 class="font-semibold">María González</h5>
-                            <p class="text-sm text-gray-600">Miembro desde 2018</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Niños" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pequeños Héroes</h3>
+                        <p class="mb-4">Programa infantil donde enseñamos los valores del Reino de Dios de manera creativa y divertida.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Saber más →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Mujeres" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mujeres de Propósito</h3>
+                        <p class="mb-4">Grupo de mujeres que se apoyan mutuamente en su caminar con Dios a través de estudios bíblicos y compañerismo.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Saber más →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events -->
+    <section id="eventos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Próximos Eventos</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Únete a nuestras actividades y crece en tu fe.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-right">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-primary text-white p-6 flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold">15</div>
+                            <div class="text-xl">Julio</div>
+                            <div class="mt-2">6:00 PM</div>
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold mb-2">Noche de Adoración</h3>
+                            <p class="mb-4">Una noche especial para encontrarte con Dios a través de la alabanza y la palabra.</p>
+                            <a href="#" class="text-primary font-semibold hover:underline">Más detalles →</a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-orange" data-aos="fade-up" data-aos-delay="100">
-                    <div class="mb-4 text-orange opacity-25">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-left">
+                    <div class="md:flex">
+                        <div class="md:w-1/3 bg-secondary text-white p-6 flex flex-col items-center justify-center">
+                            <div class="text-4xl font-bold">22</div>
+                            <div class="text-xl">Julio</div>
+                            <div class="mt-2">9:00 AM</div>
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                            <h3 class="text-xl font-bold mb-2">Retiro Familiar</h3>
+                            <p class="mb-4">Un día completo de actividades, enseñanza y diversión para toda la familia.</p>
+                            <a href="#" class="text-primary font-semibold hover:underline">Más detalles →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">Ver Todos los Eventos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Historias Transformadas</h2>
+                <div class="w-20 h-1 bg-white mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Descubre cómo Dios está cambiando vidas en nuestra comunidad.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm" data-aos="fade-up">
+                    <div class="mb-4 text-yellow-300">
                         <i class="fas fa-quote-left text-3xl"></i>
                     </div>
-                    <p class="mb-6">"A través del programa de ayuda alimentaria, mi familia pudo superar los momentos más difíciles. No solo recibimos comida, sino también esperanza."</p>
+                    <p class="mb-6 italic">"Encontré en Luz de Vida una familia que me apoyó en mi proceso de rehabilitación. Hoy soy libre en Cristo."</p>
                     <div class="flex items-center">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h5 class="font-semibold">Carlos Pérez</h5>
-                            <p class="text-sm text-gray-600">Beneficiario</p>
+                            <h5 class="font-bold">Carlos Pérez</h5>
+                            <p class="text-sm text-white text-opacity-70">Miembro desde 2018</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border-t-4 border-green" data-aos="fade-up" data-aos-delay="200">
-                    <div class="mb-4 text-green opacity-25">
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-yellow-300">
                         <i class="fas fa-quote-left text-3xl"></i>
                     </div>
-                    <p class="mb-6">"Generación CDC ha sido fundamental en mi crecimiento espiritual. Los retiros y estudios bíblicos me han ayudado a entender mi propósito."</p>
+                    <p class="mb-6 italic">"Los estudios bíblicos profundos me ayudaron a entender mi propósito en Dios. Ahora sirvo en el ministerio de alabanza."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h5 class="font-bold">María González</h5>
+                            <p class="text-sm text-white text-opacity-70">Líder de Alabanza</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-8 rounded-xl backdrop-filter backdrop-blur-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-4 text-yellow-300">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                    <p class="mb-6 italic">"Cuando llegué como migrante, me recibieron con amor. Hoy mi familia entera conoce a Cristo gracias a esta iglesia."</p>
                     <div class="flex items-center">
                         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
                         <div>
-                            <h5 class="font-semibold">Ana Rodríguez</h5>
-                            <p class="text-sm text-gray-600">Líder Juvenil</p>
+                            <h5 class="font-bold">Ana Rodríguez</h5>
+                            <p class="text-sm text-white text-opacity-70">Miembro desde 2019</p>
                         </div>
                     </div>
                 </div>
@@ -498,99 +382,91 @@
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section class="py-20 bg-gradient-to-br from-primary to-secondary text-white" id="contacto">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col lg:flex-row gap-10">
-                <div class="lg:w-1/2" data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-6 relative pb-4 after:absolute after:bottom-0 after:left-0 after:w-16 after:h-1 after:bg-gradient-to-r after:from-accent after:to-violet after:rounded-full">Contáctanos</h2>
-                    <p class="text-xl mb-6">Estamos aquí para servirte. No dudes en contactarnos para cualquier pregunta o necesidad.</p>
-                    <blockquote class="bible-verse mb-8 text-white/80">
-                        "Por nada estéis afanosos, sino sean conocidas vuestras peticiones delante de Dios en toda oración y ruego, con acción de gracias." Filipenses 4:6
-                    </blockquote>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
-                            <div class="text-white mr-4">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
+    <!-- Contact -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">Visítanos</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Estamos aquí para servirte. Ven y sé parte de nuestra familia.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-10" data-aos="fade-right">
+                    <div class="bg-gray-50 p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-serif font-bold mb-6 text-primary">Información de Contacto</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-6">
+                                    <i class="fas fa-map-marker-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Dirección</h4>
+                                    <p>Calle Principal #123, San José de Guanipa<br>Estado Anzoátegui, Venezuela</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Dirección</h4>
-                                <p class="text-white/80">San Jose de Guanipa<br>Estado Anzoátegui, Venezuela</p>
+                            
+                            <div class="flex">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-6">
+                                    <i class="fas fa-phone-alt text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Teléfonos</h4>
+                                    <p>+58 414-5555678<br>+58 212-5551234</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
-                            <div class="text-white mr-4">
-                                <i class="fas fa-phone-alt text-xl"></i>
+                            
+                            <div class="flex">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-6">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Correo Electrónico</h4>
+                                    <p>contacto@luzdevida.org<br>info@luzdevida.org</p>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Teléfono</h4>
-                                <p class="text-white/80">+58 414-5555678<br>+58 212-5551234</p>
+                            
+                            <div class="flex">
+                                <div class="bg-primary bg-opacity-10 p-3 rounded-full mr-6">
+                                    <i class="fas fa-clock text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">Horarios</h4>
+                                    <p>Domingos: 9:00 AM y 6:00 PM<br>Martes: Estudio Bíblico 7:00 PM</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
-                            <div class="text-white mr-4">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Correo Electrónico</h4>
-                                <p class="text-white/80">bit646149@gmail.com<br>contacto@cdcvenezuela.org</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start bg-white/10 p-4 rounded-lg backdrop-filter backdrop-blur-sm">
-                            <div class="text-white mr-4">
-                                <i class="fas fa-clock text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold mb-1">Horarios</h4>
-                                <p class="text-white/80">Domingos: 8am - 12pm<br>Martes y Jueves: 5pm - 7pm</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4">Síguenos</h4>
-                        <div class="flex space-x-3">
-                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-pink-600 text-white hover:bg-pink-700 transition-colors duration-300">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-300">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors duration-300">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-400 text-white hover:bg-blue-500 transition-colors duration-300">
-                                <i class="fab fa-telegram"></i>
-                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <div class="bg-white/10 p-8 rounded-xl backdrop-filter backdrop-blur-sm">
-                        <h3 class="text-2xl font-bold text-white mb-6">Envía un Mensaje</h3>
-                        <form id="contactForm" class="space-y-4">
-                            <div>
-                                <label for="name" class="block text-white/80 mb-2">Nombre</label>
-                                <input type="text" id="name" name="name" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="Tu nombre" required>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <div class="bg-gray-50 p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-serif font-bold mb-6 text-primary">Envía un Mensaje</h3>
+                        
+                        <form class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block mb-2 font-medium">Nombre</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block mb-2 font-medium">Correo Electrónico</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                                </div>
                             </div>
+                            
                             <div>
-                                <label for="email" class="block text-white/80 mb-2">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="tu@email.com" required>
+                                <label for="subject" class="block mb-2 font-medium">Asunto</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required>
                             </div>
+                            
                             <div>
-                                <label for="subject" class="block text-white/80 mb-2">Asunto</label>
-                                <input type="text" id="subject" name="subject" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="¿Cómo podemos ayudarte?" required>
+                                <label for="message" class="block mb-2 font-medium">Mensaje</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
                             </div>
-                            <div>
-                                <label for="message" class="block text-white/80 mb-2">Mensaje</label>
-                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent text-white placeholder-white/50" placeholder="Escribe tu mensaje aquí..." required></textarea>
-                            </div>
-                            <button type="submit" class="w-full bg-accent hover:bg-violet text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">Enviar Mensaje</button>
+                            
+                            <button type="submit" class="w-full bg-primary hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition">Enviar Mensaje</button>
                         </form>
                     </div>
                 </div>
@@ -598,144 +474,118 @@
         </div>
     </section>
 
+    <!-- Map -->
+    <div class="h-96 w-full bg-gray-200">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.982528000611!2d-64.1650009240207!3d9.931300573168824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c6b7b5a0b5b5b5b%3A0x5b5b5b5b5b5b5b5b!2sSan%20Jos%C3%A9%20de%20Guanipa%2C%20Anzo%C3%A1tegui%2C%20Venezuela!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
     <!-- Footer -->
-    <footer class="bg-gradient-to-br from-gray-900 to-black text-white pt-20 pb-10">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h4 class="text-xl font-bold mb-6 flex items-center">
-                        <i class="fas fa-cross mr-2"></i> CDC  
-                    </h4>
-                    <p class="mb-4">Transformando vidas en Venezuela mediante el poder del Evangelio y el amor de Cristo.</p>
-                    <blockquote class="bible-verse text-sm text-white/80 mb-4">
-                        "Porque no nos ha dado Dios espíritu de cobardía, sino de poder, de amor y de dominio propio." 2 Timoteo 1:7
-                    </blockquote>
-                    <div class="flex space-x-3">
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700 transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-pink-600 text-white hover:bg-pink-700 transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-red-600 text-white hover:bg-red-700 transition-colors duration-300">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-green-500 text-white hover:bg-green-600 transition-colors duration-300">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" class="h-8 mr-3">
+                        <span class="text-xl font-bold">Luz de Vida</span>
+                    </div>
+                    <p class="mb-4">Una iglesia donde la fe cobra vida.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <div>
-                    <h5 class="text-lg font-semibold mb-4">Enlaces</h5>
+                    <h4 class="text-lg font-bold mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
-                        <li><a href="#inicio" class="text-white/80 hover:text-white transition-colors duration-300">Inicio</a></li>
-                        <li><a href="#nosotros" class="text-white/80 hover:text-white transition-colors duration-300">Nosotros</a></li>
-                        <li><a href="#ministerios" class="text-white/80 hover:text-white transition-colors duration-300">Ministerios</a></li>
-                        <li><a href="#eventos" class="text-white/80 hover:text-white transition-colors duration-300">Eventos</a></li>
-                        <li><a href="#contacto" class="text-white/80 hover:text-white transition-colors duration-300">Contacto</a></li>
+                        <li><a href="#inicio" class="hover:text-accent transition">Inicio</a></li>
+                        <li><a href="#nosotros" class="hover:text-accent transition">Nosotros</a></li>
+                        <li><a href="#ministerios" class="hover:text-accent transition">Ministerios</a></li>
+                        <li><a href="#eventos" class="hover:text-accent transition">Eventos</a></li>
+                        <li><a href="#contacto" class="hover:text-accent transition">Contacto</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h5 class="text-lg font-semibold mb-4">Ministerios</h5>
+                    <h4 class="text-lg font-bold mb-4">Ministerios</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Generación CDC (Jóvenes)</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Escuela Dominical</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Grupos de Oración</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Ayuda Humanitaria</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Misiones</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Generación de Fe</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Pequeños Héroes</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Mujeres de Propósito</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Grupos de Hogar</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Alabanza y Adoración</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h5 class="text-lg font-semibold mb-4">Legal</h5>
+                    <h4 class="text-lg font-bold mb-4">Recursos</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Términos</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Privacidad</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">Donaciones</a></li>
-                        <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-300">FAQ</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Sermones</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Devocionales</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-accent transition">Donaciones</a></li>
                     </ul>
                 </div>
             </div>
             
-            <hr class="border-white/20 my-8">
-            
-            <div class="text-center">
-                <p class="mb-2">&copy; 2025 Centro de Desarrollo Cristiano - Venezuela. Todos los derechos reservados.</p>
-                <p class="text-sm text-white/60">
-                    <span class="bible-verse">"Y todo lo que hagáis, hacedlo de corazón, como para el Señor y no para los hombres." Colosenses 3:23</span>
-                </p>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p>&copy; 2023 Iglesia Luz de Vida. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/584145555678" class="fixed bottom-8 right-8 w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-50" target="_blank">
-        <i class="fab fa-whatsapp text-2xl"></i>
+    <!-- Back to Top -->
+    <a href="#inicio" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-indigo-700 transition z-50 hidden" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Back to Top -->
-    <button class="fixed bottom-24 right-8 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 z-50 opacity-0 invisible" id="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
-
-    <!-- AOS (Animate On Scroll) -->
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
     <script>
         // Initialize AOS
         AOS.init({
             duration: 800,
-            easing: 'ease-in-out',
             once: true
         });
-
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
         
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            menu.classList.toggle('flex');
+        // Initialize Swiper
+        const verseSwiper = new Swiper('.verse-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
         });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            const backToTop = document.getElementById('back-to-top');
-            
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg');
-            } else {
-                navbar.classList.remove('shadow-lg');
-            }
-            
-            if (window.scrollY > 300) {
-                backToTop.classList.remove('opacity-0', 'invisible');
-                backToTop.classList.add('opacity-100', 'visible');
-            } else {
-                backToTop.classList.add('opacity-0', 'invisible');
-                backToTop.classList.remove('opacity-100', 'visible');
-            }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
-
+        
         // Back to top button
-        document.getElementById('back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
         });
-
-        // Smooth scrolling for navigation links
+        
+        // Smooth scrolling for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -746,93 +596,11 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu if open
-                    if (!menu.classList.contains('hidden')) {
-                        menu.classList.add('hidden');
-                        menu.classList.remove('flex');
-                    }
                 }
             });
-        });
-
-        // Counter animation
-        const counters = document.querySelectorAll('.counter');
-        const speed = 2000;
-
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText;
-            const increment = target / speed;
-
-            const updateCount = () => {
-                const current = +counter.innerText;
-                
-                if (current < target) {
-                    counter.innerText = Math.ceil(current + increment);
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    updateCount();
-                    observer.unobserve(counter);
-                }
-            });
-
-            observer.observe(counter);
-        });
-
-        // Contact form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            setTimeout(() => {
-                alert('Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.');
-                this.reset();
-            }, 1000);
-        });
-
-        // Initialize Swiper carousels
-        const heroSwiper = new Swiper('.hero .verse-carousel', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.hero .swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.hero .swiper-button-next',
-                prevEl: '.hero .swiper-button-prev',
-            },
-            effect: 'fade',
-            fadeEffect: {
-                crossFade: true
-            },
-        });
-
-        const aboutSwiper = new Swiper('#nosotros .verse-carousel', {
-            loop: true,
-            autoplay: {
-                delay: 4500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '#nosotros .swiper-pagination',
-                clickable: true,
-            },
-            effect: 'slide',
-            grabCursor: true,
         });
     </script>
 </body>
