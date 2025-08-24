@@ -57,33 +57,6 @@
             background: linear-gradient(135deg, rgba(108,99,255,0.9) 0%, rgba(79,209,197,0.85) 100%);
         }
         
-        .testimonial-card {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform: scale(1);
-            z-index: 1;
-        }
-        
-        .testimonial-card:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
-            z-index: 10;
-        }
-        
-        .verse-card {
-            background: rgba(255,255,255,0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .btn-hover {
-            transition: all 0.3s ease;
-        }
-        
-        .btn-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
         .verse-swiper, .image-swiper {
             overflow: hidden;
             position: relative;
@@ -98,6 +71,9 @@
             justify-content: center;
             align-items: center;
             height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 10px;
         }
         
         .verse-ref {
@@ -109,6 +85,9 @@
         .image-slide {
             height: 300px;
             position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px;
         }
         
         .image-slide img {
@@ -128,11 +107,8 @@
             text-align: center;
         }
 
-        /* Fix para el hover en móviles */
-        @media (hover: none) {
-            .testimonial-card:hover {
-                transform: scale(1);
-            }
+        .testimonial-section {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
         }
     </style>
 </head>
@@ -149,7 +125,8 @@
                 
                 <div class="hidden md:flex space-x-8">
                     <a href="#inicio" class="text-dark hover:text-primary transition">Inicio</a>
-                    <a href="#eventos" class="text-dark hover:text-primary transition">Eventos</a>
+                    <a href="#versiculos" class="text-dark hover:text-primary transition">Versículos</a>
+                    <a href="#imagenes" class="text-dark hover:text-primary transition">Galería</a>
                     <a href="#testimonios" class="text-dark hover:text-primary transition">Testimonios</a>
                 </div>
                 
@@ -165,7 +142,8 @@
         <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
             <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
                 <a href="#inicio" class="text-dark hover:text-primary transition py-2">Inicio</a>
-                <a href="#eventos" class="text-dark hover:text-primary transition py-2">Eventos</a>
+                <a href="#versiculos" class="text-dark hover:text-primary transition py-2">Versículos</a>
+                <a href="#imagenes" class="text-dark hover:text-primary transition py-2">Galería</a>
                 <a href="#testimonios" class="text-dark hover:text-primary transition py-2">Testimonios</a>
             </div>
         </div>
@@ -178,9 +156,6 @@
                 <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-display mb-6 leading-tight">Vive una fe <span class="text-accent">auténtica</span> y <span class="text-secondary">transformadora</span></h1>
                     <p class="text-xl mb-8">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#eventos" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover text-center">Próximos Eventos</a>
-                    </div>
                 </div>
                 
                 <div class="lg:w-1/2" data-aos="fade-left">
@@ -204,7 +179,7 @@
     </section>
 
     <!-- Bible Verses Carousel -->
-    <section class="py-12 bg-primary text-white">
+    <section id="versiculos" class="py-16 bg-primary text-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-display text-center mb-8">Versículos Inspiradores</h2>
             <div class="verse-swiper">
@@ -230,46 +205,14 @@
                             <p>"La fe es la garantía de lo que se espera, la certeza de lo que no se ve."</p>
                             <span class="verse-ref">Hebreos 11:1</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Events Section -->
-    <section id="eventos" class="py-20 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-display mb-4">Próximos Eventos</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto">Únete a nosotros en estos eventos especiales. ¡Te esperamos!</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1540444253032-87df80130839?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Retiro juvenil" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-primary text-sm mb-2">15-17 Septiembre 2023</div>
-                        <h3 class="text-xl font-bold mb-3">Retiro Juvenil "Renovados"</h3>
-                        <p class="mb-4">Un fin de semana de conexión con Dios y la naturaleza. Incluye alabanza, enseñanza y actividades al aire libre.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
-                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-primary text-sm mb-2">Todos los Miércoles · 7:00 PM</div>
-                        <h3 class="text-xl font-bold mb-3">Estudio Bíblico para Jóvenes</h3>
-                        <p class="mb-4">Reunión semanal donde estudiamos la Biblia y su aplicación práctica en la vida diaria. Para jóvenes de 18 a 30 años.</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
-                    <img src="https://images.unsplash.com/photo-1581770700222-2ca5a26726c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio comunitario" class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <div class="text-primary text-sm mb-2">28 Octubre 2023 · 9:00 AM</div>
-                        <h3 class="text-xl font-bold mb-3">Día de Servicio Comunitario</h3>
-                        <p class="mb-4">Jornada de ayuda a la comunidad con distribución de alimentos, limpieza de espacios públicos y actividades para niños.</p>
+                        <div class="swiper-slide verse-slide">
+                            <p>"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</p>
+                            <span class="verse-ref">Juan 14:6</span>
+                        </div>
+                        <div class="swiper-slide verse-slide">
+                            <p>"Amén, amén les digo: El que cree en mí tiene vida eterna."</p>
+                            <span class="verse-ref">Juan 6:47</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -277,7 +220,7 @@
     </section>
 
     <!-- Images Carousel -->
-    <section class="py-16 bg-white">
+    <section id="imagenes" class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <h2 class="text-3xl font-display text-center mb-12">Momentos Compartidos</h2>
             <div class="image-swiper">
@@ -313,6 +256,12 @@
                                 <p>Alabanza y música</p>
                             </div>
                         </div>
+                        <div class="swiper-slide image-slide">
+                            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunión">
+                            <div class="image-overlay">
+                                <p>Comunión entre hermanos</p>
+                            </div>
+                        </div>
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -321,7 +270,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonios" class="py-20 bg-gray-50">
+    <section id="testimonios" class="py-20 testimonial-section">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-display mb-4">Testimonios de Fe</h2>
@@ -329,9 +278,9 @@
                 <p class="max-w-2xl mx-auto">Experiencias reales de miembros de nuestra comunidad.</p>
             </div>
 
-            <!-- Additional Testimonies Section -->
-            <div>
-                <div class="bg-white rounded-2xl p-8 md:p-12 mb-12" data-aos="fade-up">
+            <!-- Testimonies Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
                     <div class="flex items-start mb-6">
                         <div class="bg-primary p-3 rounded-full mr-4">
                             <i class="fas fa-cross text-white"></i>
@@ -341,7 +290,7 @@
                     <p class="text-gray-700 mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
                     <p class="text-gray-700 mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
                     <p class="text-gray-700 mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
-                    <p class="text-gray-700">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucede es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
+                    <p class="text-gray-700">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucedes es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
                     <div class="mt-6 pt-6 border-t border-gray-200">
                         <p class="font-semibold">Versículos compartidos:</p>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -365,7 +314,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-white rounded-2xl p-8 md:p-12" data-aos="fade-up">
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
                     <div class="flex items-start mb-6">
                         <div class="bg-primary p-3 rounded-full mr-4">
                             <i class="fas fa-cross text-white"></i>
@@ -415,7 +364,8 @@
                     <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-                        <li><a href="#eventos" class="text-gray-400 hover:text-white transition">Eventos</a></li>
+                        <li><a href="#versiculos" class="text-gray-400 hover:text-white transition">Versículos</a></li>
+                        <li><a href="#imagenes" class="text-gray-400 hover:text-white transition">Galería</a></li>
                         <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
                     </ul>
                 </div>
@@ -460,12 +410,19 @@
         const verseSwiper = new Swiper('.verse-swiper-container', {
             loop: true,
             autoplay: {
-                delay: 3000,
+                delay: 3500,
                 disableOnInteraction: false,
             },
-            direction: 'vertical',
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 20,
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
         });
         
         const imageSwiper = new Swiper('.image-swiper-container', {
