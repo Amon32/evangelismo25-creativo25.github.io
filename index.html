@@ -118,6 +118,17 @@
                 </button>
             </div>
         </div>
+        
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#inicio" class="text-dark hover:text-primary transition py-2">Inicio</a>
+                <a href="#nosotros" class="text-dark hover:text-primary transition py-2">Nosotros</a>
+                <a href="#eventos" class="text-dark hover:text-primary transition py-2">Eventos</a>
+                <a href="#testimonios" class="text-dark hover:text-primary transition py-2">Testimonios</a>
+                <a href="#contacto" class="text-dark hover:text-primary transition py-2">Contacto</a>
+            </div>
+        </div>
     </nav>
 
     <!-- Hero Section -->
@@ -128,8 +139,8 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-display mb-6 leading-tight">Vive una fe <span class="text-accent">auténtica</span> y <span class="text-secondary">transformadora</span></h1>
                     <p class="text-xl mb-8">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#eventos" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Próximos Eventos</a>
-                        <a href="#contacto" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Visítanos</a>
+                        <a href="#eventos" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover text-center">Próximos Eventos</a>
+                        <a href="#contacto" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-8 rounded-full shadow-lg btn-hover text-center">Visítanos</a>
                     </div>
                 </div>
                 
@@ -153,128 +164,391 @@
         </div>
     </section>
 
-<!-- Testimonials -->
-<section id="testimonios" class="py-20 bg-white">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-display mb-4">Historias Reales</h2>
-            <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-            <p class="max-w-2xl mx-auto">Descubre cómo Dios está transformando vidas en CDC.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
-            <!-- Testimonio Original 1 -->
-            <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up">
-                <div class="mb-4 text-yellow-400">
-                    <i class="fas fa-quote-left text-3xl"></i>
-                </div>
-                <p class="mb-6 italic">"En CDC encontré una familia que me apoyó en mi proceso de rehabilitación. Hoy soy libre en Cristo."</p>
-                <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h5 class="font-bold">Carlos Pérez</h5>
-                        <p class="text-sm text-gray-600">Miembro desde 2018</p>
-                    </div>
-                </div>
+    <!-- About Us Section -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display mb-4">Nuestra Comunidad</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Conoce más sobre nuestra misión y valores como comunidad cristiana.</p>
             </div>
-
-            <!-- Testimonio Original 2 -->
-            <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="mb-4 text-yellow-400">
-                    <i class="fas fa-quote-left text-3xl"></i>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nuestra comunidad" class="rounded-xl shadow-lg w-full">
                 </div>
-                <p class="mb-6 italic">"Los estudios bíblicos me ayudaron a entender mi propósito. Ahora sirvo en el ministerio de alabanza."</p>
-                <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h5 class="font-bold">María González</h5>
-                        <p class="text-sm text-gray-600">Líder de Alabanza</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonio Original 3 -->
-            <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="mb-4 text-yellow-400">
-                    <i class="fas fa-quote-left text-3xl"></i>
-                </div>
-                <p class="mb-6 italic">"Cuando llegué como migrante, me recibieron con amor. Hoy mi familia entera conoce a Cristo."</p>
-                <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h5 class="font-bold">Ana Rodríguez</h5>
-                        <p class="text-sm text-gray-600">Miembro desde 2019</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Nueva fila para testimonios agregados -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16 px-4">
-            <!-- Testimonio 1 agregado -->
-            <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up">
-                <div class="mb-4 text-yellow-400">
-                    <i class="fas fa-quote-left text-3xl"></i>
-                </div>
-                <p class="mb-6 italic">
-                    Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado:
-                    Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas...
-                    <br><br>
-                    Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones &lt;DIOS&gt;...
-                    <br><br>
-                    Pero lamentablemente también es complicado, a veces te sientes de cierta manera "diferente" a los demás en una sociedad con tanta maldad...
-                    <br><br>
-                    Recuerdo cierta vez se llegó a tocar el tema del aborto con mis amigas y realmente la mayoría opinaban que cada quien decide sobre su cuerpo, pero yo dije que un nacimiento es una obra hermosa de Dios...
-                    <br><br>
-                    Puede sentirse como si no pertenecieras a algo, pero la verdad es que no...
-                    <br><br>
-                    Como mensaje final me gustaría dejar un par de citas bíblicas:
-                    <br>♡ Salmos 43:45
-                    <br>♡ Mateo 11:28
-                    <br>♡ 1 Corintios 13:3
-                    <br>♡ Eclesiastés 11:9
-                </p>
-                <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h5 class="font-bold">Testimonio de una hermana</h5>
-                        <p class="text-sm text-gray-600">Miembro de CDC</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonio 2 agregado -->
-            <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="mb-4 text-yellow-400">
-                    <i class="fas fa-quote-left text-3xl"></i>
-                </div>
-                <p class="mb-6 italic">
-                    "Aunque es el mismo cielo y es el mismo sol, son las mismas calles pero yo no soy... no soy el mismo"
-                    <br><br>
-                    Caminamos todos los días bajo el cuidado del todopoderoso con una perspectiva diferente, una esperanza viva que nos da paz...
-                    <br><br>
-                    Recuerdo un día en el transporte público donde personas hablaban preocupadas de sucesos, y yo en mi corazón sabía que Dios tiene el control...
-                    <br><br>
-                    Esa esperanza inamovible me da valor para ser amable, mostrar un poco de mi padre al mundo y hablar a mis amigos sobre cómo Dios ha impactado mi vida...
-                    <br><br>
-                    Cito algunas palabras bíblicas:
-                    <br>S. Lucas 1:37
-                    <br>1 Samuel 16:7
-                    <br>Salmos 30:11
-                    <br>Proverbios 19:21
-                </p>
-                <div class="flex items-center">
-                    <img src="https://randomuser.me/api/portraits/men/51.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
-                    <div>
-                        <h5 class="font-bold">Testimonio de un hermano</h5>
-                        <p class="text-sm text-gray-600">Miembro de CDC</p>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-4">¿Quiénes somos?</h3>
+                    <p class="mb-4">El Centro de Desarrollo Cristiano es una comunidad de fe comprometida con el crecimiento espiritual y el servicio a los demás. Nuestro objetivo es crear un espacio donde las personas puedan conocer a Jesús y desarrollar su relación con Dios.</p>
+                    <p class="mb-6">Creemos en el poder transformador del Evangelio y en la importancia de vivir una fe auténtica en el mundo actual.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-light p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-2">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4 class="font-bold">Servicio</h4>
+                            <p class="text-sm">Ayudando a nuestra comunidad</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-2">
+                                <i class="fas fa-book-bible"></i>
+                            </div>
+                            <h4 class="font-bold">Enseñanza</h4>
+                            <p class="text-sm">Estudio bíblico relevante</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-2">
+                                <i class="fas fa-people-group"></i>
+                            </div>
+                            <h4 class="font-bold">Comunidad</h4>
+                            <p class="text-sm">Creciendo juntos en fe</p>
+                        </div>
+                        
+                        <div class="bg-light p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-2">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4 class="font-bold">Amor</h4>
+                            <p class="text-sm">Amando como Cristo nos amó</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-    <!-- Resto del código se mantiene igual... -->
+    </section>
+
+    <!-- Events Section -->
+    <section id="eventos" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display mb-4">Próximos Eventos</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Únete a nosotros en estos eventos especiales. ¡Te esperamos!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1540444253032-87df80130839?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Retiro juvenil" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-primary text-sm mb-2">15-17 Septiembre 2023</div>
+                        <h3 class="text-xl font-bold mb-3">Retiro Juvenil "Renovados"</h3>
+                        <p class="mb-4">Un fin de semana de conexión con Dios y la naturaleza. Incluye alabanza, enseñanza y actividades al aire libre.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Más información →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-primary text-sm mb-2">Todos los Miércoles · 7:00 PM</div>
+                        <h3 class="text-xl font-bold mb-3">Estudio Bíblico para Jóvenes</h3>
+                        <p class="mb-4">Reunión semanal donde estudiamos la Biblia y su aplicación práctica en la vida diaria. Para jóvenes de 18 a 30 años.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Más información →</a>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1581770700222-2ca5a26726c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio comunitario" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-primary text-sm mb-2">28 Octubre 2023 · 9:00 AM</div>
+                        <h3 class="text-xl font-bold mb-3">Día de Servicio Comunitario</h3>
+                        <p class="mb-4">Jornada de ayuda a la comunidad con distribución de alimentos, limpieza de espacios públicos y actividades para niños.</p>
+                        <a href="#" class="text-primary font-semibold hover:underline">Más información →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="bg-primary hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover inline-block">Ver todos los eventos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display mb-4">Historias Reales</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Descubre cómo Dios está transformando vidas en CDC.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                    <p class="mb-6 italic">"En CDC encontré una familia que me apoyó en mi proceso de rehabilitación. Hoy soy libre en Cristo."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h5 class="font-bold">Carlos Pérez</h5>
+                            <p class="text-sm text-gray-600">Miembro desde 2018</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                    <p class="mb-6 italic">"Los estudios bíblicos me ayudaron a entender mi propósito. Ahora sirvo en el ministerio de alabanza."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h5 class="font-bold">María González</h5>
+                            <p class="text-sm text-gray-600">Líder de Alabanza</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-white rounded-xl shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="mb-4 text-yellow-400">
+                        <i class="fas fa-quote-left text-3xl"></i>
+                    </div>
+                    <p class="mb-6 italic">"Cuando llegué como migrante, me recibieron con amor. Hoy mi familia entera conoce a Cristo."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Testimonio" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h5 class="font-bold">Ana Rodríguez</h5>
+                            <p class="text-sm text-gray-600">Miembro desde 2019</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Testimonies Section -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-display text-center mb-12">Testimonios de Fe en la Sociedad Actual</h3>
+                
+                <div class="bg-gray-50 rounded-2xl p-8 md:p-12 mb-12" data-aos="fade-up">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-primary p-3 rounded-full mr-4">
+                            <i class="fas fa-cross text-white"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold">Ser cristiana en la sociedad actual</h4>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
+                    <p class="text-gray-700 mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
+                    <p class="text-gray-700 mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
+                    <p class="text-gray-700">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucede es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="font-semibold">Versículos compartidos:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Salmos 43:5</p>
+                                <p>¿Por qué tengo que estar tan angustiado y sufrir tanto? Confía en Dios. Volveré alabarlo por haberme salvado.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Mateo 11:28</p>
+                                <p>Carguen con mi yugo y aprendan de mí, pues yo soy apacible y humilde de corazón, y encontrarán descanso para su alma.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">1 Corintios 13:3</p>
+                                <p>Puedo entregar todo lo que tengo para ayudar a los demás, hasta ofrecer mi cuerpo para que lo quemen. Pero si no tengo amor, eso no me sirve de nada.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Eclesiastés 11:9</p>
+                                <p>Jóvenes: disfruten de su juventud, sean felices, sigan los impulsos de su corazón y gocen de la vida. Pero siempre tengan presente que Dios los juzgará por todo lo que hagan.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl p-8 md:p-12" data-aos="fade-up">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-primary p-3 rounded-full mr-4">
+                            <i class="fas fa-cross text-white"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold">"Aunque es el mismo cielo y es el mismo sol..."</h4>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Con este verso me gustaría comenzar este testimonio, caminamos todos los días frecuentando calles, el sol nos deslumbra, la lluvia nos moja: como a todos, pero no somos como todos. No somos super humanos o poderosos, pero caminamos bajo el cuidado del todopoderoso. Tenemos una perspectiva diferente, una esperanza viva que nos da paz y gozo en medio de los afanes de la vida."</p>
+                    <p class="text-gray-700 mb-4">"Un día en el transporte público una señora estaba contando con preocupación un suceso que se había dado en un estado, luego un señor dentro del transporte contaba otro acontecimiento y así se fueron sumando más personas, escuchando todo decía en mi corazón que Dios tiene el control sobre todas las cosas y que él iba a obrar con poder en cada una de esas."</p>
+                    <p class="text-gray-700">"Esa es la diferencia, conocer que Dios es capaz de transformar una situación horrible en una hermosa y que lo puede hacer en cualquier momento y en cualquier lugar y sobre todo sin distinción de personas nos da una esperanza inamovible."</p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="font-semibold">Versículos compartidos:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Lucas 1:37</p>
+                                <p>Porque nada hay imposible para Dios.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">1 Samuel 16:7</p>
+                                <p>Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Salmos 30:11</p>
+                                <p>Has cambiado mi lamento en baile; Desataste mi cilicio, y me ceñiste de alegría.</p>
+                            </div>
+                            <div class="verse-card p-4 rounded-lg">
+                                <p class="font-bold">Proverbios 19:21</p>
+                                <p>Muchos pensamientos hay en el corazón del hombre; Mas el consejo de Jehová permanecerá.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-display mb-4">Visítanos</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="max-w-2xl mx-auto">Estamos aquí para servirte. ¡Te esperamos con los brazos abiertos!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-6">Información de Contacto</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Dirección</h4>
+                                <p class="text-gray-700">Av. Principal #123, Ciudad</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Horarios de Servicios</h4>
+                                <p class="text-gray-700">Domingos: 10:00 AM - Servicio Principal</p>
+                                <p class="text-gray-700">Miércoles: 7:00 PM - Estudio Bíblico</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Teléfono</h4>
+                                <p class="text-gray-700">+1 (123) 456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-gray-700">info@centrocristiano.org</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Síguenos en redes sociales</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-primary hover:bg-purple-700 text-white p-3 rounded-full">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-purple-700 text-white p-3 rounded-full">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-purple-700 text-white p-3 rounded-full">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="bg-primary hover:bg-purple-700 text-white p-3 rounded-full">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-6">Envía un mensaje</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Nombre completo</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Correo electrónico</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2">Mensaje</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="bg-primary hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" class="h-12 mb-4">
+                    <h3 class="text-xl font-bold mb-4">Centro de Desarrollo Cristiano</h3>
+                    <p class="text-gray-400">Una comunidad de fe, esperanza y amor.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
+                        <li><a href="#eventos" class="text-gray-400 hover:text-white transition">Eventos</a></li>
+                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Ministerios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Jóvenes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Niños</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Mujeres</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Hombres</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Alabanza</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Suscríbete</h4>
+                    <p class="text-gray-400 mb-4">Recibe noticias y actualizaciones de nuestros eventos.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Tu correo electrónico" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-dark">
+                        <button type="submit" class="bg-primary hover:bg-purple-700 px-4 py-2 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Centro de Desarrollo Cristiano. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
@@ -320,6 +594,13 @@
             }
         });
         
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
         // Smooth scrolling for all links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -330,6 +611,11 @@
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
                     window.scrollTo({
                         top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
