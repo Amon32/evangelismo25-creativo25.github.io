@@ -9,11 +9,8 @@
     <!-- Favicon -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/210/210545.png" type="image/png">
     
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -23,54 +20,116 @@
     
     <style>
         :root {
-            --color-primary: #9F7AEA;
-            --color-secondary: #4FD1C5;
-            --color-accent: #F6AD55;
-            --color-light: #FAF5FF;
+            --color-primary: #8A4FFF;
+            --color-secondary: #4ECDC4;
+            --color-accent: #FF9A76;
+            --color-light: #F8F9FC;
             --color-dark: #2D3748;
-            --color-pastel-1: #E9D8FD;
-            --color-pastel-2: #B2F5EA;
-            --color-pastel-3: #FEEBC8;
+            --color-pastel-1: #D6E0FF;
+            --color-pastel-2: #B5EAD7;
+            --color-pastel-3: #FFDAC1;
+            --color-text: #4A5568;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Quicksand', sans-serif;
-            color: var(--color-dark);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-text);
             background-color: var(--color-light);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Merriweather', serif;
             font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 1.2rem;
         }
         
         .navbar {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
         
         .navbar-brand {
-            font-family: 'Playfair Display', serif;
+            display: flex;
+            align-items: center;
+            font-family: 'Merriweather', serif;
             font-weight: 700;
             color: var(--color-primary);
+            font-size: 1.8rem;
+        }
+        
+        .navbar-brand img {
+            margin-right: 12px;
+            transition: all 0.3s ease;
         }
         
         .nav-link {
             color: var(--color-dark);
-            font-weight: 600;
-            margin: 0 10px;
+            font-weight: 500;
+            margin: 0 12px;
             transition: all 0.3s ease;
+            position: relative;
+            padding: 8px 2px !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--color-primary);
+            transition: width 0.3s ease;
         }
         
         .nav-link:hover {
             color: var(--color-primary);
         }
         
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(138, 79, 255, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(138, 79, 255, 0.4);
+            color: white;
+        }
+        
         .hero-section {
             background: linear-gradient(135deg, var(--color-pastel-1) 0%, var(--color-pastel-2) 100%);
-            padding: 120px 0 80px;
+            padding: 160px 0 100px;
             position: relative;
             overflow: hidden;
         }
@@ -82,230 +141,473 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%238A4FFF' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.4;
         }
         
         .hero-title {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3.8rem;
+            margin-bottom: 1.8rem;
             color: var(--color-dark);
+            line-height: 1.2;
         }
         
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
+        .hero-title span {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: var(--color-text);
+            max-width: 600px;
+        }
+        
+        .hero-btn {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 40px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(138, 79, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 79, 255, 0.4);
+            color: white;
+        }
+        
+        .hero-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .hero-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
         }
         
         .verse-section {
             background: linear-gradient(135deg, var(--color-pastel-2) 0%, var(--color-pastel-3) 100%);
-            padding: 80px 0;
-        }
-        
-        .verse-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            margin: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .verse-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .verse-text {
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--color-dark);
-            margin-bottom: 1rem;
-        }
-        
-        .verse-ref {
-            font-weight: 600;
-            color: var(--color-primary);
-        }
-        
-        .testimonial-section {
-            background: linear-gradient(135deg, var(--color-pastel-3) 0%, var(--color-pastel-1) 100%);
-            padding: 80px 0;
-        }
-        
-        .testimonial-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        }
-        
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .testimonial-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--color-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .testimonial-icon i {
-            color: white;
-            font-size: 1.2rem;
-        }
-        
-        .verse-grid {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .verse-item {
-            background-color: var(--color-pastel-1);
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-        }
-        
-        .verse-item-title {
-            font-weight: 700;
-            color: var(--color-primary);
-            margin-bottom: 5px;
-        }
-        
-        .btn-primary {
-            background-color: var(--color-primary);
-            border-color: var(--color-primary);
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--color-secondary);
-            border-color: var(--color-secondary);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .footer {
-            background-color: var(--color-dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .footer a:hover {
-            color: white;
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: var(--color-primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .back-to-top:hover {
-            background-color: var(--color-secondary);
-            transform: translateY(-3px);
-        }
-        
-        .faith-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 20px;
-        }
-        
-        .faith-image:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-        
-        .faith-image img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        
-        .image-caption {
-            background-color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 600;
-            color: var(--color-primary);
+            padding: 100px 0;
+            position: relative;
         }
         
         .section-title {
-            position: relative;
-            margin-bottom: 50px;
             text-align: center;
+            margin-bottom: 70px;
+            position: relative;
         }
         
         .section-title::after {
             content: '';
             display: block;
             width: 80px;
-            height: 3px;
-            background-color: var(--color-primary);
-            margin: 15px auto;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            margin: 20px auto;
+            border-radius: 2px;
         }
+        
+        .verse-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .verse-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 6rem;
+            font-family: 'Merriweather', serif;
+            color: rgba(138, 79, 255, 0.1);
+            line-height: 1;
+        }
+        
+        .verse-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--color-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .verse-ref {
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--color-pastel-3) 0%, var(--color-pastel-1) 100%);
+            padding: 100px 0;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin: 30px 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial-card::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 10px;
+            transform: translateX(-50%) rotate(45deg);
+            z-index: -1;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 8px 20px rgba(138, 79, 255, 0.3);
+        }
+        
+        .testimonial-icon i {
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .testimonial-title {
+            margin-bottom: 0;
+            font-size: 1.8rem;
+        }
+        
+        .verse-grid {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse-item {
+            background: linear-gradient(135deg, var(--color-pastel-1) 0%, var(--color-pastel-2) 100%);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .verse-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .verse-item-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .faith-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .faith-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            background: white;
+        }
+        
+        .faith-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faith-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .faith-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .faith-card:hover .faith-image img {
+            transform: scale(1.05);
+        }
+        
+        .faith-caption {
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--color-primary);
+            background: white;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--color-dark) 0%, #1A202C 100%);
+            color: white;
+            padding: 80px 0 40px;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .footer-logo img {
+            margin-right: 15px;
+        }
+        
+        .footer-logo-text {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: 30px;
+            max-width: 350px;
+        }
+        
+        .footer-heading {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            border-radius: 3px;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            margin-top: 50px;
+            text-align: center;
+            opacity: 0.7;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(138, 79, 255, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(138, 79, 255, 0.5);
+        }
+        
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .faith-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .testimonial-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .verse-text {
+                font-size: 1.1rem;
+            }
+            
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <nav class="navbar" id="navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="40" class="d-inline-block align-text-top me-2">
-                CDC
+                <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="45">
+                <span>CDC</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#inicio">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#versiculos">Versículos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonios">Testimonios</a>
-                    </li>
-                </ul>
+            
+            <div class="nav-links">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#versiculos" class="nav-link">Versículos</a>
+                <a href="#testimonios" class="nav-link">Testimonios</a>
+                <a href="#inicio" class="nav-btn">Contacto</a>
             </div>
         </div>
     </nav>
@@ -313,41 +615,41 @@
     <!-- Hero Section -->
     <section id="inicio" class="hero-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="hero-title">Vive una fe <span style="color: var(--color-primary);">auténtica</span> y <span style="color: var(--color-secondary);">transformadora</span></h1>
-                    <p class="lead mb-4">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
-                    <a href="#testimonios" class="btn btn-primary">Leer Testimonios</a>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title fade-in">Vive una fe <span>auténtica</span> y <span>transformadora</span></h1>
+                    <p class="hero-subtitle fade-in delay-1">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida. Descubre el poder transformador del Evangelio en tu vida diaria.</p>
+                    <button class="hero-btn fade-in delay-2">Leer Testimonios</button>
                     
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
+                    <div class="faith-grid fade-in delay-3">
+                        <div class="faith-card">
                             <div class="faith-image">
                                 <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana">
-                                <div class="image-caption">Comunidad</div>
                             </div>
+                            <div class="faith-caption">Comunidad</div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="faith-card">
                             <div class="faith-image">
                                 <img src="https://images.unsplash.com/photo-1568992687941-8dfcb739a5ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración">
-                                <div class="image-caption">Adoración</div>
                             </div>
+                            <div class="faith-caption">Adoración</div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="faith-card">
                             <div class="faith-image">
                                 <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico">
-                                <div class="image-caption">Estudio Bíblico</div>
                             </div>
+                            <div class="faith-caption">Estudio Bíblico</div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="faith-card">
                             <div class="faith-image">
                                 <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b9398?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio">
-                                <div class="image-caption">Servicio</div>
                             </div>
+                            <div class="faith-caption">Servicio</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana" class="img-fluid rounded shadow">
+                <div class="hero-image fade-in delay-2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -356,43 +658,31 @@
     <!-- Bible Verses Section -->
     <section id="versiculos" class="verse-section">
         <div class="container">
-            <h2 class="text-center section-title">Versículos Inspiradores</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="verse-card">
-                        <p class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
-                        <p class="verse-ref">Juan 3:16</p>
-                    </div>
+            <h2 class="section-title">Versículos Inspiradores</h2>
+            <div class="verse-grid">
+                <div class="verse-card" data-aos="fade-up">
+                    <p class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
+                    <p class="verse-ref">Juan 3:16</p>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="verse-card">
-                        <p class="verse-text">"El Señor es mi pastor, nada me faltará."</p>
-                        <p class="verse-ref">Salmos 23:1</p>
-                    </div>
+                <div class="verse-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="verse-text">"El Señor es mi pastor, nada me faltará."</p>
+                    <p class="verse-ref">Salmos 23:1</p>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="verse-card">
-                        <p class="verse-text">"Todo lo puedo en Cristo que me fortalece."</p>
-                        <p class="verse-ref">Filipenses 4:13</p>
-                    </div>
+                <div class="verse-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="verse-text">"Todo lo puedo en Cristo que me fortalece."</p>
+                    <p class="verse-ref">Filipenses 4:13</p>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
-                    <div class="verse-card">
-                        <p class="verse-text">"Confía en el Señor de todo corazón, y no en tu propia inteligencia."</p>
-                        <p class="verse-ref">Proverbios 3:5</p>
-                    </div>
+                <div class="verse-card" data-aos="fade-up">
+                    <p class="verse-text">"Confía en el Señor de todo corazón, y no en tu propia inteligencia."</p>
+                    <p class="verse-ref">Proverbios 3:5</p>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="verse-card">
-                        <p class="verse-text">"La fe es la garantía de lo que se espera, la certeza de lo que no se ve."</p>
-                        <p class="verse-ref">Hebreos 11:1</p>
-                    </div>
+                <div class="verse-card" data-aos="fade-up" data-aos-delay="100">
+                    <p class="verse-text">"La fe es la garantía de lo que se espera, la certeza de lo que no se ve."</p>
+                    <p class="verse-ref">Hebreos 11:1</p>
                 </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="verse-card">
-                        <p class="verse-text">"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</p>
-                        <p class="verse-ref">Juan 14:6</p>
-                    </div>
+                <div class="verse-card" data-aos="fade-up" data-aos-delay="200">
+                    <p class="verse-text">"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</p>
+                    <p class="verse-ref">Juan 14:6</p>
                 </div>
             </div>
         </div>
@@ -401,91 +691,72 @@
     <!-- Testimonials Section -->
     <section id="testimonios" class="testimonial-section">
         <div class="container">
-            <h2 class="text-center section-title">Testimonios de Fe</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="testimonial-card" data-aos="fade-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-icon">
-                                <i class="fas fa-cross"></i>
-                            </div>
-                            <h4 class="mb-0">Ser cristiana en la sociedad actual</h4>
+            <h2 class="section-title">Testimonios de Fe</h2>
+            
+            <div class="testimonial-card" data-aos="fade-up">
+                <div class="testimonial-header">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3 class="testimonial-title">Ser cristiana en la sociedad actual</h3>
+                </div>
+                <p class="mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
+                <p class="mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
+                <p class="mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
+                <p class="mb-0">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucedes es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
+                
+                <div class="verse-grid">
+                    <h4>Versículos compartidos:</h4>
+                    <div class="verse-items">
+                        <div class="verse-item">
+                            <p class="verse-item-title">Salmos 43:5</p>
+                            <p class="mb-0">¿Por qué tengo que estar tan angustiado y sufrir tanto? Confía en Dios. Volveré alabarlo por haberme salvado.</p>
                         </div>
-                        <p class="mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
-                        <p class="mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
-                        <p class="mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
-                        <p class="mb-0">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucedes es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
-                        
-                        <div class="verse-grid">
-                            <p class="fw-bold">Versículos compartidos:</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Salmos 43:5</p>
-                                        <p class="mb-0">¿Por qué tengo que estar tan angustiado y sufrir tanto? Confía en Dios. Volveré alabarlo por haberme salvado.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Mateo 11:28</p>
-                                        <p class="mb-0">Carguen con mi yugo y aprendan de mí, pues yo soy apacible y humilde de corazón, y encontrarán descanso para su alma.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">1 Corintios 13:3</p>
-                                        <p class="mb-0">Puedo entregar todo lo que tengo para ayudar a los demás, hasta ofrecer mi cuerpo para que lo quemen. Pero si no tengo amor, eso no me sirve de nada.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Eclesiastés 11:9</p>
-                                        <p class="mb-0">Jóvenes: disfruten de su juventud, sean felices, sigan los impulsos de su corazón y gocen de la vida. Pero siempre tengan presente que Dios los juzgará por todo lo que hagan.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">Mateo 11:28</p>
+                            <p class="mb-0">Carguen con mi yugo y aprendan de mí, pues yo soy apacible y humilde de corazón, y encontrarán descanso para su alma.</p>
+                        </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">1 Corintios 13:3</p>
+                            <p class="mb-0">Puedo entregar todo lo que tengo para ayudar a los demás, hasta ofrecer mi cuerpo para que lo quemen. Pero si no tengo amor, eso no me sirve de nada.</p>
+                        </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">Eclesiastés 11:9</p>
+                            <p class="mb-0">Jóvenes: disfruten de su juventud, sean felices, sigan los impulsos de su corazón y gocen de la vida. Pero siempre tengan presente que Dios los juzgará por todo lo que hagan.</p>
                         </div>
                     </div>
-                    
-                    <div class="testimonial-card mt-5" data-aos="fade-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-icon">
-                                <i class="fas fa-cross"></i>
-                            </div>
-                            <h4 class="mb-0">"Aunque es el mismo cielo y es el mismo sol..."</h4>
+                </div>
+            </div>
+            
+            <div class="testimonial-card" data-aos="fade-up">
+                <div class="testimonial-header">
+                    <div class="testimonial-icon">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <h3 class="testimonial-title">"Aunque es el mismo cielo y es el mismo sol..."</h3>
+                </div>
+                <p class="mb-4">"Con este verso me gustaría comenzar este testimonio, caminamos todos los días frecuentando calles, el sol nos deslumbra, la lluvia nos moja: como a todos, pero no somos como todos. No somos super humanos o poderosos, pero caminamos bajo el cuidado del todopoderoso. Tenemos una perspectiva diferente, una esperanza viva que nos da paz y gozo en medio de los afanes de la vida."</p>
+                <p class="mb-4">"Un día en el transporte público una señora estaba contando con preocupación un suceso que se había dado en un estado, luego un señor dentro del transporte contaba otro acontecimiento y así se fueron sumando más personas, escuchando todo decía en mi corazón que Dios tiene el control sobre todas las cosas y que él iba a obrar con poder en cada una de esas."</p>
+                <p class="mb-0">"Esa es la diferencia, conocer que Dios es capaz de transformar una situación horrible en una hermosa y que lo puede hacer en cualquier momento y en cualquier lugar y sobre todo sin distinción de personas nos da una esperanza inamovible."</p>
+                
+                <div class="verse-grid">
+                    <h4>Versículos compartidos:</h4>
+                    <div class="verse-items">
+                        <div class="verse-item">
+                            <p class="verse-item-title">Lucas 1:37</p>
+                            <p class="mb-0">Porque nada hay imposible para Dios.</p>
                         </div>
-                        <p class="mb-4">"Con este verso me gustaría comenzar este testimonio, caminamos todos los días frecuentando calles, el sol nos deslumbra, la lluvia nos moja: como a todos, pero no somos como todos. No somos super humanos o poderosos, pero caminamos bajo el cuidado del todopoderoso. Tenemos una perspectiva diferente, una esperanza viva que nos da paz y gozo en medio de los afanes de la vida."</p>
-                        <p class="mb-4">"Un día en el transporte público una señora estaba contando con preocupación un suceso que se había dado en un estado, luego un señor dentro del transporte contaba otro acontecimiento y así se fueron sumando más personas, escuchando todo decía en mi corazón que Dios tiene el control sobre todas las cosas y que él iba a obrar con poder en cada una de esas."</p>
-                        <p class="mb-0">"Esa es la diferencia, conocer que Dios es capaz de transformar una situación horrible en una hermosa y que lo puede hacer en cualquier momento y en cualquier lugar y sobre todo sin distinción de personas nos da una esperanza inamovible."</p>
-                        
-                        <div class="verse-grid">
-                            <p class="fw-bold">Versículos compartidos:</p>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Lucas 1:37</p>
-                                        <p class="mb-0">Porque nada hay imposible para Dios.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">1 Samuel 16:7</p>
-                                        <p class="mb-0">Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Salmos 30:11</p>
-                                        <p class="mb-0">Has cambiado mi lamento en baile; Desataste mi cilicio, y me ceñiste de alegría.</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="verse-item">
-                                        <p class="verse-item-title">Proverbios 19:21</p>
-                                        <p class="mb-0">Muchos pensamientos hay en el corazón del hombre; Mas el consejo de Jehová permanecerá.</p>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">1 Samuel 16:7</p>
+                            <p class="mb-0">Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.</p>
+                        </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">Salmos 30:11</p>
+                            <p class="mb-0">Has cambiado mi lamento en baile; Desataste mi cilicio, y me ceñiste de alegría.</p>
+                        </div>
+                        <div class="verse-item">
+                            <p class="verse-item-title">Proverbios 19:21</p>
+                            <p class="mb-0">Muchos pensamientos hay en el corazón del hombre; Mas el consejo de Jehová permanecerá.</p>
                         </div>
                     </div>
                 </div>
@@ -495,55 +766,78 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="50" class="mb-3">
-                    <h3 class="mb-3">Centro de Desarrollo Cristiano</h3>
-                    <p class="opacity-75">Una comunidad de fe, esperanza y amor.</p>
+        <div class="container footer-content">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="50">
+                        <span class="footer-logo-text">CDC</span>
+                    </div>
+                    <p class="footer-description">Una comunidad de fe, esperanza y amor. Seguimos a Cristo con pasión y buscamos compartir su mensaje de salvación.</p>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <h5 class="mb-3">Enlaces rápidos</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#inicio"><i class="fas fa-arrow-right me-2"></i>Inicio</a></li>
-                        <li class="mb-2"><a href="#versiculos"><i class="fas fa-arrow-right me-2"></i>Versículos</a></li>
-                        <li class="mb-2"><a href="#testimonios"><i class="fas fa-arrow-right me-2"></i>Testimonios</a></li>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Enlaces rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#inicio"><i class="fas fa-arrow-right"></i> Inicio</a></li>
+                        <li><a href="#versiculos"><i class="fas fa-arrow-right"></i> Versículos</a></li>
+                        <li><a href="#testimonios"><i class="fas fa-arrow-right"></i> Testimonios</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Eventos</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-right"></i> Recursos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 class="footer-heading">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Dirección: Av. Principal #123</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> Teléfono: +1 234 567 890</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> Email: info@centrocristiano.org</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Horarios: Domingos 10:00 AM</a></li>
                     </ul>
                 </div>
             </div>
-            <hr class="my-4 opacity-50">
-            <div class="text-center">
-                <p class="opacity-75 mb-0">&copy; 2023 Centro de Desarrollo Cristiano. Todos los derechos reservados.</p>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Centro de Desarrollo Cristiano. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <a href="#" class="back-to-top">
+    <a href="#" class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
     <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 800,
-            once: true
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
         
         // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
+        const backToTopButton = document.getElementById('backToTop');
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.style.display = 'flex';
+                backToTopButton.classList.add('active');
             } else {
-                backToTopButton.style.display = 'none';
+                backToTopButton.classList.remove('active');
             }
         });
         
@@ -552,6 +846,24 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
