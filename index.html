@@ -9,39 +9,11 @@
     <!-- Favicon -->
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/210/210545.png" type="image/png">
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#6C63FF',
-                        secondary: '#4FD1C5',
-                        accent: '#F6AD55',
-                        dark: '#2D3748',
-                        light: '#F7FAFC'
-                    },
-                    fontFamily: {
-                        sans: ['"Poppins"', 'sans-serif'],
-                        display: ['"Bebas Neue"', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 4s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -49,229 +21,377 @@
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Swiper JS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
-    
     <style>
-        .hero-gradient {
-            background: linear-gradient(135deg, rgba(108,99,255,0.9) 0%, rgba(79,209,197,0.85) 100%);
+        :root {
+            --color-primary: #9F7AEA;
+            --color-secondary: #4FD1C5;
+            --color-accent: #F6AD55;
+            --color-light: #FAF5FF;
+            --color-dark: #2D3748;
+            --color-pastel-1: #E9D8FD;
+            --color-pastel-2: #B2F5EA;
+            --color-pastel-3: #FEEBC8;
         }
         
-        .verse-swiper {
-            overflow: hidden;
-            position: relative;
+        body {
+            font-family: 'Quicksand', sans-serif;
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            line-height: 1.6;
         }
         
-        .verse-slide {
-            padding: 2rem;
-            text-align: center;
-            font-style: italic;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            margin: 10px;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
         }
         
-        .verse-ref {
-            margin-top: 1rem;
-            font-weight: bold;
-            font-style: normal;
-        }
-
-        .testimonial-section {
-            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
         }
         
-        .btn-hover {
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .nav-link {
+            color: var(--color-dark);
+            font-weight: 600;
+            margin: 0 10px;
             transition: all 0.3s ease;
         }
         
-        .btn-hover:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .nav-link:hover {
+            color: var(--color-primary);
         }
         
-        .faith-image {
-            transition: transform 0.5s ease;
-        }
-        
-        .faith-image:hover {
-            transform: scale(1.05);
-        }
-        
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .image-container {
+        .hero-section {
+            background: linear-gradient(135deg, var(--color-pastel-1) 0%, var(--color-pastel-2) 100%);
+            padding: 120px 0 80px;
             position: relative;
-            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            height: 200px;
         }
         
-        .image-container img {
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
         }
         
-        .image-overlay-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 1rem;
-            text-align: center;
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-dark);
         }
         
         @media (max-width: 768px) {
-            .image-grid {
-                grid-template-columns: 1fr;
+            .hero-title {
+                font-size: 2.5rem;
             }
+        }
+        
+        .verse-section {
+            background: linear-gradient(135deg, var(--color-pastel-2) 0%, var(--color-pastel-3) 100%);
+            padding: 80px 0;
+        }
+        
+        .verse-card {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .verse-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse-text {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .verse-ref {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .testimonial-section {
+            background: linear-gradient(135deg, var(--color-pastel-3) 0%, var(--color-pastel-1) 100%);
+            padding: 80px 0;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .testimonial-icon i {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .verse-grid {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .verse-item {
+            background-color: var(--color-pastel-1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .verse-item-title {
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 5px;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-3px);
+        }
+        
+        .faith-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .faith-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .faith-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .image-caption {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--color-primary);
+            margin: 15px auto;
         }
     </style>
 </head>
-<body class="font-sans bg-light text-dark">
+<body>
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center">
-                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" class="h-10 mr-3">
-                    <span class="text-xl font-bold text-primary">CDC</span>
-                    <span class="text-xs ml-1 hidden sm:inline-block">Centro de Desarrollo Cristiano</span>
-                </div>
-                
-                <div class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-dark hover:text-primary transition">Inicio</a>
-                    <a href="#versiculos" class="text-dark hover:text-primary transition">Versículos</a>
-                    <a href="#testimonios" class="text-dark hover:text-primary transition">Testimonios</a>
-                </div>
-                
-                <button class="md:hidden focus:outline-none" id="mobile-menu-button">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-white shadow-lg" id="mobile-menu">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#inicio" class="text-dark hover:text-primary transition py-2">Inicio</a>
-                <a href="#versiculos" class="text-dark hover:text-primary transition py-2">Versículos</a>
-                <a href="#testimonios" class="text-dark hover:text-primary transition py-2">Testimonios</a>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="40" class="d-inline-block align-text-top me-2">
+                CDC
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#versiculos">Versículos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="pt-32 pb-20 hero-gradient text-white relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-display mb-6 leading-tight">Vive una fe <span class="text-accent">auténtica</span> y <span class="text-secondary">transformadora</span></h1>
-                    <p class="text-xl mb-8">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
-                    <div class="flex space-x-4">
-                        <a href="#testimonios" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Leer Testimonios</a>
-                    </div>
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">Vive una fe <span style="color: var(--color-primary);">auténtica</span> y <span style="color: var(--color-secondary);">transformadora</span></h1>
+                    <p class="lead mb-4">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
+                    <a href="#testimonios" class="btn btn-primary">Leer Testimonios</a>
                     
-                    <!-- Images Grid -->
-                    <div class="image-grid mt-10">
-                        <div class="image-container faith-image">
-                            <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana">
-                            <div class="image-overlay-text">
-                                <p class="font-semibold">Comunidad</p>
+                    <div class="row mt-5">
+                        <div class="col-sm-6">
+                            <div class="faith-image">
+                                <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana">
+                                <div class="image-caption">Comunidad</div>
                             </div>
                         </div>
-                        <div class="image-container faith-image">
-                            <img src="https://images.unsplash.com/photo-1568992687941-8dfcb739a5ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración">
-                            <div class="image-overlay-text">
-                                <p class="font-semibold">Adoración</p>
+                        <div class="col-sm-6">
+                            <div class="faith-image">
+                                <img src="https://images.unsplash.com/photo-1568992687941-8dfcb739a5ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración">
+                                <div class="image-caption">Adoración</div>
                             </div>
                         </div>
-                        <div class="image-container faith-image">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico">
-                            <div class="image-overlay-text">
-                                <p class="font-semibold">Estudio Bíblico</p>
+                        <div class="col-sm-6">
+                            <div class="faith-image">
+                                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico">
+                                <div class="image-caption">Estudio Bíblico</div>
                             </div>
                         </div>
-                        <div class="image-container faith-image">
-                            <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b9398?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio">
-                            <div class="image-overlay-text">
-                                <p class="font-semibold">Servicio</p>
+                        <div class="col-sm-6">
+                            <div class="faith-image">
+                                <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b9398?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio">
+                                <div class="image-caption">Servicio</div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="lg:w-1/2" data-aos="fade-left">
-                    <div class="swiper hero-swiper rounded-xl overflow-hidden shadow-2xl">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración" class="w-full h-96 object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad" class="w-full h-96 object-cover">
-                            </div>
-                            <div class="swiper-slide">
-                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Jóvenes" class="w-full h-96 object-cover">
-                            </div>
-                        </div>
-                        <div class="swiper-pagination"></div>
-                    </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bible Verses Carousel -->
-    <section id="versiculos" class="py-16 bg-primary text-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-display text-center mb-8">Versículos Inspiradores</h2>
-            <div class="verse-swiper">
-                <div class="swiper verse-swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide verse-slide">
-                            <p>"Porque de tal manera amó Dios al mundo, que ha dado a his Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
-                            <span class="verse-ref">Juan 3:16</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"El Señor es mi pastor, nada me faltará."</p>
-                            <span class="verse-ref">Salmos 23:1</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"Todo lo puedo en Cristo que me fortalece."</p>
-                            <span class="verse-ref">Filipenses 4:13</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"Confía en el Señor de todo corazón, y no en tu propia inteligencia."</p>
-                            <span class="verse-ref">Proverbios 3:5</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"La fe es la garantía de lo que se espera, la certeza de lo que no se ve."</p>
-                            <span class="verse-ref">Hebreos 11:1</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</p>
-                            <span class="verse-ref">Juan 14:6</span>
-                        </div>
-                        <div class="swiper-slide verse-slide">
-                            <p>"Amén, amén les digo: El que cree en mí tiene vida eterna."</p>
-                            <span class="verse-ref">Juan 6:47</span>
-                        </div>
+    <!-- Bible Verses Section -->
+    <section id="versiculos" class="verse-section">
+        <div class="container">
+            <h2 class="text-center section-title">Versículos Inspiradores</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="verse-card">
+                        <p class="verse-text">"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
+                        <p class="verse-ref">Juan 3:16</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="verse-card">
+                        <p class="verse-text">"El Señor es mi pastor, nada me faltará."</p>
+                        <p class="verse-ref">Salmos 23:1</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="verse-card">
+                        <p class="verse-text">"Todo lo puedo en Cristo que me fortalece."</p>
+                        <p class="verse-ref">Filipenses 4:13</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="verse-card">
+                        <p class="verse-text">"Confía en el Señor de todo corazón, y no en tu propia inteligencia."</p>
+                        <p class="verse-ref">Proverbios 3:5</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="verse-card">
+                        <p class="verse-text">"La fe es la garantía de lo que se espera, la certeza de lo que no se ve."</p>
+                        <p class="verse-ref">Hebreos 11:1</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="verse-card">
+                        <p class="verse-text">"Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí."</p>
+                        <p class="verse-ref">Juan 14:6</p>
                     </div>
                 </div>
             </div>
@@ -279,78 +399,92 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonios" class="py-20 testimonial-section">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-display mb-4">Testimonios de Fe</h2>
-                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="max-w-2xl mx-auto">Experiencias reales de miembros de nuestra comunidad.</p>
-            </div>
-
-            <!-- Testimonies Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
-                    <div class="flex items-start mb-6">
-                        <div class="bg-primary p-3 rounded-full mr-4">
-                            <i class="fas fa-cross text-white"></i>
+    <section id="testimonios" class="testimonial-section">
+        <div class="container">
+            <h2 class="text-center section-title">Testimonios de Fe</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="testimonial-card" data-aos="fade-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-cross"></i>
+                            </div>
+                            <h4 class="mb-0">Ser cristiana en la sociedad actual</h4>
                         </div>
-                        <h4 class="text-2xl font-bold">Ser cristiana en la sociedad actual</h4>
-                    </div>
-                    <p class="text-gray-700 mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
-                    <p class="text-gray-700 mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
-                    <p class="text-gray-700 mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
-                    <p class="text-gray-700">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucedes es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="font-semibold">Versículos compartidos:</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Salmos 43:5</p>
-                                <p>¿Por qué tengo que estar tan angustiado y sufrir tanto? Confía en Dios. Volveré alabarlo por haberme salvado.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Mateo 11:28</p>
-                                <p>Carguen con mi yugo y aprendan de mí, pues yo soy apacible y humilde de corazón, y encontrarán descanso para su alma.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">1 Corintios 13:3</p>
-                                <p>Puedo entregar todo lo que tengo para ayudar a los demás, hasta ofrecer mi cuerpo para que lo quemen. Pero si no tengo amor, eso no me sirve de nada.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Eclesiastés 11:9</p>
-                                <p>Jóvenes: disfruten de su juventud, sean felices, sigan los impulsos de su corazón y gocen de la vida. Pero siempre tengan presente que Dios los juzgará por todo lo que hagan.</p>
+                        <p class="mb-4">"Para mi ser cristiana en la sociedad actual es algo bueno y a la vez un poco complicado: Realmente es bueno porque por ejemplo en mi caso a veces con mis amistades me gusta hablar con ellas de la palabra, (ellas no son cristianas claramente) pero es de cierta manera beneficioso para ambas hablar de la palabra ya que de alguna manera yo puedo transmitirle el evangelio sin tener que atacarla, especialmente porque mis amistades son muy abiertas en cuanto esos temas."</p>
+                        <p class="mb-4">"Varias veces he tocado temas como la creación o temas que tienen que ver con nuestra existencia, con lo que se cree y lo que no, pero al final siempre terminamos en las mismas conclusiones <DIOS>, esa es una de la cosas que me gusta de ser cristiana en la sociedad, sobre todo el poder hablar libremente de nuestro Señor Jesús."</p>
+                        <p class="mb-4">"Pero lamentablemente también es complicado, a veces te sientes de cierta manera 'diferente' a los demas en una sociedad con tanta maldad... realmente a veces es como si me sintiera excluida de manera indirecta de las cosas."</p>
+                        <p class="mb-0">"Puede sentirse como si no pertenecieras a algo, puedes pensar en cambiar o Tal vez a veces querer ser como los demás solo para encajar, pero la verdad es que no, ya que es lógico que en un mundo corrompido los demás te vean mal, te insulten o te digan que eres ciego, sin embargo lo que sucedes es como dice la palabra, a la oscuridad le sienta mal la luz, y nosotros, los cristianos somos luz y fuimos llamados para eso."</p>
+                        
+                        <div class="verse-grid">
+                            <p class="fw-bold">Versículos compartidos:</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Salmos 43:5</p>
+                                        <p class="mb-0">¿Por qué tengo que estar tan angustiado y sufrir tanto? Confía en Dios. Volveré alabarlo por haberme salvado.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Mateo 11:28</p>
+                                        <p class="mb-0">Carguen con mi yugo y aprendan de mí, pues yo soy apacible y humilde de corazón, y encontrarán descanso para su alma.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">1 Corintios 13:3</p>
+                                        <p class="mb-0">Puedo entregar todo lo que tengo para ayudar a los demás, hasta ofrecer mi cuerpo para que lo quemen. Pero si no tengo amor, eso no me sirve de nada.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Eclesiastés 11:9</p>
+                                        <p class="mb-0">Jóvenes: disfruten de su juventud, sean felices, sigan los impulsos de su corazón y gocen de la vida. Pero siempre tengan presente que Dios los juzgará por todo lo que hagan.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up">
-                    <div class="flex items-start mb-6">
-                        <div class="bg-primary p-3 rounded-full mr-4">
-                            <i class="fas fa-cross text-white"></i>
+                    
+                    <div class="testimonial-card mt-5" data-aos="fade-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-icon">
+                                <i class="fas fa-cross"></i>
+                            </div>
+                            <h4 class="mb-0">"Aunque es el mismo cielo y es el mismo sol..."</h4>
                         </div>
-                        <h4 class="text-2xl font-bold">"Aunque es el mismo cielo y es el mismo sol..."</h4>
-                    </div>
-                    <p class="text-gray-700 mb-4">"Con este verso me gustaría comenzar este testimonio, caminamos todos los días frecuentando calles, el sol nos deslumbra, la lluvia nos moja: como a todos, pero no somos como todos. No somos super humanos o poderosos, pero caminamos bajo el cuidado del todopoderoso. Tenemos una perspectiva diferente, una esperanza viva que nos da paz y gozo en medio de los afanes de la vida."</p>
-                    <p class="text-gray-700 mb-4">"Un día en el transporte público una señora estaba contando con preocupación un suceso que se había dado en un estado, luego un señor dentro del transporte contaba otro acontecimiento y así se fueron sumando más personas, escuchando todo decía en mi corazón que Dios tiene el control sobre todas las cosas y que él iba a obrar con poder en cada una de esas."</p>
-                    <p class="text-gray-700">"Esa es la diferencia, conocer que Dios es capaz de transformar una situación horrible en una hermosa y que lo puede hacer en cualquier momento y en cualquier lugar y sobre todo sin distinción de personas nos da una esperanza inamovible."</p>
-                    <div class="mt-6 pt-6 border-t border-gray-200">
-                        <p class="font-semibold">Versículos compartidos:</p>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Lucas 1:37</p>
-                                <p>Porque nada hay imposible para Dios.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">1 Samuel 16:7</p>
-                                <p>Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Salmos 30:11</p>
-                                <p>Has cambiado mi lamento en baile; Desataste mi cilicio, y me ceñiste de alegría.</p>
-                            </div>
-                            <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="font-bold">Proverbios 19:21</p>
-                                <p>Muchos pensamientos hay en el corazón del hombre; Mas el consejo de Jehová permanecerá.</p>
+                        <p class="mb-4">"Con este verso me gustaría comenzar este testimonio, caminamos todos los días frecuentando calles, el sol nos deslumbra, la lluvia nos moja: como a todos, pero no somos como todos. No somos super humanos o poderosos, pero caminamos bajo el cuidado del todopoderoso. Tenemos una perspectiva diferente, una esperanza viva que nos da paz y gozo en medio de los afanes de la vida."</p>
+                        <p class="mb-4">"Un día en el transporte público una señora estaba contando con preocupación un suceso que se había dado en un estado, luego un señor dentro del transporte contaba otro acontecimiento y así se fueron sumando más personas, escuchando todo decía en mi corazón que Dios tiene el control sobre todas las cosas y que él iba a obrar con poder en cada una de esas."</p>
+                        <p class="mb-0">"Esa es la diferencia, conocer que Dios es capaz de transformar una situación horrible en una hermosa y que lo puede hacer en cualquier momento y en cualquier lugar y sobre todo sin distinción de personas nos da una esperanza inamovible."</p>
+                        
+                        <div class="verse-grid">
+                            <p class="fw-bold">Versículos compartidos:</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Lucas 1:37</p>
+                                        <p class="mb-0">Porque nada hay imposible para Dios.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">1 Samuel 16:7</p>
+                                        <p class="mb-0">Y Jehová respondió a Samuel: No mires a su parecer, ni a lo grande de su estatura, porque yo lo desecho; porque Jehová no mira lo que mira el hombre; pues el hombre mira lo que está delante de sus ojos, pero Jehová mira el corazón.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Salmos 30:11</p>
+                                        <p class="mb-0">Has cambiado mi lamento en baile; Desataste mi cilicio, y me ceñiste de alegría.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="verse-item">
+                                        <p class="verse-item-title">Proverbios 19:21</p>
+                                        <p class="mb-0">Muchos pensamientos hay en el corazón del hombre; Mas el consejo de Jehová permanecerá.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -360,40 +494,40 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" class="h-12 mb-4">
-                    <h3 class="text-xl font-bold mb-4">Centro de Desarrollo Cristiano</h3>
-                    <p class="text-gray-400">Una comunidad de fe, esperanza y amor.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/210/210545.png" alt="Logo" height="50" class="mb-3">
+                    <h3 class="mb-3">Centro de Desarrollo Cristiano</h3>
+                    <p class="opacity-75">Una comunidad de fe, esperanza y amor.</p>
                 </div>
-                
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Enlaces rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Inicio</a></li>
-                        <li><a href="#versiculos" class="text-gray-400 hover:text-white transition">Versículos</a></li>
-                        <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
+                <div class="col-lg-6 mb-4">
+                    <h5 class="mb-3">Enlaces rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#inicio"><i class="fas fa-arrow-right me-2"></i>Inicio</a></li>
+                        <li class="mb-2"><a href="#versiculos"><i class="fas fa-arrow-right me-2"></i>Versículos</a></li>
+                        <li class="mb-2"><a href="#testimonios"><i class="fas fa-arrow-right me-2"></i>Testimonios</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Centro de Desarrollo Cristiano. Todos los derechos reservados.</p>
+            <hr class="my-4 opacity-50">
+            <div class="text-center">
+                <p class="opacity-75 mb-0">&copy; 2023 Centro de Desarrollo Cristiano. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-primary text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition">
+    <a href="#" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </a>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     
     <script>
         // Initialize AOS
@@ -402,83 +536,22 @@
             once: true
         });
         
-        // Initialize Swipers
-        const heroSwiper = new Swiper('.hero-swiper', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-        });
-        
-        const verseSwiper = new Swiper('.verse-swiper-container', {
-            loop: true,
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            },
-            slidesPerView: 1,
-            spaceBetween: 20,
-            breakpoints: {
-                640: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            },
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
         // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
+        const backToTopButton = document.querySelector('.back-to-top');
         
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
+                backToTopButton.style.display = 'flex';
             } else {
-                backToTopButton.classList.add('hidden');
+                backToTopButton.style.display = 'none';
             }
         });
         
-        backToTopButton.addEventListener('click', () => {
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
             });
         });
     </script>
