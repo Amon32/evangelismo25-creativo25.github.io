@@ -94,6 +94,52 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
+        
+        .faith-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .faith-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .image-container {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            height: 200px;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .image-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-light text-dark">
@@ -140,6 +186,34 @@
                     <p class="text-xl mb-8">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
                     <div class="flex space-x-4">
                         <a href="#testimonios" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Leer Testimonios</a>
+                    </div>
+                    
+                    <!-- Images Grid -->
+                    <div class="image-grid mt-10">
+                        <div class="image-container faith-image">
+                            <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana">
+                            <div class="image-overlay-text">
+                                <p class="font-semibold">Comunidad</p>
+                            </div>
+                        </div>
+                        <div class="image-container faith-image">
+                            <img src="https://images.unsplash.com/photo-1568992687941-8dfcb739a5ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración">
+                            <div class="image-overlay-text">
+                                <p class="font-semibold">Adoración</p>
+                            </div>
+                        </div>
+                        <div class="image-container faith-image">
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico">
+                            <div class="image-overlay-text">
+                                <p class="font-semibold">Estudio Bíblico</p>
+                            </div>
+                        </div>
+                        <div class="image-container faith-image">
+                            <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b9398?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio">
+                            <div class="image-overlay-text">
+                                <p class="font-semibold">Servicio</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
