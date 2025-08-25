@@ -57,7 +57,7 @@
             background: linear-gradient(135deg, rgba(108,99,255,0.9) 0%, rgba(79,209,197,0.85) 100%);
         }
         
-        .verse-swiper, .image-swiper {
+        .verse-swiper {
             overflow: hidden;
             position: relative;
         }
@@ -81,34 +81,18 @@
             font-weight: bold;
             font-style: normal;
         }
-        
-        .image-slide {
-            height: 300px;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 10px;
-        }
-        
-        .image-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
 
         .testimonial-section {
             background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+        }
+        
+        .btn-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -126,7 +110,6 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="#inicio" class="text-dark hover:text-primary transition">Inicio</a>
                     <a href="#versiculos" class="text-dark hover:text-primary transition">Versículos</a>
-                    <a href="#imagenes" class="text-dark hover:text-primary transition">Galería</a>
                     <a href="#testimonios" class="text-dark hover:text-primary transition">Testimonios</a>
                 </div>
                 
@@ -143,7 +126,6 @@
             <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
                 <a href="#inicio" class="text-dark hover:text-primary transition py-2">Inicio</a>
                 <a href="#versiculos" class="text-dark hover:text-primary transition py-2">Versículos</a>
-                <a href="#imagenes" class="text-dark hover:text-primary transition py-2">Galería</a>
                 <a href="#testimonios" class="text-dark hover:text-primary transition py-2">Testimonios</a>
             </div>
         </div>
@@ -156,6 +138,9 @@
                 <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-display mb-6 leading-tight">Vive una fe <span class="text-accent">auténtica</span> y <span class="text-secondary">transformadora</span></h1>
                     <p class="text-xl mb-8">Somos una comunidad joven que busca a Cristo en cada aspecto de la vida.</p>
+                    <div class="flex space-x-4">
+                        <a href="#testimonios" class="bg-accent hover:bg-yellow-500 text-white font-bold py-3 px-8 rounded-full shadow-lg btn-hover">Leer Testimonios</a>
+                    </div>
                 </div>
                 
                 <div class="lg:w-1/2" data-aos="fade-left">
@@ -186,7 +171,7 @@
                 <div class="swiper verse-swiper-container">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide verse-slide">
-                            <p>"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
+                            <p>"Porque de tal manera amó Dios al mundo, que ha dado a his Hijo unigénito, para que todo aquel que en él cree no se pierda, mas tenga vida eterna."</p>
                             <span class="verse-ref">Juan 3:16</span>
                         </div>
                         <div class="swiper-slide verse-slide">
@@ -214,56 +199,6 @@
                             <span class="verse-ref">Juan 6:47</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Images Carousel -->
-    <section id="imagenes" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-display text-center mb-12">Momentos Compartidos</h2>
-            <div class="image-swiper">
-                <div class="swiper image-swiper-container">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1542409236-689afe8e8f80?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunidad cristiana">
-                            <div class="image-overlay">
-                                <p>Comunidad y compañerismo</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1568992687941-8dfcb739a5ad?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Adoración">
-                            <div class="image-overlay">
-                                <p>Momento de adoración</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Estudio bíblico">
-                            <div class="image-overlay">
-                                <p>Estudio de la palabra</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1596726895343-5b2f2b1b9398?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Servicio comunitario">
-                            <div class="image-overlay">
-                                <p>Servicio a la comunidad</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1582211870226-35807b8b535c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Alabanza">
-                            <div class="image-overlay">
-                                <p>Alabanza y música</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide image-slide">
-                            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Comunión">
-                            <div class="image-overlay">
-                                <p>Comunión entre hermanos</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
                 </div>
             </div>
         </div>
@@ -365,7 +300,6 @@
                     <ul class="space-y-2">
                         <li><a href="#inicio" class="text-gray-400 hover:text-white transition">Inicio</a></li>
                         <li><a href="#versiculos" class="text-gray-400 hover:text-white transition">Versículos</a></li>
-                        <li><a href="#imagenes" class="text-gray-400 hover:text-white transition">Galería</a></li>
                         <li><a href="#testimonios" class="text-gray-400 hover:text-white transition">Testimonios</a></li>
                     </ul>
                 </div>
@@ -421,32 +355,6 @@
                 },
                 1024: {
                     slidesPerView: 3,
-                },
-            },
-        });
-        
-        const imageSwiper = new Swiper('.image-swiper-container', {
-            loop: true,
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-                1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
                 },
             },
         });
